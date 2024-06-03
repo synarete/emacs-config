@@ -16,8 +16,8 @@
 ;; Prefer short y-or-n answers
 (setopt use-short-answers t)
 
-;; Tell user when doing GC
-(setq garbage-collection-messages t)
+;; Don't tell user when doing GC
+(setq garbage-collection-messages nil)
 
 ;; Use UTF-8 by default
 (prefer-coding-system 'utf-8)
@@ -29,13 +29,8 @@
 (set-clipboard-coding-system 'utf-8)
 (set-buffer-file-coding-system 'utf-8)
 
-;; revent resize window on startup
-(setq frame-inhibit-implied-resize t)
-(setq default-frame-alist '((width . 120) (height . 42)))
-
 ;; Do rest of init flow from:
 (load (concat user-emacs-directory "packages.el"))
 (load (concat user-emacs-directory "config.el"))
 (load (concat user-emacs-directory "keybind.el"))
 (load (concat user-emacs-directory "appearance.el"))
-

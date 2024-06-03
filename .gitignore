@@ -10,6 +10,9 @@
 # Undo-tree save-files
 *.~undo-tree
 
-# Packages
+# Emacs run-time subdirs
 /elpa
+/auto-save-list
+/lisp
 /.cache
+

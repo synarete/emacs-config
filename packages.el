@@ -35,19 +35,19 @@
 
 ;; Language Server Protocol
 ;; https://github.com/emacs-lsp/lsp-mode
-(use-package lsp-mode
-  :defer 1
-  :hook
-  (prog-mode . lsp-deferred)
-  (lsp-mode . lsp-enable-which-key-integration)
-  :init
-  (setq lsp-keymap-prefix "C-l")
-  :commands lsp lsp-deferred)
+; (use-package lsp-mode
+;  :defer 1
+;  :hook
+;  (prog-mode . lsp-deferred)
+;  (lsp-mode . lsp-enable-which-key-integration)
+;  :init
+;  (setq lsp-keymap-prefix "C-l")
+;  :commands lsp lsp-deferred)
 
-(use-package company-lsp
-  :after company lsp-mode
-  :config
-  (add-to-list 'company-backends 'company-lsp))
+; (use-package company-lsp
+;   :after company lsp-mode
+;   :config
+;   (add-to-list 'company-backends 'company-lsp))
 
 ;; Allow project navigation via treemacs
 ;; https://github.com/Alexander-Miller/treemacs

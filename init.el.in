@@ -1,0 +1,5 @@
+;;; init.el --- Initialization file for Emacs -*- lexical-binding: t; -*-
+
+;; Load configurations:
+(load (concat user-emacs-directory "start.el"))
+

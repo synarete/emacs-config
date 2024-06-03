@@ -42,6 +42,12 @@
 (require 'cc-mode)
 (require 'make-mode)
 
+;; Prevent extraneous Tabs
+(setq-default indent-tabs-mode nil)
+
+;; Let major mode decide on how to indent with TAB
+(setq tab-always-indent 'complete)
+
 ;; Display line numbers
 (add-hook 'prog-mode-hook #'display-line-numbers-mode)
 
@@ -58,9 +64,10 @@
 (setq-default display-fill-column-indicator-column 80)
 (add-hook 'prog-mode-hook #'display-fill-column-indicator-mode)
 
-;; Display whitespaces
+;; Display whitespaces when editing code
 (require 'whitespace)
-(setq whitespace-style '(face empty tab-mark trailing lines-tail))
-(setq-default show-trailing-whitespace t)
-(add-hook 'prog-mode-hook 'whitespace-mode)
-
+(add-hook 'prog-mode-hook
+          (lambda ()
+            (setq whitespace-style '(face empty tab-mark trailing lines-tail))
+            (setq show-trailing-whitespace t)
+            (add-hook 'prog-mode-hook 'whitespace-mode)))

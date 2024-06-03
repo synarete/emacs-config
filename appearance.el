@@ -13,6 +13,10 @@
 ;; Show time
 (display-time)
 
+;; Practical frame-size
+(setq frame-inhibit-implied-resize t)
+(setq default-frame-alist '((width . 120) (height . 42)))
+
 ;; Add padding inside buffer windows
 (setq-default left-margin-width 2)
 (setq-default right-margin-width 2)
