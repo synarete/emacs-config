@@ -1,7 +1,7 @@
 ;;; keybind.el -- Private Emacs key-binding
 
-;; Improved DEL behaviour
-(global-set-key (kbd "DEL") 'backward-delete-char)
+;; Delete TABs the normal way
+(setq backward-delete-char-untabify-method 'hungry)
 
 ;; Save
 (global-set-key (kbd "C-x s") 'save-buffer)
@@ -39,3 +39,6 @@
 (setq cua-auto-tabify-rectangles nil)
 (transient-mark-mode 1)
 (setq cua-keep-region-after-copy t)
+
+;; Yank with middle mouse
+(setq mouse-yank-at-point t)

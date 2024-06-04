@@ -71,3 +71,19 @@
             (setq whitespace-style '(face empty tab-mark trailing lines-tail))
             (setq show-trailing-whitespace t)
             (add-hook 'prog-mode-hook 'whitespace-mode)))
+
+;; Prefered coding-style
+(setq c-default-style
+      '((cc-mode . "linux")
+        (python-mode . "python")
+        (awk-mode . "awk")
+        (java-mode . "java")
+        (other . "gnu")))
+
+(add-to-list 'c-mode-common-hook
+             (lambda ()
+               (setq c-basic-offset 8)
+               (setq c-indent-level 8)
+               (setq tab-width 8)
+               (setq indent-tabs-mode t)
+               (setq c-syntactic-indentation nil)))

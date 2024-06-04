@@ -16,3 +16,5 @@
 /lisp
 /.cache
 
+# Config and custom entry point
+/init.el
