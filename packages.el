@@ -1,15 +1,25 @@
 ;;; packages.el -- Using extra emacs packages
 (message "[ Setup emacs packages for %s ]" (user-login-name))
 
-;;; Package Management
+;;; Built-in packages
+
+;; Emacs 29.3 and above
+(require 'whitespace)
+(require 'cc-mode)
+(require 'make-mode)
+(require 'sh-script)
+(require 'flymake)
+(require 'xref)
+(require 'ibuffer)
+(require 'gud)
+
 (require 'package)
 (add-to-list 'package-archives
              '("melpa" . "https://melpa.org/packages/")
              '("melpa-stable" . "https://stable.melpa.org/packages/"))
 (package-initialize)
 
-
-;;; Packages
+;;; Extra packages
 
 ;; Support buffer auto-completion.
 ;; https://github.com/company-mode/company-mode
@@ -33,30 +43,31 @@
   :defer 1
   :config (which-key-mode))
 
+;; Git via magit
+;; https://magit.vc/
+(use-package magit
+  :ensure t
+  :defer 1)
+
+;; Scheme/Guile development
+;; https://www.nongnu.org/geiser/
+(use-package geiser
+  :ensure t
+  :defer 1)
+
+(use-package geiser-guile
+  :ensure t
+  :defer 1)
+
 ;; Language Server Protocol
 ;; https://github.com/emacs-lsp/lsp-mode
-; (use-package lsp-mode
-;  :defer 1
-;  :hook
-;  (prog-mode . lsp-deferred)
-;  (lsp-mode . lsp-enable-which-key-integration)
-;  :init
-;  (setq lsp-keymap-prefix "C-l")
-;  :commands lsp lsp-deferred)
-
-; (use-package company-lsp
-;   :after company lsp-mode
-;   :config
-;   (add-to-list 'company-backends 'company-lsp))
-
-;; Allow project navigation via treemacs
-;; https://github.com/Alexander-Miller/treemacs
-(use-package treemacs
-  :ensure t
-  :defer t
-  :config (progn
-	    (setq treemacs-no-png-images t
-		  treemacs-persist-file nil)))
+(use-package lsp-mode
+  :defer 1
+  :hook ((c-mode python-mode) . lsp-deferred)
+  (lsp-mode . lsp-enable-which-key-integration)
+  :init
+  (setq lsp-keymap-prefix "C-l")
+  :commands lsp lsp-deferred)
 
 ;; Use Doom-Emacs' themes
 ;; https://github.com/doomemacs/themes
@@ -66,3 +77,29 @@
   :custom
   (doom-themes-enable-bold t)
   (doom-themes-enable-italic t))
+
+;; Projects via projectile
+;; https://github.com/bbatsov/projectile
+(use-package projectile
+  :demand t
+  :config
+  (projectile-mode +1))
+
+;; Side project-view and navigation via treemacs
+;; https://github.com/Alexander-Miller/treemacs
+(use-package treemacs
+  :ensure t
+  :defer t
+  :config
+  (progn
+    (setq treemacs-no-png-images t
+          treemacs-indentation 1
+          treemacs-follow-after-init t
+          treemacs-recenter-after-file-follow nil
+          treemacs-silent-refresh t
+          treemacs-silent-filewatch t
+          treemacs-show-hidden-files t
+          treemacs-never-persist t)))
+
+(use-package treemacs-projectile
+  :after (treemacs projectile))

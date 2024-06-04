@@ -14,7 +14,15 @@
 /elpa
 /auto-save-list
 /lisp
+/transient
 /.cache
+
+
+# Extra run-time subdirs
+/.lsp-session*
+/projects
+/eshell
+/projectile-bookmarks.eld
 
 # Config and custom entry point
 /init.el

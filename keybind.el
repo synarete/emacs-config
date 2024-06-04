@@ -6,14 +6,16 @@
 ;; Save
 (global-set-key (kbd "C-x s") 'save-buffer)
 
-;; Save all (without prompting for yes-or-no)
-(defun save-some-buffers-now ()
-  (interactive)
-  (save-some-buffers t t))
-(global-set-key (kbd "M-s") 'save-some-buffers-now)
-
 ;; Save and quit
 (global-set-key (kbd "C-x q") 'save-buffers-kill-emacs)
+
+;; Save-all (remapped)
+(defun my-save-all-buffers ()
+  (interactive)
+  (message "Save some buffers")
+  (save-some-buffers t))
+
+(global-set-key (kbd "C-x C-s") #'my-save-all-buffers)
 
 ;; Goto line
 (global-set-key (kbd "C-x g") 'goto-line)
@@ -27,12 +29,13 @@
 ;; Mark all
 (global-set-key (kbd "C-a") 'mark-whole-buffer)
 
+;; Ctrl-f for search symbol in buffer
+(global-set-key (kbd "C-f") 'isearch-forward-symbol-at-point)
+(define-key isearch-mode-map (kbd "C-f") 'isearch-repeat-forward)
+
+
 ;; Window switching
 (windmove-default-keybindings 'control)
-(global-set-key (kbd "<C-up>") 'windmove-up)
-(global-set-key (kbd "<C-down>") 'windmove-down)
-(global-set-key (kbd "<C-left>") 'windmove-left)
-(global-set-key (kbd "<C-right>") 'windmove-right)
 
 ;; Use cua-mode
 (cua-mode t)
@@ -40,5 +43,36 @@
 (transient-mark-mode 1)
 (setq cua-keep-region-after-copy t)
 
+;; Magit
+(global-set-key (kbd "C-x g") 'magit-status)
+
 ;; Yank with middle mouse
 (setq mouse-yank-at-point t)
+
+;; Pop ibuffer with F1
+(global-set-key (kbd "<f1>") 'ibuffer)
+
+;; Toggle treemacs with F2
+(global-set-key (kbd "<f2>") 'treemacs)
+
+;; Build (or clean) project
+(defun my-make-build-default ()
+  (interactive)
+  (projectile-with-default-dir (projectile-acquire-root)
+    (compile "make")))
+
+(defun my-make-build-clean ()
+  (interactive)
+  (projectile-with-default-dir (projectile-acquire-root)
+    (compile "make clean")))
+
+(global-set-key (kbd "<f3>") #'my-make-build-default)
+(global-set-key (kbd "C-<f3>") #'my-make-build-clean)
+
+;; Debugging
+(require 'gud)
+(define-key gud-mode-map (kbd "<up>") 'comint-previous-input)
+(define-key gud-mode-map (kbd "<down>") 'comint-next-input)
+(define-key gud-minor-mode-map (kbd "<f5>") #'gud-next)
+(define-key gud-minor-mode-map (kbd "<f6>") #'gud-step)
+(define-key gud-minor-mode-map (kbd "<f7>") #'gud-finish)

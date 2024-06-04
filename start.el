@@ -28,9 +28,3 @@
 (set-file-name-coding-system 'utf-8)
 (set-clipboard-coding-system 'utf-8)
 (set-buffer-file-coding-system 'utf-8)
-
-;; Do rest of init flow from:
-(load (concat user-emacs-directory "packages.el"))
-(load (concat user-emacs-directory "config.el"))
-(load (concat user-emacs-directory "keybind.el"))
-(load (concat user-emacs-directory "appearance.el"))
