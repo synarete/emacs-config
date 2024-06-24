@@ -149,4 +149,4 @@
 (require 'gud)
 (setq gdb-show-main t)
 (setq gdb-restore-window-configuration-after-quit t)
-;; (setq gdb-many-windows t)
+(setq gdb-many-windows t)
