@@ -23,20 +23,37 @@
 (add-to-list 'initial-frame-alist '(internal-border-width . 8))
 (add-to-list 'default-frame-alist '(internal-border-width . 8))
 
+;; Extend margins in prog-mode
+(defun my-set-margins ()
+  (setq left-margin-width 3)
+  (setq right-margin-width 3))
+
+(add-hook 'prog-mode-hook 'my-set-margins)
+
 ;;;; Font
 ;; (add-to-list 'default-frame-alist '(font . "Monospace 12"))
-(add-to-list 'default-frame-alist '(font . "Source Code Pro 12"))
+(add-to-list 'default-frame-alist '(font . "Source Code Pro 14"))
+
+;;;; Whitespaces
+(defun my-whitespace-style ()
+  (progn
+    (setq show-trailing-whitespace t)
+    (setq whitespace-style '(face empty tab-mark trailing))
+    (whitespace-mode)))
+
+(add-hook 'prog-mode-hook 'my-whitespace-style)
+
 
 ;;;; Theme
 ;; Start with nice base theme
 (load-theme 'doom-opera t)
 
 ;; Make it a bit darker
-(set-background-color "gray8")
+(set-background-color "gray6")
 
 ;; Make active buffer a bit darker
 (defun my-not-a-special-window (w)
-  (not (string-prefix-p "*" (buffer-name (window-buffer w)))))
+  (not (string-prefix-p "*scratch" (buffer-name (window-buffer w)))))
 
 (defun my-highlight-active-buffer ()
   (walk-windows
@@ -44,7 +61,7 @@
      (when (my-not-a-special-window w)
        (if (eq w (selected-window))
            (with-current-buffer (window-buffer w)
-             (buffer-face-set '(:background "gray9")))
+             (buffer-face-set '(:background "gray4")))
          (with-current-buffer (window-buffer w)
            (buffer-face-set '(:background "gray7")))))
      )))
@@ -54,16 +71,16 @@
 ;; Pretty mode-line
 (set-face-attribute
  'mode-line nil
- :foreground "seashell"
- :background "#636082"
- :box '(:line-width 2 :color "#626180")
+ :foreground "#ECEFF4"
+ :background "#3B4252"
+ ;; :box '(:line-width 1 :color "gray7")
  :overline nil
  :underline nil)
 
 (set-face-attribute
  'mode-line-inactive nil
- :foreground "gray"
- :background "#353644"
- :box '(:line-width 2 :color "gray7")
+ :foreground "dim gray"
+ :background "#1C2330"
+ ;; :box '(:line-width 1 :color "gray4")
  :overline nil
  :underline nil)

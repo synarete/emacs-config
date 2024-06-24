@@ -9,7 +9,7 @@ Clone the repository into new `~/.emacs.d` and install packages via script:
   ...
 ```
 
-Run emacs first time (may need to add packages manually):
+Run emacs for first time and add few packages manually:
 
 ```sh
   $ emacs
@@ -18,13 +18,7 @@ Run emacs first time (may need to add packages manually):
   M-x package-refresh-contents
   M-x package-install RET projectile
   M-x package-install RET treemacs-projectile
+  M-x package-install RET lsp-mode
   ...
 ```
 
-Start using emacs with actual configs:
-
-```sh
-  $ cp ~/.emacs.d/init1.el ~/.emacs.d/init.el
-  $ emacs
-  ...
-```

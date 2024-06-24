@@ -4,6 +4,9 @@
 
 ;;; Common configs
 
+;; New buffers are text mode by default
+(setq default-major-mode 'text-mode)
+
 ;; Highlight matching parantheses when the point is on them
 (show-paren-mode 1)
 (setq show-paren-delay 0)
@@ -14,20 +17,28 @@
 ;; Highlight text selection
 (transient-mark-mode 1)
 
-;; Highligh current line unless in term-mode
+;; Highligh current line unless in specia-mode
 (add-hook 'after-change-major-mode-hook
           (lambda ()
             (hl-line-mode
-             (if (equal major-mode 'term-mode) 0 1))))
+             (if (or (derived-mode-p 'shell-mode)
+                     (equal major-mode 'term-mode)
+                     (equal major-mode 'minibuffer-mode))
+                 0 1))))
 
 ;; Display buffer-size
-(size-indication-mode)
+;; (size-indication-mode)
 
-;; New buffers are text mode by default
-(setq default-major-mode 'text-mode)
+;; Re-visit files at last place
+(save-place-mode 1)
 
+;; Revert buffers when underlying file changed
+(global-auto-revert-mode t)
 
 ;;; Behaviour configs
+
+;; Prefer keyboard over dialog-box
+(setq use-dialog-box nil)
 
 ;; Do not ask before saving buffers
 (setq buffer-save-without-query 't)
@@ -61,8 +72,8 @@
 ;; Prevent extraneous Tabs
 (setq-default indent-tabs-mode nil)
 
-;; Let major mode decide on how to indent with TAB
-(setq tab-always-indent 'complete)
+;; Indent with TAB only at line's left margine
+(setq tab-always-indent nil)
 
 ;; Display line numbers
 (add-hook 'prog-mode-hook #'display-line-numbers-mode)
@@ -80,14 +91,6 @@
 (setq-default display-fill-column-indicator-column 80)
 (add-hook 'prog-mode-hook #'display-fill-column-indicator-mode)
 
-;; Display whitespaces when editing code
-(require 'whitespace)
-(add-hook 'prog-mode-hook
-          (lambda ()
-            (setq whitespace-style '(face empty tab-mark trailing lines-tail))
-            (setq show-trailing-whitespace t)
-            (add-hook 'prog-mode-hook 'whitespace-mode)))
-
 ;; Prefered coding-style
 (setq c-default-style
       '((cc-mode . "linux")
@@ -96,13 +99,14 @@
         (java-mode . "java")
         (other . "gnu")))
 
-(add-to-list 'c-mode-common-hook
-             (lambda ()
-               (setq c-basic-offset 8)
-               (setq c-indent-level 8)
-               (setq tab-width 8)
-               (setq indent-tabs-mode t)
-               (setq c-syntactic-indentation nil)))
+;; C style
+(defun my-c-mode-style ()
+  (setq c-basic-offset 8)
+  (setq c-indent-level 8)
+  (setq tab-width 8)
+  (setq indent-tabs-mode t))
+
+(add-to-list 'c-mode-common-hook 'my-c-mode-style)
 
 ;; Shell script style
 ;; See: https://google.github.io/styleguide/shellguide.html
@@ -134,7 +138,14 @@
             (setq lsp-enable-imenu nil)
             (setq lsp-enable-snippet nil)
             (setq read-process-output-max (* 1024 1024))
-            (setq lsp-idle-delay 0.5)))
+            (setq lsp-idle-delay 0.5)
+            (setq lsp-clients-clangd-args
+                  '("-j=1"
+                    "--background-index"
+                    "--completion-style=detailed"
+                    "--header-insertion=never"
+                    "--header-insertion-decorators=0"))
+            ))
 
 (add-hook 'c-mode-hook
           (lambda ()
@@ -149,4 +160,4 @@
 (require 'gud)
 (setq gdb-show-main t)
 (setq gdb-restore-window-configuration-after-quit t)
-;; (setq gdb-many-windows t)
+(setq gdb-many-windows t)

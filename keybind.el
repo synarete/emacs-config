@@ -1,7 +1,7 @@
 ;;; keybind.el -- Private Emacs key-binding
 
 ;; Delete TABs the normal way
-(setq backward-delete-char-untabify-method 'hungry)
+(setq backward-delete-char-untabify-method nil)
 
 ;; Save
 (global-set-key (kbd "C-x s") 'save-buffer)
@@ -49,13 +49,13 @@
 ;; Yank with middle mouse
 (setq mouse-yank-at-point t)
 
-;; Pop ibuffer with F1
-(global-set-key (kbd "<f1>") 'ibuffer)
+;; Toggle treemacs with F1
+(global-set-key (kbd "<f1>") 'treemacs)
 
-;; Toggle treemacs with F2
-(global-set-key (kbd "<f2>") 'treemacs)
+;; Pop ibuffer with F2
+(global-set-key (kbd "<f2>") 'ibuffer)
 
-;; Build (or clean) project
+;; Build (or clean) project with F3
 (defun my-make-build-default ()
   (interactive)
   (projectile-with-default-dir (projectile-acquire-root)

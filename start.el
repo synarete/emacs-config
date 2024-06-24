@@ -1,6 +1,11 @@
 ;;; start.el -- Custom Emacs settings
 (message "[ Start emacs for %s ]" (user-login-name))
 
+;; Load the custom file if it exists early on
+(setq custom-file (expand-file-name "custom.el" user-emacs-directory))
+(when (and custom-file (file-exists-p custom-file))
+  (load custom-file nil :nomessage))
+
 ;; Skip the startup screen
 (setq-default inhibit-startup-screen t)
 

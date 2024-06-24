@@ -10,19 +10,20 @@
 # Undo-tree save-files
 *.~undo-tree
 
-# Emacs run-time subdirs
+# Emacs run-time files and subdirs
+/.cache
 /elpa
 /auto-save-list
 /lisp
 /transient
-/.cache
+/recentf
 
-
-# Extra run-time subdirs
+# Extra run-time files and subdirs
 /.lsp-session*
 /projects
 /eshell
 /projectile-bookmarks.eld
+/places
 
-# Config and custom entry point
-/init.el
+# Custom variables local file
+/custom.el
