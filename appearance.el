@@ -32,7 +32,7 @@
 (load-theme 'doom-opera t)
 
 ;; Make it a bit darker
-(set-background-color "gray8")
+(set-background-color "gray6")
 
 ;; Make active buffer a bit darker
 (defun my-not-a-special-window (w)
@@ -44,9 +44,9 @@
      (when (my-not-a-special-window w)
        (if (eq w (selected-window))
            (with-current-buffer (window-buffer w)
-             (buffer-face-set '(:background "gray9")))
+             (buffer-face-set '(:background "gray7")))
          (with-current-buffer (window-buffer w)
-           (buffer-face-set '(:background "gray7")))))
+           (buffer-face-set '(:background "gray3")))))
      )))
 
 (add-hook 'buffer-list-update-hook 'my-highlight-active-buffer)
@@ -56,7 +56,7 @@
  'mode-line nil
  :foreground "seashell"
  :background "#636082"
- :box '(:line-width 2 :color "#626180")
+ :box '(:line-width 2 :color "#626080")
  :overline nil
  :underline nil)
 
@@ -64,6 +64,6 @@
  'mode-line-inactive nil
  :foreground "gray"
  :background "#353644"
- :box '(:line-width 2 :color "gray7")
+ :box '(:line-width 2 :color "gray5")
  :overline nil
  :underline nil)
