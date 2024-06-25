@@ -23,9 +23,16 @@
 (add-to-list 'initial-frame-alist '(internal-border-width . 8))
 (add-to-list 'default-frame-alist '(internal-border-width . 8))
 
+;; Extend margins in prog-mode
+(defun my-set-margins ()
+  (setq left-margin-width 3)
+  (setq right-margin-width 3))
+
+(add-hook 'prog-mode-hook 'my-set-margins)
+
 ;;;; Font
 ;; (add-to-list 'default-frame-alist '(font . "Monospace 12"))
-(add-to-list 'default-frame-alist '(font . "Source Code Pro 12"))
+(add-to-list 'default-frame-alist '(font . "Source Code Pro 14"))
 
 ;;;; Theme
 ;; Start with nice base theme
@@ -44,9 +51,9 @@
      (when (my-not-a-special-window w)
        (if (eq w (selected-window))
            (with-current-buffer (window-buffer w)
-             (buffer-face-set '(:background "gray7")))
+             (buffer-face-set '(:background "gray4")))
          (with-current-buffer (window-buffer w)
-           (buffer-face-set '(:background "gray3")))))
+           (buffer-face-set '(:background "gray7")))))
      )))
 
 (add-hook 'buffer-list-update-hook 'my-highlight-active-buffer)
@@ -56,7 +63,7 @@
  'mode-line nil
  :foreground "seashell"
  :background "#636082"
- :box '(:line-width 2 :color "#626080")
+ :box '(:line-width 2 :color "#636080")
  :overline nil
  :underline nil)
 
@@ -64,6 +71,6 @@
  'mode-line-inactive nil
  :foreground "gray"
  :background "#353644"
- :box '(:line-width 2 :color "gray5")
+ :box '(:line-width 2 :color "gray6")
  :overline nil
  :underline nil)

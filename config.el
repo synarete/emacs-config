@@ -18,7 +18,10 @@
 (add-hook 'after-change-major-mode-hook
           (lambda ()
             (hl-line-mode
-             (if (equal major-mode 'term-mode) 0 1))))
+             (if (or (derived-mode-p 'shell-mode)
+                     (equal major-mode 'term-mode)
+                     (equal major-mode 'minibuffer-mode))
+                 0 1))))
 
 ;; Display buffer-size
 (size-indication-mode)
