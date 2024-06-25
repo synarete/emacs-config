@@ -64,8 +64,8 @@
 ;; Prevent extraneous Tabs
 (setq-default indent-tabs-mode nil)
 
-;; Let major mode decide on how to indent with TAB
-(setq tab-always-indent 'complete)
+;; Indent with TAB only at line's left margine
+(setq tab-always-indent nil)
 
 ;; Display line numbers
 (add-hook 'prog-mode-hook #'display-line-numbers-mode)
@@ -99,13 +99,14 @@
         (java-mode . "java")
         (other . "gnu")))
 
-(add-to-list 'c-mode-common-hook
-             (lambda ()
-               (setq c-basic-offset 8)
-               (setq c-indent-level 8)
-               (setq tab-width 8)
-               (setq indent-tabs-mode t)
-               (setq c-syntactic-indentation nil)))
+;; C style
+(defun my-c-mode-style ()
+  (setq c-basic-offset 8)
+  (setq c-indent-level 8)
+  (setq tab-width 8)
+  (setq indent-tabs-mode t))
+
+(add-to-list 'c-mode-common-hook 'my-c-mode-style)
 
 ;; Shell script style
 ;; See: https://google.github.io/styleguide/shellguide.html

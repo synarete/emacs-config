@@ -43,7 +43,7 @@
 
 ;; Make active buffer a bit darker
 (defun my-not-a-special-window (w)
-  (not (string-prefix-p "*" (buffer-name (window-buffer w)))))
+  (not (string-prefix-p "*scratch" (buffer-name (window-buffer w)))))
 
 (defun my-highlight-active-buffer ()
   (walk-windows

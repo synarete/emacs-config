@@ -26,6 +26,7 @@ Start using emacs with actual configs:
 
 ```sh
   $ cp ~/.emacs.d/init1.el ~/.emacs.d/init.el
+  $ rm ~/.emacs
   $ emacs
   ...
 ```
