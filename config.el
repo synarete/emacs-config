@@ -4,6 +4,9 @@
 
 ;;; Common configs
 
+;; New buffers are text mode by default
+(setq default-major-mode 'text-mode)
+
 ;; Highlight matching parantheses when the point is on them
 (show-paren-mode 1)
 (setq show-paren-delay 0)
@@ -14,7 +17,7 @@
 ;; Highlight text selection
 (transient-mark-mode 1)
 
-;; Highligh current line unless in term-mode
+;; Highligh current line unless in specia-mode
 (add-hook 'after-change-major-mode-hook
           (lambda ()
             (hl-line-mode
@@ -24,11 +27,7 @@
                  0 1))))
 
 ;; Display buffer-size
-(size-indication-mode)
-
-;; New buffers are text mode by default
-(setq default-major-mode 'text-mode)
-
+;; (size-indication-mode)
 
 ;;; Behaviour configs
 

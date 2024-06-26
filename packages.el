@@ -75,8 +75,8 @@
   :ensure t
   :defer t
   :custom
-  (doom-themes-enable-bold t)
-  (doom-themes-enable-italic t))
+  (doom-themes-enable-bold nil)
+  (doom-themes-enable-italic nil))
 
 ;; Projects via projectile
 ;; https://github.com/bbatsov/projectile

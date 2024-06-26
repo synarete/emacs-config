@@ -63,7 +63,7 @@
  'mode-line nil
  :foreground "seashell"
  :background "#636082"
- :box '(:line-width 2 :color "#636080")
+ :box '(:line-width 1 :color "#646488")
  :overline nil
  :underline nil)
 
@@ -71,6 +71,6 @@
  'mode-line-inactive nil
  :foreground "gray"
  :background "#353644"
- :box '(:line-width 2 :color "gray6")
+ :box '(:line-width 1 :color "#353533")
  :overline nil
  :underline nil)
