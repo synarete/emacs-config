@@ -12,6 +12,7 @@
 (require 'xref)
 (require 'ibuffer)
 (require 'gud)
+(require 'eldoc)
 
 (require 'package)
 (add-to-list 'package-archives
@@ -47,22 +48,22 @@
 ;; https://magit.vc/
 (use-package magit
   :ensure t
-  :defer 1)
+  :defer 2)
 
 ;; Scheme/Guile development
 ;; https://www.nongnu.org/geiser/
 (use-package geiser
   :ensure t
-  :defer 1)
+  :defer 2)
 
 (use-package geiser-guile
   :ensure t
-  :defer 1)
+  :defer 2)
 
 ;; Language Server Protocol
 ;; https://github.com/emacs-lsp/lsp-mode
 (use-package lsp-mode
-  :defer 1
+  :defer 2
   :hook ((c-mode python-mode) . lsp-deferred)
   (lsp-mode . lsp-enable-which-key-integration)
   :init
@@ -73,7 +74,7 @@
 ;; https://github.com/doomemacs/themes
 (use-package doom-themes
   :ensure t
-  :defer t
+  :defer 1
   :custom
   (doom-themes-enable-bold nil)
   (doom-themes-enable-italic nil))
@@ -81,6 +82,7 @@
 ;; Projects via projectile
 ;; https://github.com/bbatsov/projectile
 (use-package projectile
+  :defer 1
   :demand t
   :config
   (projectile-mode +1))
@@ -89,7 +91,7 @@
 ;; https://github.com/Alexander-Miller/treemacs
 (use-package treemacs
   :ensure t
-  :defer t
+  :defer 1
   :config
   (progn
     (setq treemacs-no-png-images t
@@ -102,4 +104,5 @@
           treemacs-never-persist t)))
 
 (use-package treemacs-projectile
+  :defer 2
   :after (treemacs projectile))
