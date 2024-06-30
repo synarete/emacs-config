@@ -61,16 +61,16 @@
 ;; Pretty mode-line
 (set-face-attribute
  'mode-line nil
- :foreground "seashell"
- :background "#636082"
- :box '(:line-width 1 :color "#646488")
+ :foreground "#ECEFF4"
+ :background "#5D677B"
+ :box '(:line-width 1 :color "gray7")
  :overline nil
  :underline nil)
 
 (set-face-attribute
  'mode-line-inactive nil
- :foreground "gray"
- :background "#353644"
- :box '(:line-width 1 :color "#353533")
+ :foreground "#D8DEE9"
+ :background "#2E3440"
+ :box '(:line-width 1 :color "gray4")
  :overline nil
  :underline nil)
