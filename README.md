@@ -1,15 +1,21 @@
 # Synarete's emacs configuration files
 
-Clone the repository into new `~/.emacs.d` and install packages via script:
+Clone the repository into new `~/.emacs.d`:
 
 ```sh
   $ mkdir ~/.emacs.d
   $ git clone https://github.com/synarete/emacs-config ~/.emacs.d
+  ...
+```
+
+Execute packages installation script (may take some time):
+
+```sh
   $ ~/.emacs.d/emacs-install-packages.sh
   ...
 ```
 
-Run emacs for first time and add few packages manually:
+Run emacs and add extra packages manually:
 
 ```sh
   $ emacs
