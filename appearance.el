@@ -68,19 +68,19 @@
 
 (add-hook 'buffer-list-update-hook 'my-highlight-active-buffer)
 
-;; Pretty mode-line
+;; Pretty mode-line (nord colors)
 (set-face-attribute
  'mode-line nil
  :foreground "#ECEFF4"
  :background "#3B4252"
- ;; :box '(:line-width 1 :color "gray7")
+ :box '(:line-width 1 :color "#4C566A")
  :overline nil
  :underline nil)
 
 (set-face-attribute
  'mode-line-inactive nil
- :foreground "dim gray"
+ :foreground "#434C5E"
  :background "#1C2330"
- ;; :box '(:line-width 1 :color "gray4")
+ :box '(:line-width 1 :color "#2E3440")
  :overline nil
  :underline nil)
