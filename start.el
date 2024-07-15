@@ -1,5 +1,5 @@
 ;;; start.el -- Custom Emacs settings
-(message "[ Start emacs for %s ]" (user-login-name))
+(message "[ Start emacs (user: %s) ]" (user-login-name))
 
 ;; Load the custom file if it exists early on
 (setq custom-file (expand-file-name "custom.el" user-emacs-directory))

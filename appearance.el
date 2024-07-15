@@ -1,5 +1,5 @@
-;;; config.el -- Update emacs appearance and theme
-(message "[ Update emacs appearance for %s ]" (user-login-name))
+;;; appearance.el -- Update emacs appearance and theme
+(message "[ Update emacs appearance (user: %s) ]" (user-login-name))
 
 ;; Show time
 (setq display-time-day-and-date t)
@@ -30,43 +30,21 @@
 
 (add-hook 'prog-mode-hook 'my-set-margins)
 
-;;;; Font
-;; (add-to-list 'default-frame-alist '(font . "Monospace 12"))
-(add-to-list 'default-frame-alist '(font . "Source Code Pro 14"))
-
-;;;; Whitespaces
+;; Whitespaces
 (defun my-whitespace-style ()
   (progn
     (setq show-trailing-whitespace t)
-    (setq whitespace-style '(face empty tab-mark trailing))
+    (setq whitespace-style '(face empty trailing tab-mark))
     (whitespace-mode)))
 
 (add-hook 'prog-mode-hook 'my-whitespace-style)
-
 
 ;;;; Theme
 ;; Start with nice base theme
 (load-theme 'doom-opera t)
 
 ;; Make it a bit darker
-(set-background-color "gray6")
-
-;; Make active buffer a bit darker
-(defun my-not-a-special-window (w)
-  (not (string-prefix-p "*scratch" (buffer-name (window-buffer w)))))
-
-(defun my-highlight-active-buffer ()
-  (walk-windows
-   (lambda (w)
-     (when (my-not-a-special-window w)
-       (if (eq w (selected-window))
-           (with-current-buffer (window-buffer w)
-             (buffer-face-set '(:background "gray4")))
-         (with-current-buffer (window-buffer w)
-           (buffer-face-set '(:background "gray7")))))
-     )))
-
-(add-hook 'buffer-list-update-hook 'my-highlight-active-buffer)
+(set-background-color "gray7")
 
 ;; Pretty mode-line (nord colors)
 (set-face-attribute
@@ -84,3 +62,7 @@
  :box '(:line-width 1 :color "#2E3440")
  :overline nil
  :underline nil)
+
+;;;; Font
+;; (add-to-list 'default-frame-alist '(font . "Monospace 12"))
+(add-to-list 'default-frame-alist '(font . "Source Code Pro 13"))

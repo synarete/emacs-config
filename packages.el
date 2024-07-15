@@ -1,5 +1,5 @@
 ;;; packages.el -- Using extra emacs packages
-(message "[ Setup emacs packages for %s ]" (user-login-name))
+(message "[ Setup emacs packages (user: %s) ]" (user-login-name))
 
 ;;; Built-in packages
 
@@ -50,6 +50,18 @@
 (use-package magit
   :ensure t
   :defer 2)
+
+;; Highlight indent-guides
+;; https://github.com/DarthFennec/highlight-indent-guides
+(use-package highlight-indent-guides
+  :ensure t
+  :defer 1)
+
+;; Beacon
+;; https://github.com/Malabarba/beacon
+(use-package beacon
+  :ensure t
+  :defer 1)
 
 ;; Scheme/Guile development
 ;; https://www.nongnu.org/geiser/

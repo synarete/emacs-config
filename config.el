@@ -1,8 +1,7 @@
 ;;; config.el -- User specific emacs configuration
-(message "[ Configure emacs behaviour for %s ]" (user-login-name))
+(message "[ Configure emacs behaviour (user: %s) ]" (user-login-name))
 
-
-;;; Common configs
+;;;; Common configs
 
 ;; New buffers are text mode by default
 (setq default-major-mode 'text-mode)
