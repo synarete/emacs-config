@@ -6,17 +6,21 @@
 
 ;; Make active buffer a bit darker
 (defun my-not-a-special-window (w)
-  (not (string-prefix-p "*scratch" (buffer-name (window-buffer w)))))
+  (not (string-prefix-p "*" (buffer-name (window-buffer w)))))
+
+(defun my-update-window-buffer-face (w darker)
+  (if (eq darker t)
+      (with-current-buffer (window-buffer w)
+        (buffer-face-set '(:background "gray5")))
+    (with-current-buffer (window-buffer w)
+      (buffer-face-set '(:background "gray7")))))
 
 (defun my-highlight-active-buffer ()
   (walk-windows
    (lambda (w)
      (when (my-not-a-special-window w)
        (if (eq w (selected-window))
-           (with-current-buffer (window-buffer w)
-             (buffer-face-set '(:background "gray5")))
-         (with-current-buffer (window-buffer w)
-           (buffer-face-set '(:background "gray7")))))
-     )))
+           (my-update-window-buffer-face w t)
+         (my-update-window-buffer-face w nil))))))
 
 (add-hook 'buffer-list-update-hook 'my-highlight-active-buffer)
