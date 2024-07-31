@@ -39,12 +39,16 @@
 
 (add-hook 'prog-mode-hook 'my-whitespace-style)
 
+;; Use window-divider for some space in between
+(setq window-divider-default-right-width 5)
+(window-divider-mode)
+
 ;;;; Theme
 ;; Start with nice base theme
 (load-theme 'doom-opera t)
 
 ;; Make it a bit darker
-(set-background-color "gray7")
+(set-background-color "#131517")
 
 ;; Pretty mode-line (nord colors)
 (set-face-attribute
