@@ -57,6 +57,12 @@
   :ensure t
   :defer 1)
 
+;; VTerm
+;; https://github.com/akermu/emacs-libvterm
+(use-package vterm
+  :ensure t
+  :defer 1)
+
 ;; Beacon
 ;; https://github.com/Malabarba/beacon
 (use-package beacon

@@ -1,7 +1,7 @@
 ;;; appearance.el -- Update emacs appearance and theme
 (message "[ Update emacs appearance (user: %s) ]" (user-login-name))
 
-;; Show time
+;; Time format
 (setq display-time-day-and-date t)
 (setq display-time-24hr-format t)
 (display-time)
@@ -39,9 +39,9 @@
 
 (add-hook 'prog-mode-hook 'my-whitespace-style)
 
-;; Use window-divider for some space in between
-(setq window-divider-default-right-width 5)
-(window-divider-mode)
+;;;; Font
+;; (add-to-list 'default-frame-alist '(font . "Monospace 12"))
+(add-to-list 'default-frame-alist '(font . "Source Code Pro 13"))
 
 ;;;; Theme
 ;; Start with nice base theme
@@ -67,6 +67,10 @@
  :overline nil
  :underline nil)
 
-;;;; Font
-;; (add-to-list 'default-frame-alist '(font . "Monospace 12"))
-(add-to-list 'default-frame-alist '(font . "Source Code Pro 13"))
+;; Darker line between vertical splits
+(set-face-background 'vertical-border "gray7")
+(set-face-foreground 'vertical-border (face-background 'vertical-border))
+
+;; Use window-divider for some space in between
+(setq window-divider-default-right-width 5)
+(window-divider-mode)
