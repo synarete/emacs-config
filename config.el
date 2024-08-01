@@ -16,12 +16,13 @@
 ;; Highlight text selection
 (transient-mark-mode 1)
 
-;; Highligh current line unless in specia-mode
+;; Highligh current line unless in special-mode
 (add-hook 'after-change-major-mode-hook
           (lambda ()
             (hl-line-mode
              (if (or (derived-mode-p 'shell-mode)
                      (equal major-mode 'term-mode)
+                     (equal major-mode 'gud-mode)
                      (equal major-mode 'minibuffer-mode))
                  0 1))))
 

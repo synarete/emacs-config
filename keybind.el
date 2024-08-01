@@ -37,6 +37,9 @@
 ;; Window switching
 (windmove-default-keybindings 'control)
 
+;; Yank with middle mouse
+(setq mouse-yank-at-point t)
+
 ;; Use cua-mode
 (cua-mode t)
 (setq cua-auto-tabify-rectangles nil)
@@ -46,8 +49,13 @@
 ;; Magit
 (global-set-key (kbd "C-x g") 'magit-status)
 
-;; Yank with middle mouse
-(setq mouse-yank-at-point t)
+;; Terminal
+(defun my-term ()
+  (interactive)
+  (message "Terminal")
+  (term "/bin/bash"))
+
+(global-set-key (kbd "C-x t") 'my-term)
 
 ;; Toggle treemacs with F1
 (global-set-key (kbd "<f1>") 'treemacs)
