@@ -33,10 +33,8 @@
 ;; Balance parentheses, brackets, braces, etc.
 ;; https://github.com/Fuco1/smartparens
 (use-package smartparens
-  :ensure t
-  :defer 1
-  :init (require 'smartparens-config)
-  :hook (prog-mode . smartparens-mode))
+  :ensure smartparens
+  :defer 1)
 
 ;; Support Emacs key combination tipping.
 ;; https://github.com/justbur/emacs-which-key

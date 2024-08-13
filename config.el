@@ -66,7 +66,6 @@
 (setq-default compilation-ask-about-save nil)
 (setq-default compilation-scroll-output t)
 
-
 ;;; Programming configs
 
 ;; Prevent extraneous Tabs
@@ -90,6 +89,9 @@
 ;; Show column-indicator at 80
 (setq-default display-fill-column-indicator-column 80)
 (add-hook 'prog-mode-hook #'display-fill-column-indicator-mode)
+
+;; Match parentheses with built-in electric-pair
+(add-hook 'prog-mode-hook #'electric-pair-mode)
 
 ;; Prefered coding-style
 (setq c-default-style
