@@ -14,6 +14,7 @@
 (require 'xref)
 (require 'ibuffer)
 (require 'gud)
+(require 'eglot)
 (require 'eldoc)
 
 (require 'package)

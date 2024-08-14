@@ -133,7 +133,8 @@
             (setq lsp-restart 'auto-restart)
             (setq lsp-enable-symbol-highlighting nil)
             (setq lsp-enable-on-type-formatting nil)
-            (setq lsp-signature-auto-activate nil)
+            (setq lsp-signature-auto-activate t)
+            (setq lsp-signature-doc-lines 1)
             (setq lsp-signature-render-documentation nil)
             (setq lsp-eldoc-hook nil)
             (setq lsp-modeline-code-actions-enable nil)
@@ -150,7 +151,9 @@
                     "--background-index"
                     "--completion-style=detailed"
                     "--header-insertion=never"
-                    "--header-insertion-decorators=0"))
+                    "--header-insertion-decorators=0"
+                    "--all-scopes-completion"
+                    "--suggest-missing-includes"))
             ))
 
 (add-hook 'c-mode-hook
