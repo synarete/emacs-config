@@ -46,6 +46,10 @@
 ;; Make it a bit darker
 (set-background-color "#131517")
 
+;; Dim line-number colors
+(set-face-foreground 'line-number "gray13")
+(set-face-foreground 'line-number-current-line "#4C566A")
+
 ;; Pretty mode-line (nord colors)
 (set-face-attribute
  'mode-line nil
