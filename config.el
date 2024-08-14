@@ -93,6 +93,10 @@
 ;; Match parentheses with built-in electric-pair
 (add-hook 'prog-mode-hook #'electric-pair-mode)
 
+;; Enable spell-checker for text and prog mode
+(add-hook 'text-mode-hook 'flyspell-mode)
+(add-hook 'prog-mode-hook 'flyspell-prog-mode)
+
 ;; Prefered coding-style
 (setq c-default-style
       '((cc-mode . "linux")

@@ -9,6 +9,7 @@
 (require 'cc-mode)
 (require 'make-mode)
 (require 'sh-script)
+(require 'flyspell)
 (require 'flymake)
 (require 'xref)
 (require 'ibuffer)
