@@ -23,6 +23,8 @@
 (add-to-list 'initial-frame-alist '(internal-border-width . 8))
 (add-to-list 'default-frame-alist '(internal-border-width . 8))
 
+;;;; Prog-mode visuals
+
 ;; Extend margins in prog-mode
 (defun my-set-margins ()
   (setq left-margin-width 3)
@@ -30,7 +32,7 @@
 
 (add-hook 'prog-mode-hook 'my-set-margins)
 
-;;;; Whitespaces
+;; Whitespaces
 (defun my-whitespace-style ()
   (progn
     (setq show-trailing-whitespace t)
@@ -78,4 +80,3 @@
 ;;;; Font
 ;; (add-to-list 'default-frame-alist '(font . "Monospace 12"))
 (add-to-list 'default-frame-alist '(font . "Source Code Pro 13"))
-
