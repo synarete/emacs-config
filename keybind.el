@@ -37,6 +37,13 @@
 ;; Window switching
 (windmove-default-keybindings 'control)
 
+;; Window resize
+;; https://www.emacswiki.org/emacs/WindowResize
+(global-set-key (kbd "C-S-<left>") 'shrink-window-horizontally)
+(global-set-key (kbd "C-S-<right>") 'enlarge-window-horizontally)
+(global-set-key (kbd "C-S-<down>") 'shrink-window)
+(global-set-key (kbd "C-S-<up>") 'enlarge-window)
+
 ;; Yank with middle mouse
 (setq mouse-yank-at-point t)
 

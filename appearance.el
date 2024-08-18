@@ -84,5 +84,5 @@
 (window-divider-mode)
 
 ;;;; Font
-;; (add-to-list 'default-frame-alist '(font . "Monospace 12"))
-(add-to-list 'default-frame-alist '(font . "Source Code Pro 13"))
+(add-to-list 'default-frame-alist '(font . "Monospace 12"))
+;;(add-to-list 'default-frame-alist '(font . "Source Code Pro 13"))

@@ -16,8 +16,9 @@
 (require 'gud)
 (require 'eglot)
 (require 'eldoc)
-
+(require 'bind-key)
 (require 'package)
+
 (add-to-list 'package-archives
              '("melpa" . "https://melpa.org/packages/")
              '("melpa-stable" . "https://stable.melpa.org/packages/"))
