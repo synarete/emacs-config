@@ -101,22 +101,25 @@
   :config
   (projectile-mode +1))
 
-;; Side project-view and navigation via treemacs
+;; Project-view via treemacs
 ;; https://github.com/Alexander-Miller/treemacs
 (use-package treemacs
   :ensure t
   :defer 1
   :config
   (progn
-    (setq treemacs-no-png-images t
-          treemacs-width 40
-          treemacs-indentation 1
-          treemacs-follow-after-init t
-          treemacs-recenter-after-file-follow nil
-          treemacs-silent-refresh t
-          treemacs-silent-filewatch t
-          treemacs-show-hidden-files t
-          treemacs-never-persist t)))
+    (setq treemacs-no-png-images t)
+    (setq treemacs-width 36)
+    (setq treemacs-indentation 1)
+    (setq treemacs-follow-after-init t)
+    (setq treemacs-recenter-after-file-follow nil)
+    (setq treemacs-silent-refresh t)
+    (setq treemacs-silent-filewatch t)
+    (setq treemacs-show-hidden-files t)
+    (setq treemacs-never-persist t)
+    (treemacs-filewatch-mode t)
+    (set-face-attribute 'treemacs-root-face nil :height 1.0)
+    ))
 
 (use-package treemacs-projectile
   :defer 2
