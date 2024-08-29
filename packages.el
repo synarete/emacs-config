@@ -109,7 +109,7 @@
   :config
   (progn
     (setq treemacs-no-png-images t)
-    (setq treemacs-width 36)
+    (setq treemacs-width 32)
     (setq treemacs-indentation 1)
     (setq treemacs-follow-after-init t)
     (setq treemacs-recenter-after-file-follow nil)

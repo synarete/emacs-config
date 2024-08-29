@@ -4,7 +4,7 @@
 ;; Time format
 (setq display-time-day-and-date t)
 (setq display-time-24hr-format t)
-(display-time)
+;(display-time)
 
 ;; Hide the tool bar
 (tool-bar-mode 0)
@@ -86,5 +86,5 @@
 (window-divider-mode)
 
 ;;;; Font
-(add-to-list 'default-frame-alist '(font . "Monospace 12"))
-;;(add-to-list 'default-frame-alist '(font . "Source Code Pro 13"))
+;; (add-to-list 'default-frame-alist '(font . "Monospace 12"))
+(add-to-list 'default-frame-alist '(font . "Source Code Pro 14"))
