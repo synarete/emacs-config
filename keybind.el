@@ -23,8 +23,8 @@
 ;; Ctrl-o to open a (new) file
 (global-set-key (kbd "C-o") 'find-file)
 
-;; Ctrl-k to close current file (buffer)
-(global-set-key (kbd "C-k") 'kill-this-buffer)
+;; Close (kill) current file (buffer)
+(global-set-key (kbd "C-x k") 'kill-current-buffer)
 
 ;; Mark all
 (global-set-key (kbd "C-x a") 'mark-whole-buffer)
