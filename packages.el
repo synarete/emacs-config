@@ -52,17 +52,11 @@
   :ensure t
   :defer 2)
 
-;; Highlight indent-guides
-;; https://github.com/DarthFennec/highlight-indent-guides
-(use-package highlight-indent-guides
-  :ensure t
-  :defer 1)
-
 ;; Beacon
 ;; https://github.com/Malabarba/beacon
 (use-package beacon
   :ensure t
-  :defer 1)
+  :defer 2)
 
 ;; Scheme/Guile development
 ;; https://www.nongnu.org/geiser/

@@ -23,6 +23,9 @@
 (add-to-list 'initial-frame-alist '(internal-border-width . 8))
 (add-to-list 'default-frame-alist '(internal-border-width . 8))
 
+;; Beaconize active position
+(beacon-mode 1)
+
 ;;;; Prog-mode visuals
 
 ;; Extend margins in prog-mode
