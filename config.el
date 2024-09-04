@@ -3,12 +3,31 @@
 
 ;;;; Common configs
 
+;; Skip the startup screen
+(setq-default inhibit-startup-screen t)
+
+;; Do not create backup~ files
+(setq make-backup-files nil)
+
+;; Do not create #auto-save# files
+(setq auto-save-default nil)
+
 ;; Start with text-mode empty scratch buffer
 (setq initial-scratch-message "")
 (setq initial-major-mode 'text-mode)
 
 ;; New buffers are text mode by default
 (setq default-major-mode 'text-mode)
+
+;; UTF-8 by default
+(prefer-coding-system 'utf-8)
+(set-default-coding-systems 'utf-8)
+(set-terminal-coding-system 'utf-8)
+(set-keyboard-coding-system 'utf-8)
+(set-selection-coding-system 'utf-8)
+(set-file-name-coding-system 'utf-8)
+(set-clipboard-coding-system 'utf-8)
+(set-buffer-file-coding-system 'utf-8)
 
 ;; Highlight matching parantheses when the point is on them
 (show-paren-mode 1)
