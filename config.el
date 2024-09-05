@@ -3,6 +3,9 @@
 
 ;;;; Common configs
 
+;; Dedicated custom file
+(setq custom-file (expand-file-name "custom.el" user-emacs-directory))
+
 ;; Skip the startup screen
 (setq-default inhibit-startup-screen t)
 
@@ -50,7 +53,7 @@
                  0 1))))
 
 ;; Display buffer-size
-;; (size-indication-mode)
+(size-indication-mode)
 
 ;; Re-visit files at last place
 (save-place-mode 1)
@@ -59,6 +62,9 @@
 (global-auto-revert-mode t)
 
 ;;; Behaviour configs
+
+;; Prefer short y-or-n answers
+(setopt use-short-answers t)
 
 ;; Prefer keyboard over dialog-box
 (setq use-dialog-box nil)
