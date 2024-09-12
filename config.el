@@ -15,9 +15,8 @@
 ;; Do not create #auto-save# files
 (setq auto-save-default nil)
 
-;; Start with text-mode empty scratch buffer
+;; Start with empty scratch buffer
 (setq initial-scratch-message "")
-(setq initial-major-mode 'text-mode)
 
 ;; New buffers are text mode by default
 (setq default-major-mode 'text-mode)
