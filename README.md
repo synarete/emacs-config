@@ -15,16 +15,16 @@ Execute packages installation script (may take some time):
   ...
 ```
 
-Run emacs and add extra packages manually:
+Run emacs and add few extra packages manually:
 
 ```sh
   $ emacs
   ...
   M-x package-initialize
   M-x package-refresh-contents
-  M-x package-install RET projectile
   M-x package-install RET treemacs-projectile
   M-x package-install RET lsp-mode
+  M-x package-install RET lsp-ui
   ...
 ```
 
