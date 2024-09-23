@@ -15,8 +15,9 @@
 ;; Do not create #auto-save# files
 (setq auto-save-default nil)
 
-;; Start with empty scratch buffer
-(setq initial-scratch-message "")
+;; Start with (almost) empty scratch buffer
+(setq initial-scratch-message
+      (format ";; Emacs %d.%d" emacs-major-version emacs-minor-version))
 
 ;; New buffers are text mode by default
 (setq default-major-mode 'text-mode)
