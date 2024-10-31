@@ -9,8 +9,6 @@
 (require 'cc-mode)
 (require 'make-mode)
 (require 'sh-script)
-(require 'flyspell)
-(require 'flymake)
 (require 'xref)
 (require 'ibuffer)
 (require 'gud)
@@ -118,3 +116,13 @@
 (use-package treemacs-projectile
   :defer 2
   :after (treemacs projectile))
+
+;; GNU flymake
+(use-package flymake
+  :ensure t
+  :defer 2)
+
+;; Spell check with flyspell
+(use-package flyspell
+  :ensure t
+  :defer 2)
