@@ -27,7 +27,7 @@
 (global-set-key (kbd "C-x k") 'kill-current-buffer)
 
 ;; Mark all
-(global-set-key (kbd "C-x a") 'mark-whole-buffer)
+(global-set-key (kbd "C-a") 'mark-whole-buffer)
 
 ;; Ctrl-f for search symbol in buffer
 (global-set-key (kbd "C-f") 'isearch-forward-symbol-at-point)
