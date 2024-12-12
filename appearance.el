@@ -88,6 +88,6 @@
 (setq window-divider-default-right-width 10)
 (window-divider-mode)
 
-;;;; Font
-(add-to-list 'default-frame-alist '(font . "Monospace 12"))
-;; (add-to-list 'default-frame-alist '(font . "Source Code Pro 12"))
+;;;; Default font
+;; (add-to-list 'default-frame-alist '(font . "Monospace 12"))
+(add-to-list 'default-frame-alist '(font . "Source Code Pro 13"))
