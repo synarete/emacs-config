@@ -26,6 +26,9 @@
 ;; Close (kill) current file (buffer)
 (global-set-key (kbd "C-x k") 'kill-current-buffer)
 
+;; Ctrl-p to goto previous position
+(global-set-key (kbd "C-p") 'pop-global-mark)
+
 ;; Mark all
 (global-set-key (kbd "C-a") 'mark-whole-buffer)
 
