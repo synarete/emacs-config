@@ -1,10 +1,11 @@
 ;;; appearance.el -- Update emacs appearance and theme
 (message "[ Update emacs appearance (user: %s) ]" (user-login-name))
 
-;; Time format
+;; Time format (graphic-mode only)
 (setq display-time-day-and-date t)
 (setq display-time-24hr-format t)
-(display-time)
+(when (display-graphic-p)
+  (display-time))
 
 ;; Hide the tool bar
 (tool-bar-mode 0)
@@ -58,14 +59,14 @@
 
 ;; Improved theme in graphic mode
 (when (display-graphic-p)
-    (load-theme 'doom-opera t))
-
-;; Make it a bit darker
-(set-background-color "#131517")
-
-;; Dim line-number colors
-(set-face-foreground 'line-number "gray13")
-(set-face-foreground 'line-number-current-line "#4C566A")
+  ;; Prefer opera
+  (load-theme 'doom-opera t)
+  ;; Make it a bit darker
+  (set-background-color "#131517")
+  ;; Dim line-number colors
+  (set-face-foreground 'line-number "gray13")
+  (set-face-foreground 'line-number-current-line "#4C566A")
+  )
 
 ;; Pretty mode-line (nord colors)
 (set-face-attribute
