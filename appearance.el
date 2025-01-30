@@ -54,7 +54,11 @@
 
 ;;;; Theme
 ;; Start with nice base theme
-(load-theme 'doom-opera t)
+(load-theme 'doom-sourcerer t)
+
+;; Improved theme in graphic mode
+(when (display-graphic-p)
+    (load-theme 'doom-opera t))
 
 ;; Make it a bit darker
 (set-background-color "#131517")
