@@ -63,6 +63,12 @@
 
 ;;; Behaviour configs
 
+;; No beep
+(setq visible-bell nil)
+
+;; Disable annoying bell
+(setq ring-bell-function 'ignore)
+
 ;; Prefer short y-or-n answers
 (setopt use-short-answers t)
 
@@ -71,9 +77,6 @@
 
 ;; Do not ask before saving buffers
 (setq buffer-save-without-query 't)
-
-;; Disable annoying bell
-(setq ring-bell-function 'ignore)
 
 ;; Improves mouse & scrolling
 (setq scroll-conservatively 101)
