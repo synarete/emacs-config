@@ -93,6 +93,7 @@
 (setq window-divider-default-right-width 10)
 (window-divider-mode)
 
-;;;; Default font
-;; (add-to-list 'default-frame-alist '(font . "Monospace 12"))
-(add-to-list 'default-frame-alist '(font . "Source Code Pro 13"))
+;;;; Default font in gui mode
+(when (display-graphic-p)
+  ;; (add-to-list 'default-frame-alist '(font . "Monospace 12"))
+  (add-to-list 'default-frame-alist '(font . "Source Code Pro 13")))
