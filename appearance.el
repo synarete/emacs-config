@@ -56,38 +56,23 @@
 ;;;; Theme
 ;; Start with nice base theme
 (load-theme 'doom-sourcerer t)
-;; (load-theme 'doom-opera t)
 
 ;; Improve theme in graphic mode
 (when (display-graphic-p)
   (set-background-color "#131517")
-  (set-face-foreground 'line-number "gray13")
+  (set-face-foreground 'line-number "gray17")
   (set-face-foreground 'line-number-current-line "honeydew4"))
 
 ;; Pretty mode-line (nord colors)
-(set-face-attribute
- 'mode-line nil
- :foreground "#ECEFF4"
- :background "#3B4252"
- :box '(:line-width 1 :color "#4C566A")
- :overline nil
- :underline nil)
-
-(set-face-attribute
- 'mode-line-inactive nil
- :foreground "#434C5E"
- :background "#1C2330"
- :box '(:line-width 1 :color "#2E3440")
- :overline nil
- :underline nil)
 
 ;; Darker line between vertical splits
-(set-face-background 'vertical-border "gray7")
+(set-face-background 'vertical-border "#121416")
 (set-face-foreground 'vertical-border (face-background 'vertical-border))
 
 ;; Use window-divider for some space in between
-(setq window-divider-default-right-width 10)
-(window-divider-mode)
+(when (display-graphic-p)
+  (setq window-divider-default-right-width 10)
+  (window-divider-mode))
 
 ;;;; Default font in gui mode
 (when (display-graphic-p)
