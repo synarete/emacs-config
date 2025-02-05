@@ -56,17 +56,13 @@
 ;;;; Theme
 ;; Start with nice base theme
 (load-theme 'doom-sourcerer t)
+;; (load-theme 'doom-opera t)
 
-;; Improved theme in graphic mode
+;; Improve theme in graphic mode
 (when (display-graphic-p)
-  ;; Prefer opera
-  (load-theme 'doom-opera t)
-  ;; Make it a bit darker
   (set-background-color "#131517")
-  ;; Dim line-number colors
   (set-face-foreground 'line-number "gray13")
-  (set-face-foreground 'line-number-current-line "#4C566A")
-  )
+  (set-face-foreground 'line-number-current-line "honeydew4"))
 
 ;; Pretty mode-line (nord colors)
 (set-face-attribute
