@@ -66,7 +66,7 @@
 ;; Pretty mode-line (nord colors)
 
 ;; Darker line between vertical splits
-(set-face-background 'vertical-border "#121416")
+(set-face-background 'vertical-border "#0a0e04")
 (set-face-foreground 'vertical-border (face-background 'vertical-border))
 
 ;; Use window-divider for some space in between
