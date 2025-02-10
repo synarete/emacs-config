@@ -16,6 +16,9 @@
 ;; Hide the scroll bar
 (scroll-bar-mode 0)
 
+;; Beaconize active position
+(beacon-mode 1)
+
 ;; Practical frame-size
 (setq frame-inhibit-implied-resize t)
 (setq default-frame-alist '((width . 120) (height . 48)))
@@ -23,9 +26,6 @@
 ;; Add border inside frames
 (add-to-list 'initial-frame-alist '(internal-border-width . 8))
 (add-to-list 'default-frame-alist '(internal-border-width . 8))
-
-;; Beaconize active position
-(beacon-mode 1)
 
 ;;;; Prog-mode visuals
 
@@ -63,16 +63,14 @@
   (set-face-foreground 'line-number "gray17")
   (set-face-foreground 'line-number-current-line "honeydew4"))
 
-;; Pretty mode-line (nord colors)
-
 ;; Darker line between vertical splits
 (set-face-background 'vertical-border "#0a0e04")
 (set-face-foreground 'vertical-border (face-background 'vertical-border))
 
 ;; Use window-divider for some space in between
 (when (display-graphic-p)
-  (setq window-divider-default-right-width 10)
-  (window-divider-mode))
+  (setq window-divider-default-right-width 6))
+(window-divider-mode)
 
 ;;;; Default font in gui mode
 (when (display-graphic-p)
