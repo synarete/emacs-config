@@ -87,9 +87,6 @@
 (add-hook 'dired-mode-hook 'dired-hide-details-mode)
 (add-hook 'dired-mode-hook 'hl-line-mode)
 
-;; Auto-refresh ibuffer
-(setq ibuffer-mode-hook '(ibuffer-auto-mode))
-
 ;; Don't Lock Files
 (setq-default create-lockfiles nil)
 
@@ -202,3 +199,18 @@
 (setq gdb-show-main t)
 (setq gdb-restore-window-configuration-after-quit t)
 (setq gdb-many-windows t)
+
+;;; IBuffer settings
+(require 'ibuffer)
+
+;; Don't summarize columns
+(setq ibuffer-display-summary nil)
+
+;; Don't open in another window but use the current one
+(setq ibuffer-use-other-window nil)
+
+;; Don't minimize the ibuffer window by default
+(setq ibuffer-default-shrink-to-minimum-size nil)
+
+;; Auto-refresh ibuffer
+(setq ibuffer-mode-hook '(ibuffer-auto-mode))

@@ -10,8 +10,6 @@
 (require 'make-mode)
 (require 'sh-script)
 (require 'xref)
-(require 'ibuffer)
-(require 'gud)
 (require 'eglot)
 (require 'eldoc)
 (require 'bind-key)
