@@ -18,6 +18,7 @@
 
 ;; Beaconize active position
 (beacon-mode 1)
+(setq beacon-size 12)
 
 ;; Practical frame-size
 (setq frame-inhibit-implied-resize t)

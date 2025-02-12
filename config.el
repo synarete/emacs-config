@@ -200,17 +200,30 @@
 (setq gdb-restore-window-configuration-after-quit t)
 (setq gdb-many-windows t)
 
-;;; IBuffer settings
+;;; IBuffer settings & layout
 (require 'ibuffer)
 
-;; Don't summarize columns
-(setq ibuffer-display-summary nil)
+(setq ibuffer-saved-filter-groups
+      (quote
+       (("default"
+         ("Code" (or
+                  (mode . c-mode)
+                  (mode . c++-mode)
+                  (mode . python-mode)
+                  (mode . scheme-mode)
+                  (mode . lisp-mode)
+                  (mode . emacs-lisp-mode)))
+         ("Shell" (mode . sh-mode))
+         ("Text" (mode . text-mode))
+         ("Term" (mode . term-mode))
+         ("Magit" (name . "^magit"))
+         ))))
 
-;; Don't open in another window but use the current one
-(setq ibuffer-use-other-window nil)
-
-;; Don't minimize the ibuffer window by default
-(setq ibuffer-default-shrink-to-minimum-size nil)
-
-;; Auto-refresh ibuffer
-(setq ibuffer-mode-hook '(ibuffer-auto-mode))
+(add-hook 'ibuffer-mode-hook
+          (lambda ()
+            (ibuffer-switch-to-saved-filter-groups "default")
+            (setq ibuffer-show-empty-filter-groups nil)
+            (setq ibuffer-default-shrink-to-minimum-size nil)
+            (setq ibuffer-use-other-window nil)
+            (setq ibuffer-display-summary nil)
+            (ibuffer-auto-mode 1)))
