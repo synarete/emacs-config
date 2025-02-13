@@ -119,9 +119,6 @@
 (setq-default display-fill-column-indicator-column 80)
 (add-hook 'prog-mode-hook #'display-fill-column-indicator-mode)
 
-;; Match parentheses with built-in electric-pair
-(add-hook 'prog-mode-hook #'electric-pair-mode)
-
 ;; Enable spell-checker for text and prog mode
 (add-hook 'text-mode-hook 'flyspell-mode)
 (add-hook 'prog-mode-hook 'flyspell-prog-mode)
