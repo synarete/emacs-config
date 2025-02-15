@@ -133,6 +133,7 @@
 
 ;; C style
 (defun my-c-mode-style ()
+  (c-set-style "linux")
   (setq c-basic-offset 8)
   (setq c-indent-level 8)
   (setq tab-width 8)
