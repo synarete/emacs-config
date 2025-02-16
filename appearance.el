@@ -16,6 +16,9 @@
 ;; Hide the scroll bar
 (scroll-bar-mode 0)
 
+;; Do not display load average in mode line
+(setq display-time-default-load-average nil)
+
 ;; Beaconize active position
 (beacon-mode 1)
 (setq beacon-size 12)
@@ -65,12 +68,11 @@
   (set-face-foreground 'line-number-current-line "honeydew4"))
 
 ;; Darker line between vertical splits
-(set-face-background 'vertical-border "#0a0e04")
+(set-face-background 'vertical-border "#0a0e14")
 (set-face-foreground 'vertical-border (face-background 'vertical-border))
 
-;; Use window-divider for some space in between
-(when (display-graphic-p)
-  (setq window-divider-default-right-width 6))
+;; Minimal window-divider
+(setq window-divider-default-right-width 4)
 (window-divider-mode)
 
 ;;;; Default font in gui mode
