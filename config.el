@@ -6,6 +6,9 @@
 ;; Dedicated custom file
 (setq custom-file (expand-file-name "custom.el" user-emacs-directory))
 
+;; Don't tell user when doing GC
+(setq garbage-collection-messages nil)
+
 ;; Skip the startup screen
 (setq-default inhibit-startup-screen t)
 
@@ -15,7 +18,7 @@
 ;; Do not create #auto-save# files
 (setq auto-save-default nil)
 
-;; Start with (almost) empty scratch buffer
+;; Only emacs version in scratch buffer
 (setq initial-scratch-message
       (format ";; Emacs %d.%d" emacs-major-version emacs-minor-version))
 
