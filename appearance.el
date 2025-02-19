@@ -68,12 +68,14 @@
   (set-face-foreground 'line-number-current-line "honeydew4"))
 
 ;; Darker line between vertical splits
-(set-face-background 'vertical-border "#0a0e14")
-(set-face-foreground 'vertical-border (face-background 'vertical-border))
+(when (display-graphic-p)
+  (set-face-background 'vertical-border "#0a0e14")
+  (set-face-foreground 'vertical-border (face-background 'vertical-border)))
 
 ;; Minimal window-divider
-(setq window-divider-default-right-width 4)
-(window-divider-mode)
+(when (display-graphic-p)
+  (setq window-divider-default-right-width 4)
+  (window-divider-mode))
 
 ;;;; Default font in gui mode
 (when (display-graphic-p)
