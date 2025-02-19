@@ -124,8 +124,11 @@
 (use-package flyspell
   :ensure t
   :defer 2)
-  
-;; Mail client with mu4e
-(use-package mu4e
+
+;; Mail with GNUS
+(use-package gnus
   :ensure nil
-  :defer 2)  
+  :config
+  (require 'gnus-sum)
+  (require 'gnus-dired)
+  (require 'gnus-topic))

@@ -228,3 +228,5 @@
             (setq ibuffer-use-other-window nil)
             (setq ibuffer-display-summary nil)
             (ibuffer-auto-mode 1)))
+                        
+            
