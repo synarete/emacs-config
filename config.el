@@ -35,26 +35,6 @@
 (set-clipboard-coding-system 'utf-8)
 (set-buffer-file-coding-system 'utf-8)
 
-;; Highlight matching parantheses when the point is on them
-(show-paren-mode 1)
-(setq show-paren-delay 0)
-
-;; Highlight the marked region.
-(setq-default transient-mark-mode t)
-
-;; Highlight text selection
-(transient-mark-mode 1)
-
-;; Highligh current line unless in special-mode
-(add-hook 'after-change-major-mode-hook
-          (lambda ()
-            (hl-line-mode
-             (if (or (derived-mode-p 'shell-mode)
-                     (equal major-mode 'term-mode)
-                     (equal major-mode 'gud-mode)
-                     (equal major-mode 'minibuffer-mode))
-                 0 1))))
-
 ;; Display buffer-size
 (size-indication-mode)
 

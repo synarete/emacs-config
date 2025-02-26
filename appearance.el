@@ -31,6 +31,31 @@
 (add-to-list 'initial-frame-alist '(internal-border-width . 8))
 (add-to-list 'default-frame-alist '(internal-border-width . 8))
 
+;;;; Hightlights
+
+;; Highlight matching parantheses when the point is on them
+(show-paren-mode 1)
+(setq show-paren-delay 0)
+
+;; Highlight the marked region.
+(setq-default transient-mark-mode t)
+
+;; Highlight text selection
+(transient-mark-mode 1)
+
+;; Keep syntax highlighting in the current line
+(set-face-foreground 'highlight nil)
+
+;; Highligh current line unless in special-mode
+(add-hook 'after-change-major-mode-hook
+          (lambda ()
+            (hl-line-mode
+             (if (or (derived-mode-p 'shell-mode)
+                     (equal major-mode 'term-mode)
+                     (equal major-mode 'gud-mode)
+                     (equal major-mode 'minibuffer-mode))
+                 0 1))))
+
 ;;;; Prog-mode visuals
 
 ;; Extend margins in prog-mode
