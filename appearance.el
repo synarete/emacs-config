@@ -47,12 +47,15 @@
     ;;(setq whitespace-style '(face empty trailing tab-mark))
     (setq whitespace-display-mappings
           '(
-            ;; (space-mark 32 [183] [46])
+            (space-mark 32 [183] [46])
             (tab-mark 9 [187 9] [92 9])
             ))
-    (set-face-attribute 'whitespace-tab nil :background nil)
-    (set-face-attribute 'whitespace-space-after-tab nil :foreground nil)
-    (set-face-attribute 'whitespace-space-after-tab nil :background nil)
+    (set-face-attribute 'whitespace-tab nil
+                        :background nil :foreground "gray16")
+    (set-face-attribute 'whitespace-space nil
+                        :background nil :foreground "gray16")
+    (set-face-attribute 'whitespace-space-after-tab nil
+                        :background nil :foreground "gray16")
     (whitespace-mode)))
 
 (add-hook 'prog-mode-hook 'my-whitespace-style)
