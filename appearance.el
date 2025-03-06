@@ -72,7 +72,7 @@
     ;;(setq whitespace-style '(face empty trailing tab-mark))
     (setq whitespace-display-mappings
           '(
-            (space-mark 32 [183] [46])
+            ;; (space-mark 32 [183] [46])
             (tab-mark 9 [187 9] [92 9])
             ))
     (set-face-attribute 'whitespace-tab nil
