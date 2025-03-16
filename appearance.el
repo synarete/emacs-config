@@ -76,11 +76,11 @@
             (tab-mark 9 [187 9] [92 9])
             ))
     (set-face-attribute 'whitespace-tab nil
-                        :background nil :foreground "gray16")
+                        :background nil :foreground "gray19")
     (set-face-attribute 'whitespace-space nil
-                        :background nil :foreground "gray16")
+                        :background nil :foreground "gray19")
     (set-face-attribute 'whitespace-space-after-tab nil
-                        :background nil :foreground "gray16")
+                        :background nil :foreground "gray19")
     (whitespace-mode)))
 
 (add-hook 'prog-mode-hook 'my-whitespace-style)
@@ -92,7 +92,7 @@
 ;; Improve theme in graphic mode
 (when (display-graphic-p)
   (set-background-color "#131517")
-  (set-face-foreground 'line-number "gray17")
+  (set-face-foreground 'line-number "gray13")
   (set-face-foreground 'line-number-current-line "honeydew4"))
 
 ;; Darker line between vertical splits
