@@ -196,7 +196,11 @@
                   (mode . emacs-lisp-mode)))
          ("Shell" (mode . sh-mode))
          ("Text" (mode . text-mode))
-         ("Term" (mode . term-mode))
+         ("Term" (or
+                  (mode . term-mode)
+                  (mode . shell-mode)
+                  (mode . eshell-mode)
+                  ))
          ("Magit" (name . "^magit"))
          ))))
 
