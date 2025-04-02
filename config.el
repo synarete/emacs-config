@@ -102,6 +102,9 @@
 (setq-default display-fill-column-indicator-column 80)
 (add-hook 'prog-mode-hook #'display-fill-column-indicator-mode)
 
+;; Isearch settings
+(setq isearch-lazy-count t)
+
 ;; Enable spell-checker for text and prog mode
 (add-hook 'text-mode-hook 'flyspell-mode)
 (add-hook 'prog-mode-hook 'flyspell-prog-mode)
@@ -117,6 +120,7 @@
 ;; C style
 (defun my-c-mode-style ()
   (c-set-style "linux")
+  (c-set-offset 'substatement-open 0)
   (setq c-basic-offset 8)
   (setq c-indent-level 8)
   (setq tab-width 8)
