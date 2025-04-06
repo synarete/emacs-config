@@ -16,6 +16,10 @@
 ;; Hide the scroll bar
 (scroll-bar-mode 0)
 
+;; Cursor type (thin)
+(when (display-graphic-p)
+  (setq-default cursor-type 'bar))
+
 ;; Do not display load average in mode line
 (setq display-time-default-load-average nil)
 
