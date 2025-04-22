@@ -155,6 +155,7 @@
             (setq lsp-modeline-diagnostics-enable nil)
             (setq lsp-headerline-breadcrumb-enable nil)
             (setq lsp-semantic-tokens-enable nil)
+            (setq lsp-diagnostics-provider :none)
             (setq lsp-enable-folding nil)
             (setq lsp-enable-imenu nil)
             (setq lsp-enable-snippet nil)
@@ -176,6 +177,8 @@
             (setq lsp-ui-doc-header t)
             (setq lsp-ui-doc-include-signature t)
             (setq lsp-ui-doc-border (face-foreground 'default))
+            (setq lsp-ui-doc-show-with-mouse nil)
+            (setq lsp-ui-sideline-enable nil)
             (setq lsp-ui-sideline-show-code-actions t)
             (setq lsp-ui-sideline-delay 0.1)))
 
