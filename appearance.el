@@ -1,11 +1,12 @@
 ;;; appearance.el -- Update emacs appearance and theme
 (message "[ Update emacs appearance (user: %s) ]" (user-login-name))
 
-;; Time format (graphic-mode only)
+;; Time format
 (setq display-time-day-and-date t)
 (setq display-time-24hr-format t)
-(when (display-graphic-p)
-  (display-time))
+(setq display-time-string-forms
+      '((propertize (format-time-string "%R %p" now) 'face 'bold)))
+(display-time)
 
 ;; Hide the tool bar
 (tool-bar-mode 0)
