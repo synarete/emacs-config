@@ -1,6 +1,10 @@
 ;;; appearance.el -- Update emacs appearance and theme
 (message "[ Update emacs appearance (user: %s) ]" (user-login-name))
 
+;; Full-screen by default
+(when (display-graphic-p)
+  (toggle-frame-fullscreen))
+
 ;; Time format
 (setq display-time-day-and-date t)
 (setq display-time-24hr-format t)
