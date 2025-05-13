@@ -10,7 +10,7 @@
 (require 'make-mode)
 (require 'sh-script)
 (require 'xref)
-(require 'eglot)
+;; (require 'eglot)
 (require 'eldoc)
 (require 'bind-key)
 (require 'package)
@@ -18,7 +18,9 @@
 (add-to-list 'package-archives
              '("melpa" . "https://melpa.org/packages/")
              '("melpa-stable" . "https://stable.melpa.org/packages/"))
-(package-initialize)
+(when (< emacs-major-version 27)
+  (package-initialize))
+
 
 ;;; Extra packages
 
@@ -126,9 +128,9 @@
   :defer 2)
 
 ;; Mail with GNUS
-(use-package gnus
-  :ensure nil
-  :config
-  (require 'gnus-sum)
-  (require 'gnus-dired)
-  (require 'gnus-topic))
+;;(use-package gnus
+;;  :ensure nil
+;;  :config
+;;  (require 'gnus-sum)
+;;  (require 'gnus-dired)
+;;  (require 'gnus-topic))
