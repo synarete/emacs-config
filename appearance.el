@@ -85,11 +85,11 @@
             (tab-mark 9 [187 9] [92 9])
             ))
     (set-face-attribute 'whitespace-tab nil
-                        :background nil :foreground "gray19")
+                        :background 'unspecified :foreground "gray19")
     (set-face-attribute 'whitespace-space nil
-                        :background nil :foreground "gray19")
+                        :background 'unspecified :foreground "gray19")
     (set-face-attribute 'whitespace-space-after-tab nil
-                        :background nil :foreground "gray19")
+                        :background 'unspecified :foreground "gray19")
     (whitespace-mode)))
 
 (add-hook 'prog-mode-hook 'my-whitespace-style)
