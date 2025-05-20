@@ -56,9 +56,6 @@
 (transient-mark-mode 1)
 (setq cua-keep-region-after-copy t)
 
-;; Magit
-(global-set-key (kbd "C-x g") 'magit-status)
-
 ;; Terminal
 (defun my-term ()
   (interactive)

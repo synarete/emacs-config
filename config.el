@@ -208,7 +208,6 @@
                   (mode . shell-mode)
                   (mode . eshell-mode)
                   ))
-         ("Magit" (name . "^magit"))
          ))))
 
 (add-hook 'ibuffer-mode-hook
