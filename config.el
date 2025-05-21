@@ -44,6 +44,9 @@
 ;; Revert buffers when underlying file changed
 (global-auto-revert-mode t)
 
+;; Disable version control
+(setq vc-handled-backends nil)
+
 ;;; Behaviour configs
 
 ;; No beep
