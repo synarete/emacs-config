@@ -11,7 +11,7 @@
 (require 'sh-script)
 (require 'xref)
 ;; (require 'eglot)
-(require 'eldoc)
+;; (require 'eldoc)
 (require 'bind-key)
 (require 'package)
 
