@@ -5,3 +5,4 @@
 (load (concat user-emacs-directory "keybind.el"))
 (load (concat user-emacs-directory "appearance.el"))
 ;; (load (concat user-emacs-directory "mail.el"))
+(load (concat user-emacs-directory "finally.el"))
