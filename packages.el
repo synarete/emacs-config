@@ -1,5 +1,4 @@
-;;; packages.el -- Using extra emacs packages
-(message "[ Setup emacs packages (user: %s) ]" (user-login-name))
+;;; packages.el -- Default packages settings -*- lexical-binding: t; -*-
 
 ;;; Built-in packages
 

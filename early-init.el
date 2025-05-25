@@ -1,5 +1,5 @@
 ;;; early-init.el --- Start-up settings -*- lexical-binding: t; -*-
-(message "[ Early init emacs (user: %s) ]" (user-login-name))
+(message "[ Early init (user: %s) ]" (user-login-name))
 
 ;; Increase default garbage collection thresholds for startup
 (setq gc-cons-threshold (* 64 1024 1024))

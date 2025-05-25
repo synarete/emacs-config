@@ -1,5 +1,4 @@
-;;; config.el -- User specific emacs configuration
-(message "[ Configure emacs behaviour (user: %s) ]" (user-login-name))
+;;; config.el -- User specific configuration -*- lexical-binding: t; -*-
 
 ;;;; Common configs
 

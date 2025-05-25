@@ -1,4 +1,4 @@
-;;; keybind.el -- Private Emacs key-binding
+;;; keybind.el -- My key-binding -*- lexical-binding: t; -*-
 
 ;; Delete TABs the normal way
 (setq backward-delete-char-untabify-method nil)

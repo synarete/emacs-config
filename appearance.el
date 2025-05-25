@@ -1,5 +1,4 @@
-;;; appearance.el -- Update emacs appearance and theme
-(message "[ Update emacs appearance (user: %s) ]" (user-login-name))
+;;; appearance.el -- Update appearance and theme -*- lexical-binding: t; -*-
 
 ;; Full-screen by default
 (when (display-graphic-p)
