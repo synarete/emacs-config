@@ -122,11 +122,7 @@
 ;; C style
 (defun my-c-mode-style ()
   (c-set-style "linux")
-  (c-set-offset 'substatement-open 0)
-  (setq c-basic-offset 8)
-  (setq c-indent-level 8)
-  (setq tab-width 8)
-  (setq indent-tabs-mode t))
+  (setq c-indent-level 8 tab-width 8))
 
 (add-to-list 'c-mode-common-hook 'my-c-mode-style)
 
