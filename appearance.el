@@ -8,7 +8,7 @@
 (setq display-time-day-and-date t)
 (setq display-time-24hr-format t)
 (setq display-time-string-forms
-      '((propertize (format-time-string "%I:%M %p" now) 'face 'bold)))
+      '((propertize (format-time-string "%I:%M %p " now) 'face 'bold)))
 (display-time)
 
 ;; Hide the tool bar
