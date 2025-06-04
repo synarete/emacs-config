@@ -75,15 +75,6 @@
   (setq lsp-keymap-prefix "C-l")
   :commands lsp lsp-deferred)
 
-;; Use Doom-Emacs' themes
-;; https://github.com/doomemacs/themes
-(use-package doom-themes
-  :ensure t
-  :defer 1
-  :custom
-  (doom-themes-enable-bold nil)
-  (doom-themes-enable-italic nil))
-
 ;; Projects via projectile
 ;; https://github.com/bbatsov/projectile
 (use-package projectile
@@ -133,3 +124,20 @@
 ;;  (require 'gnus-sum)
 ;;  (require 'gnus-dired)
 ;;  (require 'gnus-topic))
+
+;; Use Doom emacs themes
+;; https://github.com/doomemacs/themes
+(use-package doom-themes
+  :ensure t
+  :defer 1
+  :custom
+  (doom-themes-enable-bold nil)
+  (doom-themes-enable-italic nil))
+
+;; Use Doom emacs mode-line
+;; https://github.com/seagle0128/doom-modeline
+(use-package doom-modeline
+  :ensure t
+  :defer 1)
+
+

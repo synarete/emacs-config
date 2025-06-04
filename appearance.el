@@ -117,3 +117,16 @@
 (when (display-graphic-p)
   ;; (add-to-list 'default-frame-alist '(font . "Monospace 12"))
   (add-to-list 'default-frame-alist '(font . "Source Code Pro 13")))
+  
+;;;; Mode-line
+;; https://github.com/seagle0128/doom-modeline?tab=readme-ov-file#customize
+(doom-modeline-mode 1)
+(setq doom-modeline-bar-width 0)
+(setq doom-modeline-buffer-file-name-style 'relative-to-project)
+(setq doom-modeline-icon nil)
+(setq doom-modeline-major-mode-icon nil)
+(setq doom-modeline-time-icon nil)
+(setq doom-modeline-time-live-icon nil)
+(setq doom-modeline-battery nil)
+(setq doom-modeline-env-version nil)
+
