@@ -95,7 +95,8 @@
 
 ;;;; Theme
 ;; Start with nice base theme
-(load-theme 'doom-sourcerer t)
+;; (load-theme 'doom-sourcerer t)
+(load-theme 'doom-opera t)
 
 ;; Improve theme in graphic mode
 (when (display-graphic-p)
@@ -129,3 +130,6 @@
 (setq doom-modeline-time-live-icon nil)
 (setq doom-modeline-battery nil)
 (setq doom-modeline-env-version nil)
+
+;; Use nord0 color for active mode-line
+(set-face-background #'mode-line "#2e3440")
