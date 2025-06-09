@@ -23,7 +23,6 @@ Run emacs and add few extra packages manually:
   M-x package-initialize
   M-x package-refresh-contents
   M-x package-install RET treemacs-projectile
-  M-x package-install RET lsp-mode
   M-x package-install RET lsp-ui
   ...
 ```
