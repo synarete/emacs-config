@@ -95,7 +95,6 @@
 
 ;;;; Theme
 ;; Start with nice base theme
-;; (load-theme 'doom-sourcerer t)
 (load-theme 'doom-opera t)
 
 ;; Improve theme in graphic mode
