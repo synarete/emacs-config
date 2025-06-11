@@ -184,6 +184,7 @@
 (require 'gud)
 (setq gdb-show-main t)
 (setq gdb-restore-window-configuration-after-quit t)
+(setq gdb-display-io-nopopup t)
 (setq gdb-many-windows t)
 
 ;;; IBuffer settings & layout
@@ -199,13 +200,25 @@
                   (mode . scheme-mode)
                   (mode . lisp-mode)
                   (mode . emacs-lisp-mode)))
+         ("Debug" (or
+                   (mode . gud-mode)
+                   (mode . gud-tooltip-mode)
+                   (mode . gdb-breakpoints-mode)
+                   (mode . gdb-disassembly-mode)
+                   (mode . gdb-frames-mode)
+                   (mode . gdb-inferior-io-mode)
+                   (mode . gdb-locals-mode)
+                   (mode . gdb-memory-mode)
+                   (mode . gdb-registers-mode)
+                   (mode . gdb-script-mode)
+                   (mode . gdb-threads-mode)
+                   ))
          ("Shell" (mode . sh-mode))
          ("Text" (mode . text-mode))
          ("Term" (or
                   (mode . term-mode)
                   (mode . shell-mode)
-                  (mode . eshell-mode)
-                  ))
+                  (mode . eshell-mode)))
          ))))
 
 (add-hook 'ibuffer-mode-hook
