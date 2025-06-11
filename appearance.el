@@ -95,7 +95,9 @@
 
 ;;;; Theme
 ;; Start with nice base theme
-(load-theme 'doom-opera t)
+(if (display-graphic-p)
+    (load-theme 'doom-opera t)
+    (load-theme 'doom-sourcerer t))
 
 ;; Improve theme in graphic mode
 (when (display-graphic-p)
