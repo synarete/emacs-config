@@ -25,6 +25,7 @@
 /projectile-bookmarks.eld
 /places
 /eln-cache
+/tramp
 
 # Custom variables local file
 /custom.el
