@@ -132,5 +132,10 @@
 (setq doom-modeline-battery nil)
 (setq doom-modeline-env-version nil)
 
-;; Use nord0 color for active mode-line
-(set-face-background #'mode-line "#2e3440")
+;; Box mode-line + nord0 color for active
+(set-face-attribute 'mode-line nil
+                    :box '(:line-width 2 :color "#2e3440")
+                    :background "#2e3440")
+
+(set-face-attribute 'mode-line-inactive nil
+                    :box '(:line-width 2 :color "#222224"))
