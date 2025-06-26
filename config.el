@@ -79,7 +79,7 @@
 ;; Compilation settings
 (setq-default compilation-always-kill t)
 (setq-default compilation-ask-about-save nil)
-(setq-default compilation-scroll-output t)
+(setq-default compilation-scroll-output 'first-error)
 
 ;;; Programming configs
 
