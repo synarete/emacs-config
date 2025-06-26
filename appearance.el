@@ -1,9 +1,5 @@
 ;;; appearance.el -- Update appearance and theme -*- lexical-binding: t; -*-
 
-;; Full-screen by default
-(when (display-graphic-p)
-  (toggle-frame-fullscreen))
-
 ;; Time format
 (setq display-time-day-and-date t)
 (setq display-time-24hr-format t)
@@ -19,10 +15,6 @@
 
 ;; Hide the scroll bar
 (scroll-bar-mode 0)
-
-;; Cursor type (thin)
-(when (display-graphic-p)
-  (setq-default cursor-type 'bar))
 
 ;; Do not display load average in mode line
 (setq display-time-default-load-average nil)
@@ -68,8 +60,8 @@
 
 ;; Extend margins in prog-mode
 (defun my-set-margins ()
-  (setq left-margin-width 3)
-  (setq right-margin-width 3))
+  (setq left-margin-width 2)
+  (setq right-margin-width 2))
 
 (add-hook 'prog-mode-hook 'my-set-margins)
 
@@ -95,30 +87,7 @@
 
 ;;;; Theme
 ;; Start with nice base theme
-(if (display-graphic-p)
-    (load-theme 'doom-opera t)
-    (load-theme 'doom-sourcerer t))
-
-;; Improve theme in graphic mode
-(when (display-graphic-p)
-  (set-background-color "#131517")
-  (set-face-foreground 'line-number "gray13")
-  (set-face-foreground 'line-number-current-line "honeydew4"))
-
-;; Darker line between vertical splits
-(when (display-graphic-p)
-  (set-face-background 'vertical-border "#0a0e14")
-  (set-face-foreground 'vertical-border (face-background 'vertical-border)))
-
-;; Minimal window-divider
-(when (display-graphic-p)
-  (setq window-divider-default-right-width 4)
-  (window-divider-mode))
-
-;;;; Default font in gui mode
-(when (display-graphic-p)
-  ;; (add-to-list 'default-frame-alist '(font . "Monospace 12"))
-  (add-to-list 'default-frame-alist '(font . "Source Code Pro 13")))
+(load-theme 'doom-sourcerer t)
 
 ;;;; Mode-line
 ;; https://github.com/seagle0128/doom-modeline?tab=readme-ov-file#customize
@@ -132,10 +101,6 @@
 (setq doom-modeline-battery nil)
 (setq doom-modeline-env-version nil)
 
-;; Box mode-line + nord0 color for active
-(set-face-attribute 'mode-line nil
-                    :box '(:line-width 2 :color "#2e3440")
-                    :background "#2e3440")
-
-(set-face-attribute 'mode-line-inactive nil
-                    :box '(:line-width 2 :color "#222224"))
+;;;; Graphic mode specifics
+(when (display-graphic-p)
+  (load (concat user-emacs-directory "appearance-graphic.el")))
