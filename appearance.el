@@ -19,10 +19,6 @@
 ;; Do not display load average in mode line
 (setq display-time-default-load-average nil)
 
-;; Beaconize active position
-(beacon-mode 1)
-(setq beacon-size 12)
-
 ;; Practical frame-size
 (setq frame-inhibit-implied-resize t)
 (setq default-frame-alist '((width . 120) (height . 48)))

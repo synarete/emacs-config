@@ -1,10 +1,7 @@
 ;;; appearance-graphic.el   -*- lexical-binding: t; -*-
 
 ;; Full-screen by default
-(toggle-frame-fullscreen)
-
-;; Cursor type (thin bar)
-(setq-default cursor-type 'bar)
+;; (toggle-frame-fullscreen)
 
 ;;;; Theme
 ;; Start with nice base theme
@@ -35,3 +32,13 @@
 
 (set-face-attribute 'mode-line-inactive nil
                     :box '(:line-width 2 :color "#222224"))
+
+;;;; Cursor
+(setq-default cursor-type 'box)
+(setq blink-cursor-interval .5)
+(setq blink-cursor-blinks 5)
+(set-cursor-color "gray")
+
+;; Beaconize active position
+(beacon-mode 1)
+(setq beacon-size 16)
