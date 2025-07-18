@@ -49,12 +49,6 @@
 ;;  :ensure t
 ;;  :defer 2)
 
-;; Beacon
-;; https://github.com/Malabarba/beacon
-(use-package beacon
-  :ensure t
-  :defer 2)
-
 ;; Scheme/Guile development
 ;; https://www.nongnu.org/geiser/
 (use-package geiser

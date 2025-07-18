@@ -38,7 +38,3 @@
 (setq blink-cursor-interval .5)
 (setq blink-cursor-blinks 5)
 (set-cursor-color "gray")
-
-;; Beaconize active position
-(beacon-mode 1)
-(setq beacon-size 16)
