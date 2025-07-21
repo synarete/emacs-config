@@ -19,10 +19,6 @@
 ;; Do not display load average in mode line
 (setq display-time-default-load-average nil)
 
-;; Practical frame-size
-(setq frame-inhibit-implied-resize t)
-(setq default-frame-alist '((width . 120) (height . 48)))
-
 ;; Add border inside frames
 (add-to-list 'initial-frame-alist '(internal-border-width . 8))
 (add-to-list 'default-frame-alist '(internal-border-width . 8))

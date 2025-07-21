@@ -1,5 +1,11 @@
 ;;; appearance-graphic.el   -*- lexical-binding: t; -*-
 
+;; Practical frame-size
+(setq frame-inhibit-implied-resize t)
+(setq default-frame-alist
+      '((width . 120)
+        (height . 40)))
+
 ;; Full-screen by default
 ;; (toggle-frame-fullscreen)
 
@@ -35,6 +41,8 @@
 
 ;;;; Cursor
 (setq-default cursor-type 'box)
-(setq blink-cursor-interval .5)
-(setq blink-cursor-blinks 5)
 (set-cursor-color "gray")
+(blink-cursor-mode 1)
+(setq blink-cursor-interval .7)
+(setq blink-cursor-blinks 7)
+
