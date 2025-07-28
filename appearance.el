@@ -77,6 +77,10 @@
 
 (add-hook 'prog-mode-hook 'my-whitespace-style)
 
+;;;; Window
+;; Split window proportionally
+(setq window-combination-resize t)
+
 ;;;; Theme
 ;; Start with nice base theme
 (load-theme 'doom-sourcerer t)
