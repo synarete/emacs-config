@@ -36,7 +36,6 @@
 (global-set-key (kbd "C-f") 'isearch-forward-symbol-at-point)
 (define-key isearch-mode-map (kbd "C-f") 'isearch-repeat-forward)
 
-
 ;; Window switching
 (windmove-default-keybindings 'control)
 
@@ -46,6 +45,9 @@
 (global-set-key (kbd "C-S-<right>") 'enlarge-window-horizontally)
 (global-set-key (kbd "C-S-<down>") 'shrink-window)
 (global-set-key (kbd "C-S-<up>") 'enlarge-window)
+
+;; Window-minimize using same Ctrl-F11
+(global-set-key (kbd "C-<f11>") 'suspend-frame)
 
 ;; Yank with middle mouse
 (setq mouse-yank-at-point t)
