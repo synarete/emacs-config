@@ -111,14 +111,6 @@
   :ensure t
   :defer 2)
 
-;; Mail with GNUS
-;;(use-package gnus
-;;  :ensure nil
-;;  :config
-;;  (require 'gnus-sum)
-;;  (require 'gnus-dired)
-;;  (require 'gnus-topic))
-
 ;; Use Doom emacs themes
 ;; https://github.com/doomemacs/themes
 (use-package doom-themes
