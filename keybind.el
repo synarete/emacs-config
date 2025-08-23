@@ -3,6 +3,9 @@
 ;; Delete TABs the normal way
 (setq backward-delete-char-untabify-method nil)
 
+;; Yank with middle mouse
+(setq mouse-yank-at-point t)
+
 ;; Save
 (global-set-key (kbd "C-x s") 'save-buffer)
 
@@ -40,17 +43,14 @@
 (windmove-default-keybindings 'control)
 
 ;; Window resize
-;; https://www.emacswiki.org/emacs/WindowResize
 (global-set-key (kbd "C-S-<left>") 'shrink-window-horizontally)
 (global-set-key (kbd "C-S-<right>") 'enlarge-window-horizontally)
 (global-set-key (kbd "C-S-<down>") 'shrink-window)
 (global-set-key (kbd "C-S-<up>") 'enlarge-window)
 
-;; Window-minimize using same Ctrl-F11
-(global-set-key (kbd "C-<f11>") 'suspend-frame)
-
-;; Yank with middle mouse
-(setq mouse-yank-at-point t)
+;; Cycle buffers
+(global-set-key (kbd "S-<left>") 'previous-buffer)
+(global-set-key (kbd "S-<right>") 'next-buffer)
 
 ;; Use cua-mode
 (cua-mode t)
