@@ -76,10 +76,12 @@
 ;; Don't Lock Files
 (setq-default create-lockfiles nil)
 
-;; Compilation settings
-(setq-default compilation-always-kill t)
-(setq-default compilation-ask-about-save nil)
-(setq-default compilation-scroll-output 'first-error)
+;; Kill active processes upon exit, without promt
+(setq confirm-kill-processes nil)
+
+;; Use ido
+(require 'ido)
+(ido-mode t)
 
 ;;; Programming configs
 
@@ -133,6 +135,11 @@
           (lambda ()
             (setq sh-basic-offset 2)
             (setq sh-indentation 2)))
+
+;;; Compilation settings
+(setq-default compilation-always-kill t)
+(setq-default compilation-ask-about-save nil)
+(setq-default compilation-scroll-output 'first-error)
 
 ;;; Flymake
 (require 'flymake)

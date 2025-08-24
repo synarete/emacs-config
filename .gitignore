@@ -26,6 +26,7 @@
 /places
 /eln-cache
 /tramp
+/ido.last
 
 # Custom variables local file
 /custom.el

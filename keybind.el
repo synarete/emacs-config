@@ -49,8 +49,9 @@
 (global-set-key (kbd "C-S-<up>") 'enlarge-window)
 
 ;; Cycle buffers
-(global-set-key (kbd "S-<left>") 'previous-buffer)
-(global-set-key (kbd "S-<right>") 'next-buffer)
+(when (display-graphic-p)
+  (global-set-key (kbd "M-<left>") 'previous-buffer)
+  (global-set-key (kbd "M-<right>") 'next-buffer))
 
 ;; Use cua-mode
 (cua-mode t)
