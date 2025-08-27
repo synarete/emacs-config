@@ -60,12 +60,11 @@
 (setq cua-keep-region-after-copy t)
 
 ;; Terminal
-(defun my-term ()
+(defun my-switch-to-terminal ()
   (interactive)
-  (message "Terminal")
-  (term "/bin/bash"))
+  (switch-to-buffer "*terminal*"))
 
-(global-set-key (kbd "C-x t") 'my-term)
+(global-set-key (kbd "C-x t") 'my-switch-to-terminal)
 
 ;; Toggle treemacs with F1
 (global-set-key (kbd "<f1>") 'treemacs)

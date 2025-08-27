@@ -214,10 +214,6 @@
                    ))
          ("Shell" (mode . sh-mode))
          ("Text" (mode . text-mode))
-         ("Term" (or
-                  (mode . term-mode)
-                  (mode . shell-mode)
-                  (mode . eshell-mode)))
          ))))
 
 (add-hook 'ibuffer-mode-hook
