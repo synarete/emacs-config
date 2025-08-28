@@ -46,3 +46,10 @@
 (setq blink-cursor-interval .7)
 (setq blink-cursor-blinks 7)
 
+;; Extend margins in term-mode
+(defun my-term-mode-margins ()
+  (setq left-margin-width 2)
+  (setq right-margin-width 2))
+
+(add-hook 'term-mode-hook 'my-term-mode-margins)
+

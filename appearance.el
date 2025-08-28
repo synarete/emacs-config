@@ -51,11 +51,11 @@
 ;;;; Prog-mode visuals
 
 ;; Extend margins in prog-mode
-(defun my-set-margins ()
+(defun my-prog-mode-margins ()
   (setq left-margin-width 2)
   (setq right-margin-width 2))
 
-(add-hook 'prog-mode-hook 'my-set-margins)
+(add-hook 'prog-mode-hook 'my-prog-mode-margins)
 
 ;; Whitespaces
 (defun my-whitespace-style ()
