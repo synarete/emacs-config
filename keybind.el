@@ -73,18 +73,18 @@
 (global-set-key (kbd "<f2>") 'ibuffer)
 
 ;; Build (or clean) project with F3
-(defun my-make-build-default ()
+(defun my-compile-make ()
   (interactive)
   (projectile-with-default-dir (projectile-acquire-root)
     (compile "make")))
 
-(defun my-make-build-clean ()
+(defun my-compile-make-clean ()
   (interactive)
   (projectile-with-default-dir (projectile-acquire-root)
     (compile "make clean")))
 
-(global-set-key (kbd "<f3>") #'my-make-build-default)
-(global-set-key (kbd "C-<f3>") #'my-make-build-clean)
+(global-set-key (kbd "<f3>") #'my-compile-make)
+(global-set-key (kbd "C-<f3>") #'my-compile-make-clean)
 
 ;; Debugging
 (require 'gud)
