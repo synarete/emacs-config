@@ -66,7 +66,7 @@
 ;; Improves mouse & scrolling
 (setq scroll-conservatively 101)
 (setq scroll-preserve-screen-position 1)
-(setq scroll-margin 1)
+(setq scroll-margin 0) ; 1-line margin is too much, display space is scarce
 (setq mouse-wheel-follow-mouse t)
 
 ;; Simpler dired buffers
