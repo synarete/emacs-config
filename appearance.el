@@ -39,14 +39,16 @@
 (set-face-foreground 'highlight nil)
 
 ;; Highligh current line unless in special-mode
-(add-hook 'after-change-major-mode-hook
-          (lambda ()
-            (hl-line-mode
-             (if (or (derived-mode-p 'shell-mode)
-                     (equal major-mode 'term-mode)
-                     (equal major-mode 'gud-mode)
-                     (equal major-mode 'minibuffer-mode))
-                 0 1))))
+(defun my-hl-line ()
+  (hl-line-mode
+   (if (or
+        (derived-mode-p 'shell-mode)
+        (equal major-mode 'term-mode)
+        (equal major-mode 'gud-mode)
+        (equal major-mode 'minibuffer-mode))
+       0 1)))
+
+(add-hook 'after-change-major-mode-hook #'my-hl-line)
 
 ;;;; Prog-mode visuals
 
