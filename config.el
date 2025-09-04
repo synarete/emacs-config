@@ -125,16 +125,17 @@
 ;; C style
 (defun my-c-mode-style ()
   (c-set-style "linux")
-  (setq c-indent-level 8 tab-width 8))
+  (setq c-indent-level 8)
+  (setq tab-width 8))
 
-(add-to-list 'c-mode-common-hook 'my-c-mode-style)
+(add-to-list 'c-mode-common-hook #'my-c-mode-style)
 
-;; Shell script style
-;; See: https://google.github.io/styleguide/shellguide.html
-(add-hook 'sh-mode-hook
-          (lambda ()
-            (setq sh-basic-offset 2)
-            (setq sh-indentation 2)))
+;; Shell script style (following Linux kernel convensions)
+(defun my-sh-mode-style ()
+  (setq sh-basic-offset 8)
+  (indent-tabs-mode t))
+
+(add-hook 'sh-mode-hook #'my-sh-mode-style)
 
 ;;; Compilation settings
 (setq-default compilation-always-kill t)
