@@ -75,7 +75,7 @@
                         :background 'unspecified :foreground "gray19")
     (whitespace-mode)))
 
-(add-hook 'prog-mode-hook 'my-whitespace-style)
+(add-hook 'prog-mode-hook #'my-whitespace-style)
 
 ;;;; Window
 ;; Split window proportionally
@@ -96,6 +96,21 @@
 (setq doom-modeline-time-live-icon nil)
 (setq doom-modeline-battery nil)
 (setq doom-modeline-env-version nil)
+
+;;;; Cursor
+(setq-default cursor-type 'box)
+(set-cursor-color "gray")
+
+;; Change cursor color in overwrite mode
+(defun my-cursor-mode ()
+  (if overwrite-mode
+      (set-cursor-color "brown")
+    (set-cursor-color "gray")))
+(add-hook 'overwrite-mode-hook #'my-cursor-mode)
+
+(blink-cursor-mode 1)
+(setq blink-cursor-interval .5)
+(setq blink-cursor-blinks 10)
 
 ;;;; Graphic mode specifics
 (when (display-graphic-p)

@@ -39,13 +39,6 @@
 (set-face-attribute 'mode-line-inactive nil
                     :box '(:line-width 2 :color "#222224"))
 
-;;;; Cursor
-(setq-default cursor-type 'box)
-(set-cursor-color "gray")
-(blink-cursor-mode 1)
-(setq blink-cursor-interval .7)
-(setq blink-cursor-blinks 7)
-
 ;;;; Terminal
 ;; Extend margins in term-mode
 (defun my-term-mode-margins ()
