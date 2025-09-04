@@ -98,10 +98,11 @@
 (add-hook 'prog-mode-hook #'column-number-mode)
 
 ;; Remove trailing whitespaces upon save
-(add-hook 'prog-mode-hook
-          (lambda ()
-            (add-hook 'before-save-hook 'delete-trailing-whitespace)
-            (add-hook 'before-save-hook 'whitespace-cleanup)))
+(defun my-prog-mode-save ()
+  (add-hook 'before-save-hook 'delete-trailing-whitespace)
+  (add-hook 'before-save-hook 'whitespace-cleanup))
+
+(add-hook 'prog-mode-hook #'my-prog-mode-save)
 
 ;; Show column-indicator at 80
 (setq-default display-fill-column-indicator-column 80)
@@ -147,46 +148,46 @@
 (add-hook 'c-mode-hook 'flymake-mode)
 
 ;;; LSP
-(add-hook 'c-mode-hook
-          (lambda ()
-            (setq lsp-auto-guess-root t)
-            (setq lsp-log-io nil)
-            (setq lsp-restart 'auto-restart)
-            (setq lsp-enable-symbol-highlighting nil)
-            (setq lsp-enable-on-type-formatting nil)
-            (setq lsp-signature-auto-activate t)
-            (setq lsp-signature-doc-lines 1)
-            (setq lsp-signature-render-documentation nil)
-            (setq lsp-modeline-code-actions-enable nil)
-            (setq lsp-modeline-diagnostics-enable nil)
-            (setq lsp-headerline-breadcrumb-enable nil)
-            (setq lsp-semantic-tokens-enable nil)
-            (setq lsp-diagnostics-provider :none)
-            (setq lsp-enable-folding nil)
-            (setq lsp-enable-imenu nil)
-            (setq lsp-enable-snippet nil)
-            (setq read-process-output-max (* 1024 1024))
-            (setq lsp-idle-delay 0.5)
-            (setq lsp-clients-clangd-args
-                  '("-j=1"
-                    "--background-index"
-                    "--completion-style=detailed"
-                    "--header-insertion=never"
-                    "--header-insertion-decorators=0"
-                    "--all-scopes-completion"
-                    "--suggest-missing-includes"))
-            ))
+(defun my-lsp-c-mode ()
+  (setq lsp-auto-guess-root t)
+  (setq lsp-log-io nil)
+  (setq lsp-restart 'auto-restart)
+  (setq lsp-enable-symbol-highlighting nil)
+  (setq lsp-enable-on-type-formatting nil)
+  (setq lsp-signature-auto-activate t)
+  (setq lsp-signature-doc-lines 1)
+  (setq lsp-signature-render-documentation nil)
+  (setq lsp-modeline-code-actions-enable nil)
+  (setq lsp-modeline-diagnostics-enable nil)
+  (setq lsp-headerline-breadcrumb-enable nil)
+  (setq lsp-semantic-tokens-enable nil)
+  (setq lsp-diagnostics-provider :none)
+  (setq lsp-enable-folding nil)
+  (setq lsp-enable-imenu nil)
+  (setq lsp-enable-snippet nil)
+  (setq read-process-output-max (* 1024 1024))
+  (setq lsp-idle-delay 0.5)
+  (setq lsp-clients-clangd-args
+        '("-j=1"
+          "--background-index"
+          "--completion-style=detailed"
+          "--header-insertion=never"
+          "--header-insertion-decorators=0"
+          "--all-scopes-completion"
+          "--suggest-missing-includes")))
 
-(add-hook 'c-mode-hook
-          (lambda ()
-            (setq lsp-ui-doc-enable nil)
-            (setq lsp-ui-doc-header t)
-            (setq lsp-ui-doc-include-signature t)
-            (setq lsp-ui-doc-border (face-foreground 'default))
-            (setq lsp-ui-doc-show-with-mouse nil)
-            (setq lsp-ui-sideline-enable nil)
-            (setq lsp-ui-sideline-show-code-actions t)
-            (setq lsp-ui-sideline-delay 0.1)))
+(defun my-lsp-ui-c-mode ()
+  (setq lsp-ui-doc-enable nil)
+  (setq lsp-ui-doc-header t)
+  (setq lsp-ui-doc-include-signature t)
+  (setq lsp-ui-doc-border (face-foreground 'default))
+  (setq lsp-ui-doc-show-with-mouse nil)
+  (setq lsp-ui-sideline-enable nil)
+  (setq lsp-ui-sideline-show-code-actions t)
+  (setq lsp-ui-sideline-delay 0.1))
+
+(add-hook 'c-mode-hook #'my-lsp-c-mode)
+(add-hook 'c-mode-hook #'my-lsp-ui-c-mode)
 
 ;;; IBuffer settings & layout
 (require 'ibuffer)
@@ -217,14 +218,15 @@
          ("Text" (mode . text-mode))
          ))))
 
-(add-hook 'ibuffer-mode-hook
-          (lambda ()
-            (ibuffer-switch-to-saved-filter-groups "default")
-            (setq ibuffer-show-empty-filter-groups nil)
-            (setq ibuffer-default-shrink-to-minimum-size nil)
-            (setq ibuffer-use-other-window nil)
-            (setq ibuffer-display-summary nil)
-            (ibuffer-auto-mode 1)))
+(defun my-ibuffer-mode ()
+  (ibuffer-switch-to-saved-filter-groups "default")
+  (setq ibuffer-show-empty-filter-groups nil)
+  (setq ibuffer-default-shrink-to-minimum-size nil)
+  (setq ibuffer-use-other-window nil)
+  (setq ibuffer-display-summary nil)
+  (ibuffer-auto-mode 1))
+
+(add-hook 'ibuffer-mode-hook #'my-ibuffer-mode)
 
 ;;; Debug with gud and gdb
 (require 'gud)
