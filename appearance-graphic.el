@@ -40,18 +40,11 @@
                     :box '(:line-width 2 :color "#222224"))
 
 ;;;; Terminal
-;; Extend margins in term-mode
-(defun my-term-mode-margins ()
-  (setq left-margin-width 2)
-  (setq right-margin-width 2))
-
-;; Make terminal background a bit darker
-(defun my-term-mode-face-remap ()
-  (face-remap-add-relative 'default '(:background "#121212")))
-
 (defun my-term-mode ()
   (interactive)
-  (my-term-mode-margins)
-  (my-term-mode-face-remap))
+  (setq left-margin-width 2)
+  (setq right-margin-width 2)
+  (set-face-background 'term "black")
+  (face-remap-add-relative 'default '(:background "black")))
 
 (add-hook 'term-mode-hook #'my-term-mode)
