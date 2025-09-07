@@ -9,5 +9,3 @@
 (message "[ Update appearance ]")
 (load (concat user-emacs-directory "appearance.el"))
 (message "[ Final settings ]")
-(load (concat user-emacs-directory "finally.el"))
-(message "[ Done (user: %s) ]" (user-login-name))
