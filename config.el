@@ -194,6 +194,10 @@
 (setq ibuffer-saved-filter-groups
       (quote
        (("default"
+         ("Term" (or
+                  (mode . term-mode)
+                  (mode . shell-mode)
+                  (mode . eshell-mode)))
          ("Code" (or
                   (mode . c-mode)
                   (mode . c++-mode)
@@ -201,6 +205,8 @@
                   (mode . scheme-mode)
                   (mode . lisp-mode)
                   (mode . emacs-lisp-mode)))
+                           ("Shell" (mode . sh-mode))
+         ("Text" (mode . text-mode))
          ("Debug" (or
                    (mode . gud-mode)
                    (mode . gud-tooltip-mode)
@@ -214,8 +220,6 @@
                    (mode . gdb-script-mode)
                    (mode . gdb-threads-mode)
                    ))
-         ("Shell" (mode . sh-mode))
-         ("Text" (mode . text-mode))
          ))))
 
 (defun my-ibuffer-mode ()
