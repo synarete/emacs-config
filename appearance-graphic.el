@@ -44,7 +44,7 @@
   (interactive)
   (setq left-margin-width 2)
   (setq right-margin-width 2)
-  (set-face-background 'term "black")
-  (face-remap-add-relative 'default '(:background "black")))
+  (set-face-background 'term "#080808")
+  (face-remap-add-relative 'default '(:background "#080808")))
 
 (add-hook 'term-mode-hook #'my-term-mode)
