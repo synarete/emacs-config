@@ -39,12 +39,19 @@
 (set-face-attribute 'mode-line-inactive nil
                     :box '(:line-width 2 :color "#222224"))
 
-;;;; Terminal
+;;;; Terminal & Shell
 (defun my-term-mode ()
   (interactive)
   (setq left-margin-width 2)
   (setq right-margin-width 2)
-  (set-face-background 'term "#080808")
+  (set-face-background 'term "black")
+  (face-remap-add-relative 'default '(:background "black")))
+
+(defun my-shell-mode ()
+  (interactive)
+  (setq left-margin-width 2)
+  (setq right-margin-width 2)
   (face-remap-add-relative 'default '(:background "#080808")))
 
 (add-hook 'term-mode-hook #'my-term-mode)
+(add-hook 'shell-mode-hook #'my-shell-mode)

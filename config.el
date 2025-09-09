@@ -194,32 +194,35 @@
 (setq ibuffer-saved-filter-groups
       (quote
        (("default"
-         ("Term" (or
-                  (mode . term-mode)
-                  (mode . shell-mode)
-                  (mode . eshell-mode)))
-         ("Code" (or
-                  (mode . c-mode)
-                  (mode . c++-mode)
-                  (mode . python-mode)
-                  (mode . scheme-mode)
-                  (mode . lisp-mode)
-                  (mode . emacs-lisp-mode)))
-                           ("Shell" (mode . sh-mode))
-         ("Text" (mode . text-mode))
-         ("Debug" (or
-                   (mode . gud-mode)
-                   (mode . gud-tooltip-mode)
-                   (mode . gdb-breakpoints-mode)
-                   (mode . gdb-disassembly-mode)
-                   (mode . gdb-frames-mode)
-                   (mode . gdb-inferior-io-mode)
-                   (mode . gdb-locals-mode)
-                   (mode . gdb-memory-mode)
-                   (mode . gdb-registers-mode)
-                   (mode . gdb-script-mode)
-                   (mode . gdb-threads-mode)
-                   ))
+         ("Shell"
+          (or
+           (mode . shell-mode)
+           (mode . term-mode)
+           (mode . eshell-mode)))
+         ("Code"
+          (or
+           (mode . c-mode)
+           (mode . c++-mode)
+           (mode . python-mode)
+           (mode . scheme-mode)
+           (mode . lisp-mode)
+           (mode . emacs-lisp-mode)))
+         ("Text"
+          (mode . text-mode))
+         ("Debug"
+          (or
+           (mode . gud-mode)
+           (mode . gud-tooltip-mode)
+           (mode . gdb-breakpoints-mode)
+           (mode . gdb-disassembly-mode)
+           (mode . gdb-frames-mode)
+           (mode . gdb-inferior-io-mode)
+           (mode . gdb-locals-mode)
+           (mode . gdb-memory-mode)
+           (mode . gdb-registers-mode)
+           (mode . gdb-script-mode)
+           (mode . gdb-threads-mode)
+           ))
          ))))
 
 (defun my-ibuffer-mode ()
