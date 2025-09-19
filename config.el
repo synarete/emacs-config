@@ -88,9 +88,6 @@
 ;; Prevent extraneous Tabs
 (setq-default indent-tabs-mode nil)
 
-;; Indent with TAB only at line's left margine
-(setq tab-always-indent nil)
-
 ;; Display line numbers
 (add-hook 'prog-mode-hook #'display-line-numbers-mode)
 
@@ -126,17 +123,22 @@
 ;; C style
 (defun my-c-mode-style ()
   (c-set-style "linux")
-  (setq c-indent-level 8)
-  (setq tab-width 8))
+  (setq-local c-indent-level 8)
+  (setq-local tab-always-indent t)
+  (setq-local tab-width 8))
 
 (add-to-list 'c-mode-common-hook #'my-c-mode-style)
 
-;; Shell script style (following Linux kernel convensions)
+;; Shell script style (following Linux kernel convention).
 (defun my-sh-mode-style ()
-  (setq sh-basic-offset 8)
-  (indent-tabs-mode t))
+  (setq-local tab-width 8)
+  (setq-local tab-always-indent t)
+  (setq-local sh-basic-offset 8)
+  (setq-local sh-indent-after-continuation 'always)
+  (setq-local indent-tabs-mode t))
 
 (add-hook 'sh-mode-hook #'my-sh-mode-style)
+
 
 ;;; Compilation settings
 (setq-default compilation-always-kill t)
