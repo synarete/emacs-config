@@ -1,10 +1,12 @@
 ;;; appearance-graphic.el   -*- lexical-binding: t; -*-
 
+;;;; Frame
 ;; Practical frame-size
 (setq frame-inhibit-implied-resize t)
-(setq default-frame-alist
-      '((width . 120)
-        (height . 40)))
+(setq default-frame-alist '((width . 120) (height . 40)))
+
+;; Add border inside frames
+(add-to-list 'default-frame-alist '(internal-border-width . 4))
 
 ;; Full-screen by default
 ;; (toggle-frame-fullscreen)
@@ -42,8 +44,6 @@
 ;;;; Terminal
 (defun my-term-mode ()
   (interactive)
-  (setq left-margin-width 2)
-  (setq right-margin-width 2)
   (set-face-background 'term "gray3")
   (face-remap-add-relative 'default '(:background "gray4")))
 

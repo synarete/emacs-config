@@ -19,10 +19,6 @@
 ;; Do not display load average in mode line
 (setq display-time-default-load-average nil)
 
-;; Add border inside frames
-(add-to-list 'initial-frame-alist '(internal-border-width . 8))
-(add-to-list 'default-frame-alist '(internal-border-width . 8))
-
 ;;;; Hightlights
 
 ;; Highlight matching parantheses when the point is on them
@@ -54,8 +50,9 @@
 
 ;; Extend margins in prog-mode
 (defun my-prog-mode-margins ()
-  (setq left-margin-width 2)
-  (setq right-margin-width 2))
+  (interactive)
+  (setq left-margin-width 1)
+  (setq right-margin-width 1))
 
 (add-hook 'prog-mode-hook 'my-prog-mode-margins)
 
