@@ -48,3 +48,17 @@
   (face-remap-add-relative 'default '(:background "gray4")))
 
 (add-hook 'term-mode-hook #'my-term-mode)
+
+;;;; Cursor
+(setq-default cursor-type 'box)
+(set-cursor-color "gray")
+(blink-cursor-mode 1)
+
+;; Change cursor color in overwrite mode
+(defun my-cursor-mode ()
+  (interactive)
+  (if overwrite-mode
+      (set-face-attribute 'cursor nil :background "brown")
+    (set-face-attribute 'cursor nil :background "gray")))
+
+(add-hook 'overwrite-mode-hook #'my-cursor-mode)
