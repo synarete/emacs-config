@@ -205,6 +205,7 @@
           (or
            (mode . c-mode)
            (mode . c++-mode)
+           (mode . shell-script-mode)
            (mode . python-mode)
            (mode . scheme-mode)
            (mode . lisp-mode)
