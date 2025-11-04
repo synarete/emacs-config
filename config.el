@@ -196,20 +196,26 @@
 (setq ibuffer-saved-filter-groups
       (quote
        (("default"
-         ("Shell"
+         ("Terminal"
           (or
-           (mode . shell-mode)
            (mode . term-mode)
+           (mode . shell-mode)
            (mode . eshell-mode)))
-         ("Code"
+         ("C/C++"
           (or
            (mode . c-mode)
-           (mode . c++-mode)
-           (mode . shell-script-mode)
-           (mode . python-mode)
+           (mode . c++-mode)))
+         ("Python"
+          (mode . python-mode))
+         ("List/Scheme"
+          (or
            (mode . scheme-mode)
            (mode . lisp-mode)
            (mode . emacs-lisp-mode)))
+         ("Shell"
+          (or
+           (mode . sh-mode)
+           (mode . shell-script-mode)))
          ("Text"
           (mode . text-mode))
          ("Debug"
@@ -254,6 +260,7 @@
                         window)))
 
 (advice-add 'gdb-set-window-buffer
-            :around (lambda (orig-fun name &optional ignore-dedicated window)
+            :around (lambda
+                      (orig-fun name &optional ignore-dedicated window)
                       (funcall orig-fun name ignore-dedicated window)
                       (set-window-dedicated-p window nil)))
