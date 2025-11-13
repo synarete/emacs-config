@@ -40,7 +40,8 @@
 (define-key isearch-mode-map (kbd "C-f") 'isearch-repeat-forward)
 
 ;; Window switching
-(windmove-default-keybindings 'control)
+;; (windmove-default-keybindings 'control)
+(windmove-default-keybindings 'meta)
 
 ;; Window resize
 (global-set-key (kbd "C-S-<left>") 'shrink-window-horizontally)
@@ -50,8 +51,8 @@
 
 ;; Cycle buffers
 (when (display-graphic-p)
-  (global-set-key (kbd "M-<left>") 'previous-buffer)
-  (global-set-key (kbd "M-<right>") 'next-buffer))
+  (global-set-key (kbd "M-S-<left>") 'previous-buffer)
+  (global-set-key (kbd "M-S-<right>") 'next-buffer))
 
 ;; Use cua-mode
 (cua-mode t)
