@@ -83,7 +83,29 @@
 (require 'ido)
 (ido-mode t)
 
-;;; Programming configs
+;;;; Command-interpreter (Shell and Term)
+;; Use pretty colors in comint-mode
+(ansi-color-for-comint-mode-on)
+
+;; Avoid input duplicates
+(setq comint-input-ignoredups t)
+
+;; Move cursor to end-of-buffer upon input
+(setq comint-move-point-for-output t)
+
+;; Echo input
+(setq comint-process-echoes t)
+
+;; Do not allow erase prompt
+(setq comint-prompt-read-only t)
+
+;; Auto scroll
+(setq comint-scroll-to-bottom-on-input t)
+(setq comint-scroll-to-bottom-on-output t)
+(setq comint-scroll-show-maximum-output t)
+
+
+;;;; Programming configs
 
 ;; Prevent extraneous Tabs
 (setq-default indent-tabs-mode nil)
@@ -140,16 +162,16 @@
 (add-hook 'sh-mode-hook #'my-sh-mode-style)
 
 
-;;; Compilation settings
+;;;; Compilation settings
 (setq-default compilation-always-kill t)
 (setq-default compilation-ask-about-save nil)
 (setq-default compilation-scroll-output 'first-error)
 
-;;; Flymake
+;;;; Flymake
 (require 'flymake)
 (add-hook 'c-mode-hook 'flymake-mode)
 
-;;; LSP
+;;;; LSP
 (defun my-lsp-c-mode ()
   (setq lsp-auto-guess-root t)
   (setq lsp-log-io nil)
@@ -191,12 +213,12 @@
 (add-hook 'c-mode-hook #'my-lsp-c-mode)
 (add-hook 'c-mode-hook #'my-lsp-ui-c-mode)
 
-;;; IBuffer settings & layout
+;;;; IBuffer settings & layout
 (require 'ibuffer)
 (setq ibuffer-saved-filter-groups
       (quote
        (("default"
-         ("Terminal"
+         ("Shell"
           (or
            (mode . term-mode)
            (mode . shell-mode)
@@ -244,7 +266,7 @@
 
 (add-hook 'ibuffer-mode-hook #'my-ibuffer-mode)
 
-;;; Debug with gud and gdb
+;;;; Debugging
 (require 'gud)
 (setq gdb-show-main t)
 (setq gdb-restore-window-configuration-after-quit t)

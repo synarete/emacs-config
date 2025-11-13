@@ -41,13 +41,19 @@
 (set-face-attribute 'mode-line-inactive nil
                     :box '(:line-width 2 :color "#222224"))
 
-;;;; Terminal
+;;;; Shell and Terminal
 (defun my-term-mode ()
   (interactive)
   (set-face-background 'term "gray3")
   (face-remap-add-relative 'default '(:background "gray4")))
 
 (add-hook 'term-mode-hook #'my-term-mode)
+
+(defun my-shell-mode ()
+  (set (make-local-variable 'face-remapping-alist)
+       '((default :background "gray4"))))
+
+(add-hook 'shell-mode-hook #'my-shell-mode)
 
 ;;;; Cursor
 (setq-default cursor-type 'box)
