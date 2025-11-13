@@ -250,17 +250,3 @@
 (setq gdb-restore-window-configuration-after-quit t)
 (setq gdb-display-io-nopopup t)
 (setq gdb-many-windows nil)
-
-;; https://www.emacswiki.org/emacs/GDB-MI
-;; Force gdb-mi to not dedicate any windows
-(advice-add 'gdb-display-buffer
-            :around (lambda (orig-fun &rest r)
-                      (let ((window (apply orig-fun r)))
-                        (set-window-dedicated-p window nil)
-                        window)))
-
-(advice-add 'gdb-set-window-buffer
-            :around (lambda
-                      (orig-fun name &optional ignore-dedicated window)
-                      (funcall orig-fun name ignore-dedicated window)
-                      (set-window-dedicated-p window nil)))
