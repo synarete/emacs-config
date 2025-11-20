@@ -87,3 +87,10 @@
 (define-key gud-minor-mode-map (kbd "<f5>") #'gud-next)
 (define-key gud-minor-mode-map (kbd "<f6>") #'gud-step)
 (define-key gud-minor-mode-map (kbd "<f7>") #'gud-finish)
+
+;; Terminal
+(defun my-terminal ()
+  (interactive)
+  (switch-to-buffer "*terminal*"))
+
+(global-set-key (kbd "C-t") #'my-terminal)
