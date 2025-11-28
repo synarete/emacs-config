@@ -29,8 +29,9 @@
 (window-divider-mode)
 
 ;;;; Default font in gui mode
-;; (add-to-list 'default-frame-alist '(font . "Monospace 12"))
-(add-to-list 'default-frame-alist '(font . "Source Code Pro 13"))
+;; (add-to-list 'default-frame-alist '(font . "Monospace 13"))
+;; (add-to-list 'default-frame-alist '(font . "Source Code Pro 13"))
+(set-frame-font "Source Code Pro 13")
 
 ;;;; Mode-line
 ;; Box mode-line + nord0 color for active
