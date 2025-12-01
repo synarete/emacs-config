@@ -28,6 +28,9 @@
 (setq window-divider-default-right-width 4)
 (window-divider-mode)
 
+;; Trailing white-space color
+(set-face-background 'trailing-whitespace "#222224")
+
 ;;;; Default font in gui mode
 ;; (add-to-list 'default-frame-alist '(font . "Monospace 13"))
 ;; (add-to-list 'default-frame-alist '(font . "Source Code Pro 13"))
