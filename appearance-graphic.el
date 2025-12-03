@@ -29,7 +29,7 @@
 (window-divider-mode)
 
 ;; Trailing white-space color
-(set-face-background 'trailing-whitespace "#222224")
+(set-face-background 'trailing-whitespace "#212123")
 
 ;;;; Default font in gui mode
 ;; (add-to-list 'default-frame-alist '(font . "Monospace 13"))
