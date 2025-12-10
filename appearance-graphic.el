@@ -72,3 +72,7 @@
     (set-face-attribute 'cursor nil :background "gray")))
 
 (add-hook 'overwrite-mode-hook #'my-cursor-mode)
+
+;;;; Treemacs
+;; Start with treemacs open
+(treemacs-select-window)
