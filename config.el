@@ -218,6 +218,20 @@
 (setq ibuffer-saved-filter-groups
       (quote
        (("default"
+         ("Debug"
+          (or
+           (mode . gud-mode)
+           (mode . gud-tooltip-mode)
+           (mode . gdb-breakpoints-mode)
+           (mode . gdb-disassembly-mode)
+           (mode . gdb-frames-mode)
+           (mode . gdb-inferior-io-mode)
+           (mode . gdb-locals-mode)
+           (mode . gdb-memory-mode)
+           (mode . gdb-registers-mode)
+           (mode . gdb-script-mode)
+           (mode . gdb-threads-mode)
+           ))
          ("Shell"
           (or
            (mode . term-mode)
@@ -240,20 +254,6 @@
            (mode . shell-script-mode)))
          ("Text"
           (mode . text-mode))
-         ("Debug"
-          (or
-           (mode . gud-mode)
-           (mode . gud-tooltip-mode)
-           (mode . gdb-breakpoints-mode)
-           (mode . gdb-disassembly-mode)
-           (mode . gdb-frames-mode)
-           (mode . gdb-inferior-io-mode)
-           (mode . gdb-locals-mode)
-           (mode . gdb-memory-mode)
-           (mode . gdb-registers-mode)
-           (mode . gdb-script-mode)
-           (mode . gdb-threads-mode)
-           ))
          ))))
 
 (defun my-ibuffer-mode ()
