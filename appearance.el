@@ -96,6 +96,3 @@
 (setq doom-modeline-battery nil)
 (setq doom-modeline-env-version nil)
 
-;;;; Graphic mode specifics
-(when (display-graphic-p)
-  (load (concat user-emacs-directory "appearance-graphic.el")))

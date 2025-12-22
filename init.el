@@ -8,4 +8,6 @@
 (load (concat user-emacs-directory "keybind.el"))
 (message "[ Update appearance ]")
 (load (concat user-emacs-directory "appearance.el"))
-(message "[ Final settings ]")
+(when (display-graphic-p)
+  (message "[ Update graphic appearance ]")
+  (load (concat user-emacs-directory "appearance-graphic.el")))
