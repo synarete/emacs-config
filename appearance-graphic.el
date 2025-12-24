@@ -32,9 +32,10 @@
 (set-face-background 'trailing-whitespace "#212123")
 
 ;;;; Default font in gui mode
-;; (add-to-list 'default-frame-alist '(font . "Monospace 13"))
-;; (add-to-list 'default-frame-alist '(font . "Source Code Pro 13"))
-(set-frame-font "Source Code Pro 13")
+;; (set-face-attribute 'default nil :height 130)
+;; (set-frame-font "Monospace 13")
+;; (add-to-list 'default-frame-alist '(font . "Source Code Pro-13"))
+(add-to-list 'default-frame-alist '(font . "IBM Plex Mono-13"))
 
 ;;;; Mode-line
 ;; Box mode-line + nord0 color for active
