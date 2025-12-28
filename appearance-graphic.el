@@ -33,7 +33,7 @@
 
 ;;;; Font setup
 (defvar my-font-list
-  '("IBM Plex Mono-13" "Monospace-12" "Source Code Pro-13"))
+  '("IBM Plex Mono-14" "Source Code Pro-13" "Monospace-12"))
 
 (defun my-find-font (my-font-name)
   (find-font (font-spec :name my-font-name)))
