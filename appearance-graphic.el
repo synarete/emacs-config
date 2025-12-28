@@ -31,11 +31,17 @@
 ;; Trailing white-space color
 (set-face-background 'trailing-whitespace "#212123")
 
-;;;; Default font in gui mode
-;; (set-face-attribute 'default nil :height 130)
-;; (set-frame-font "Monospace 13")
-;; (add-to-list 'default-frame-alist '(font . "Source Code Pro-13"))
-(add-to-list 'default-frame-alist '(font . "IBM Plex Mono-13"))
+;;;; Font setup
+(defvar my-font-list
+  '("IBM Plex Mono-13" "Monospace-12" "Source Code Pro-13"))
+
+(defun my-find-font (my-font-name)
+  (find-font (font-spec :name my-font-name)))
+
+(defun my-select-font ()
+  (seq-find #'my-find-font my-font-list))
+
+(add-to-list 'default-frame-alist (cons 'font (my-select-font)))
 
 ;;;; Mode-line
 ;; Box mode-line + nord0 color for active
