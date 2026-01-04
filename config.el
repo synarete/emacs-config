@@ -126,6 +126,7 @@
 ;; Show column-indicator at 80
 (setq-default display-fill-column-indicator-column 80)
 (add-hook 'prog-mode-hook #'display-fill-column-indicator-mode)
+(add-hook 'text-mode-hook #'display-fill-column-indicator-mode)
 
 ;; Isearch settings
 (setq isearch-lazy-count t)
@@ -253,7 +254,10 @@
            (mode . sh-mode)
            (mode . shell-script-mode)))
          ("Text"
-          (mode . text-mode))
+          (or
+           (mode . text-mode)
+           (mode . markdown-mode)
+           (mode . rst-mode)))
          ))))
 
 (defun my-ibuffer-mode ()
