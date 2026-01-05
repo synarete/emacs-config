@@ -1,4 +1,4 @@
-;;;; IBuffer settings & layout
+;; IBuffer settings & layout
 (require 'ibuffer)
 (setq ibuffer-saved-filter-groups
       (quote
@@ -28,7 +28,7 @@
            (mode . c++-mode)))
          ("Python"
           (mode . python-mode))
-         ("List/Scheme"
+         ("Lisp/Scheme"
           (or
            (mode . scheme-mode)
            (mode . lisp-mode)

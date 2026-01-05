@@ -214,12 +214,8 @@
 (add-hook 'c-mode-hook #'my-lsp-c-mode)
 (add-hook 'c-mode-hook #'my-lsp-ui-c-mode)
 
-;;;; Debugging
-(require 'gud)
-(setq gdb-show-main t)
-(setq gdb-restore-window-configuration-after-quit t)
-(setq gdb-display-io-nopopup t)
-(setq gdb-many-windows nil)
-
 ;; IBuffer
 (load (concat user-emacs-directory "config-ibuffer.el"))
+
+;; Debugging
+(load (concat user-emacs-directory "config-gdb.el"))
