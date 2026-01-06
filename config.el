@@ -172,50 +172,12 @@
 (require 'flymake)
 (add-hook 'c-mode-hook 'flymake-mode)
 
-;;;; LSP
-(defun my-lsp-c-mode ()
-  (setq lsp-auto-guess-root t)
-  (setq lsp-log-io nil)
-  (setq lsp-restart 'auto-restart)
-  (setq lsp-enable-symbol-highlighting nil)
-  (setq lsp-enable-on-type-formatting nil)
-  (setq lsp-signature-auto-activate t)
-  (setq lsp-signature-doc-lines 1)
-  (setq lsp-signature-render-documentation nil)
-  (setq lsp-modeline-code-actions-enable nil)
-  (setq lsp-modeline-diagnostics-enable nil)
-  (setq lsp-headerline-breadcrumb-enable nil)
-  (setq lsp-semantic-tokens-enable nil)
-  (setq lsp-diagnostics-provider :none)
-  (setq lsp-enable-folding nil)
-  (setq lsp-enable-imenu nil)
-  (setq lsp-enable-snippet nil)
-  (setq read-process-output-max (* 1024 1024))
-  (setq lsp-idle-delay 0.5)
-  (setq lsp-clients-clangd-args
-        '("-j=1"
-          "--background-index"
-          "--completion-style=detailed"
-          "--header-insertion=never"
-          "--header-insertion-decorators=0"
-          "--all-scopes-completion"
-          "--suggest-missing-includes")))
-
-(defun my-lsp-ui-c-mode ()
-  (setq lsp-ui-doc-enable nil)
-  (setq lsp-ui-doc-header t)
-  (setq lsp-ui-doc-include-signature t)
-  (setq lsp-ui-doc-border (face-foreground 'default))
-  (setq lsp-ui-doc-show-with-mouse nil)
-  (setq lsp-ui-sideline-enable nil)
-  (setq lsp-ui-sideline-show-code-actions t)
-  (setq lsp-ui-sideline-delay 0.1))
-
-(add-hook 'c-mode-hook #'my-lsp-c-mode)
-(add-hook 'c-mode-hook #'my-lsp-ui-c-mode)
 
 ;; IBuffer
 (load (concat user-emacs-directory "config-ibuffer.el"))
 
 ;; Debugging
 (load (concat user-emacs-directory "config-gdb.el"))
+
+;; LSP
+(load (concat user-emacs-directory "config-lsp.el"))

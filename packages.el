@@ -64,9 +64,6 @@
 (use-package lsp-mode
   :defer 2
   :hook ((c-mode python-mode) . lsp-deferred)
-  (lsp-mode . lsp-enable-which-key-integration)
-  :init
-  (setq lsp-keymap-prefix "C-l")
   :commands lsp lsp-deferred)
 
 ;; Projects via projectile
