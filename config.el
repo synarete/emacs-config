@@ -21,18 +21,22 @@
 (setq initial-scratch-message
       (format ";; Emacs %d.%d" emacs-major-version emacs-minor-version))
 
-;; New buffers are text mode by default
-(setq default-major-mode 'text-mode)
-
 ;; UTF-8 by default
-(prefer-coding-system 'utf-8)
-(set-default-coding-systems 'utf-8)
-(set-terminal-coding-system 'utf-8)
-(set-keyboard-coding-system 'utf-8)
-(set-selection-coding-system 'utf-8)
-(set-file-name-coding-system 'utf-8)
-(set-clipboard-coding-system 'utf-8)
-(set-buffer-file-coding-system 'utf-8)
+(defun my-coding-system ()
+  "Make UTF-8 the default coding system."
+  (interactive)
+  (progn
+    (prefer-coding-system 'utf-8)
+    (set-default-coding-systems 'utf-8)
+    (set-terminal-coding-system 'utf-8)
+    (set-keyboard-coding-system 'utf-8)
+    (set-selection-coding-system 'utf-8)
+    (set-file-name-coding-system 'utf-8)
+    (set-clipboard-coding-system 'utf-8)
+    (set-buffer-file-coding-system 'utf-8))
+  )
+
+(my-coding-system)
 
 ;; Display buffer-size
 (size-indication-mode)
