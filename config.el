@@ -22,24 +22,14 @@
       (format ";; Emacs %d.%d" emacs-major-version emacs-minor-version))
 
 ;; UTF-8 by default
-(defun my-coding-system ()
-  "Make UTF-8 the default coding system."
-  (interactive)
-  (progn
-    (prefer-coding-system 'utf-8)
-    (set-default-coding-systems 'utf-8)
-    (set-terminal-coding-system 'utf-8)
-    (set-keyboard-coding-system 'utf-8)
-    (set-selection-coding-system 'utf-8)
-    (set-file-name-coding-system 'utf-8)
-    (set-clipboard-coding-system 'utf-8)
-    (set-buffer-file-coding-system 'utf-8))
-  )
-
-(my-coding-system)
-
-;; Display buffer-size
-(size-indication-mode)
+(prefer-coding-system 'utf-8)
+(set-default-coding-systems 'utf-8)
+(set-terminal-coding-system 'utf-8)
+(set-keyboard-coding-system 'utf-8)
+(set-selection-coding-system 'utf-8)
+(set-file-name-coding-system 'utf-8)
+(set-clipboard-coding-system 'utf-8)
+(set-buffer-file-coding-system 'utf-8)
 
 ;; Re-visit files at last place
 (save-place-mode 1)
@@ -80,34 +70,15 @@
 ;; Don't Lock Files
 (setq-default create-lockfiles nil)
 
-;; Kill active processes upon exit, without promt
+;; Kill active processes upon exit, without prompt
 (setq confirm-kill-processes nil)
+
+;; Default column-indicator at 80
+(setq-default display-fill-column-indicator-column 80)
 
 ;; Use ido
 (require 'ido)
 (ido-mode t)
-
-;;;; Command-interpreter (Shell and Term)
-;; Use pretty colors in comint-mode
-(ansi-color-for-comint-mode-on)
-
-;; Avoid input duplicates
-(setq comint-input-ignoredups t)
-
-;; Move cursor to end-of-buffer upon input
-(setq comint-move-point-for-output t)
-
-;; Echo input
-(setq comint-process-echoes t)
-
-;; Do not allow erase prompt
-(setq comint-prompt-read-only t)
-
-;; Auto scroll
-(setq comint-scroll-to-bottom-on-input t)
-(setq comint-scroll-to-bottom-on-output t)
-(setq comint-scroll-show-maximum-output t)
-
 
 ;;;; Programming configs
 
@@ -128,7 +99,6 @@
 (add-hook 'prog-mode-hook #'my-prog-mode-save)
 
 ;; Show column-indicator at 80
-(setq-default display-fill-column-indicator-column 80)
 (add-hook 'prog-mode-hook #'display-fill-column-indicator-mode)
 (add-hook 'text-mode-hook #'display-fill-column-indicator-mode)
 
@@ -136,8 +106,8 @@
 (setq isearch-lazy-count t)
 
 ;; Enable spell-checker for text and prog mode
-(add-hook 'text-mode-hook 'flyspell-mode)
-(add-hook 'prog-mode-hook 'flyspell-prog-mode)
+(add-hook 'text-mode-hook #'flyspell-mode)
+(add-hook 'prog-mode-hook #'flyspell-prog-mode)
 
 ;; Prefered coding-style
 (setq c-default-style
@@ -166,7 +136,6 @@
 
 (add-hook 'sh-mode-hook #'my-sh-mode-style)
 
-
 ;;;; Compilation settings
 (setq-default compilation-always-kill t)
 (setq-default compilation-ask-about-save nil)
@@ -174,8 +143,7 @@
 
 ;;;; Flymake
 (require 'flymake)
-(add-hook 'c-mode-hook 'flymake-mode)
-
+(add-hook 'c-mode-hook #'flymake-mode)
 
 ;; IBuffer
 (load (concat user-emacs-directory "config-ibuffer.el"))
@@ -185,3 +153,6 @@
 
 ;; LSP
 (load (concat user-emacs-directory "config-lsp.el"))
+
+;; Command-line interpreters 
+(load (concat user-emacs-directory "config-comint.el"))

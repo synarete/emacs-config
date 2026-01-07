@@ -1,4 +1,4 @@
-;; IBuffer settings & layout
+;;;; IBuffer settings & layout
 (require 'ibuffer)
 (setq ibuffer-saved-filter-groups
       (quote

@@ -19,6 +19,9 @@
 ;; Do not display load average in mode line
 (setq display-time-default-load-average nil)
 
+;; Display buffer-size
+(size-indication-mode)
+
 ;;;; Hightlights
 
 ;; Highlight matching parantheses when the point is on them
