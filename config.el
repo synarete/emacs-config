@@ -21,16 +21,6 @@
 (setq initial-scratch-message
       (format ";; Emacs %d.%d" emacs-major-version emacs-minor-version))
 
-;; UTF-8 by default
-(prefer-coding-system 'utf-8)
-(set-default-coding-systems 'utf-8)
-(set-terminal-coding-system 'utf-8)
-(set-keyboard-coding-system 'utf-8)
-(set-selection-coding-system 'utf-8)
-(set-file-name-coding-system 'utf-8)
-(set-clipboard-coding-system 'utf-8)
-(set-buffer-file-coding-system 'utf-8)
-
 ;; Re-visit files at last place
 (save-place-mode 1)
 
@@ -100,13 +90,11 @@
 
 ;; Show column-indicator at 80
 (add-hook 'prog-mode-hook #'display-fill-column-indicator-mode)
-(add-hook 'text-mode-hook #'display-fill-column-indicator-mode)
 
 ;; Isearch settings
 (setq isearch-lazy-count t)
 
-;; Enable spell-checker for text and prog mode
-(add-hook 'text-mode-hook #'flyspell-mode)
+;; Enable spell-checker in prog mode
 (add-hook 'prog-mode-hook #'flyspell-prog-mode)
 
 ;; Prefered coding-style
@@ -144,6 +132,10 @@
 ;;;; Flymake
 (require 'flymake)
 (add-hook 'c-mode-hook #'flymake-mode)
+
+
+;; Coding and text-mode 
+(load (concat user-emacs-directory "config-text.el"))
 
 ;; IBuffer
 (load (concat user-emacs-directory "config-ibuffer.el"))
