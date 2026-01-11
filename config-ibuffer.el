@@ -19,8 +19,8 @@
            ))
          ("Shell"
           (or
-           (mode . term-mode)
            (mode . shell-mode)
+           (mode . term-mode)
            (mode . eshell-mode)))
          ("C/C++"
           (or
@@ -33,7 +33,7 @@
            (mode . scheme-mode)
            (mode . lisp-mode)
            (mode . emacs-lisp-mode)))
-         ("Shell"
+         ("Script"
           (or
            (mode . sh-mode)
            (mode . shell-script-mode)))

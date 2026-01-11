@@ -16,7 +16,7 @@
 (setq auto-save-default nil)
 
 ;; Show only emacs version in scratch buffer
-(defvar my-emacs-version
+(defconst my-emacs-version
   (format "%d.%d" emacs-major-version emacs-minor-version))
 (setq initial-scratch-message (format ";; Emacs %s" my-emacs-version))
 
