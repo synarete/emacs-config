@@ -98,4 +98,4 @@
 (setq doom-modeline-time-live-icon nil)
 (setq doom-modeline-battery nil)
 (setq doom-modeline-env-version nil)
-(setq doom-modeline-column-zero-based nil)
+;; (setq doom-modeline-column-zero-based nil)
