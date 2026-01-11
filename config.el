@@ -47,16 +47,6 @@
 ;; Do not ask before saving buffers
 (setq buffer-save-without-query 't)
 
-;; Improves mouse & scrolling
-(setq scroll-conservatively 101)
-(setq scroll-preserve-screen-position 1)
-(setq scroll-margin 0) ; 1-line margin is too much, display space is scarce
-(setq mouse-wheel-follow-mouse t)
-
-;; Simpler dired buffers
-(add-hook 'dired-mode-hook 'dired-hide-details-mode)
-(add-hook 'dired-mode-hook 'hl-line-mode)
-
 ;; Don't Lock Files
 (setq-default create-lockfiles nil)
 
@@ -65,6 +55,15 @@
 
 ;; Default column-indicator at 80
 (setq-default display-fill-column-indicator-column 80)
+
+;; Improves mouse & scrolling
+(setq scroll-conservatively 101)
+(setq scroll-preserve-screen-position 1)
+(setq scroll-margin 0)
+(setq mouse-wheel-follow-mouse t)
+
+;; Isearch settings
+(setq isearch-lazy-count t)
 
 ;; Use ido
 (require 'ido)
@@ -90,9 +89,6 @@
 
 ;; Show column-indicator at 80
 (add-hook 'prog-mode-hook #'display-fill-column-indicator-mode)
-
-;; Isearch settings
-(setq isearch-lazy-count t)
 
 ;; Enable spell-checker in prog mode
 (add-hook 'prog-mode-hook #'flyspell-prog-mode)
