@@ -8,3 +8,6 @@
 
 ;; One less file to load at startup
 (setq site-run-file nil)
+
+;; Bring on helpers
+(load (concat user-emacs-directory "helpers.el"))

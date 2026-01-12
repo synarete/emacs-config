@@ -1,3 +1,5 @@
+;;; config-ibuffer.el -- Ibuffer configuration -*- lexical-binding: t; -*-
+
 ;;;; IBuffer settings & layout
 (require 'ibuffer)
 (setq ibuffer-saved-filter-groups

@@ -1,4 +1,4 @@
-;;;; Common configs
+;;; config-common.el -- Common configuration -*- lexical-binding: t; -*-
 
 ;; Dedicated custom file
 (setq custom-file (expand-file-name "custom.el" user-emacs-directory))

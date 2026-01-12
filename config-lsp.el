@@ -1,3 +1,5 @@
+;;; config-lsp.el -- LSP settings -*- lexical-binding: t; -*-
+
 ;;;; LSP config
 (require 'lsp-mode)
 
@@ -7,7 +9,7 @@
 ;; Define the key binding in lsp-mode-map
 (define-key lsp-mode-map (kbd lsp-keymap-prefix) lsp-command-map)
 
-;; Custom settings
+;; LSP settings
 (defun my-lsp-mode ()
   (setq lsp-auto-guess-root t)
   (setq lsp-log-io nil)
@@ -36,6 +38,10 @@
           "--all-scopes-completion"
           "--suggest-missing-includes")))
 
+(add-hook 'c-mode-hook #'my-lsp-mode)
+(add-hook 'python-mode-hook #'my-lsp-mode)
+
+;; LSP-UI settings
 (defun my-lsp-ui-mode ()
   (setq lsp-ui-doc-enable nil)
   (setq lsp-ui-doc-header t)
@@ -46,12 +52,10 @@
   (setq lsp-ui-sideline-show-code-actions t)
   (setq lsp-ui-sideline-delay 0.1))
 
-(add-hook 'c-mode-hook #'my-lsp-mode)
-(add-hook 'c-mode-hook #'my-lsp-ui-mode)
-(add-hook 'python-mode-hook #'my-lsp-mode)
+(when (package-installed-p 'lsp-ui)
+  (add-hook 'c-mode-hook #'my-lsp-ui-mode))
 
 ;; Add the which-key integration
 (require 'which-key)
 (which-key-mode t)
 (add-hook 'lsp-mode-hook #'lsp-enable-which-key-integration)
-

@@ -14,9 +14,10 @@
 (require 'bind-key)
 (require 'package)
 
-(add-to-list 'package-archives
-             '("melpa" . "https://melpa.org/packages/")
-             '("melpa-stable" . "https://stable.melpa.org/packages/"))
+(add-to-list
+ 'package-archives
+ '("melpa" . "https://melpa.org/packages/")
+ '("melpa-stable" . "https://stable.melpa.org/packages/"))
 (when (< emacs-major-version 27)
   (package-initialize))
 
@@ -122,5 +123,3 @@
 (use-package doom-modeline
   :ensure t
   :defer 1)
-
-

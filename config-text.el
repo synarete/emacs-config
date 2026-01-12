@@ -1,3 +1,5 @@
+;;; config-text.el -- Text-mode settings -*- lexical-binding: t; -*-
+
 ;;;; Coding and text-mode
 
 ;; UTF-8 by default
@@ -16,7 +18,3 @@
 ;; Enable spell-checker in text mode
 (require 'flyspell)
 (add-hook 'text-mode-hook #'flyspell-mode)
-
-
-
-

@@ -1,4 +1,5 @@
-;;;; Debugging
+;;; config-gdb.el -- Debug (GDB) configuration -*- lexical-binding: t; -*-
+
 (require 'gud)
 (setq gdb-show-main t)
 (setq gdb-restore-window-configuration-after-quit t)

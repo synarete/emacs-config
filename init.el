@@ -1,13 +1,21 @@
 ;;; init.el --- Initialization file for Emacs -*- lexical-binding: t; -*-
-(message "[ Start (user: %s) ]" (user-login-name))
+
+(message "[ Start user settings (user: %s) ]" (user-login-name))
+
 (message "[ Setup packages ]")
-(load (concat user-emacs-directory "packages.el"))
+(my-user-config "packages.el")
+
 (message "[ Configure behaviour ]")
-(load (concat user-emacs-directory "config.el"))
+(my-user-config "config.el")
+
 (message "[ Setup key-bindings ]")
-(load (concat user-emacs-directory "keybind.el"))
+(my-user-config "keybind.el")
+
 (message "[ Update appearance ]")
-(load (concat user-emacs-directory "appearance.el"))
+(my-user-config "appearance.el")
+
 (when (display-graphic-p)
   (message "[ Update graphic appearance ]")
-  (load (concat user-emacs-directory "appearance-graphic.el")))
+  (my-user-config "appearance-graphic.el"))
+
+(message "[ Finished user settings (user: %s) ]" (user-login-name))

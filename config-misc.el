@@ -1,3 +1,5 @@
+;;; config-misc.el  -*- lexical-binding: t; -*-
+
 ;; Improve mouse & scrolling
 (when (display-graphic-p)
   (setq scroll-conservatively 101)

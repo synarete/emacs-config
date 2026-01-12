@@ -1,3 +1,5 @@
+;;; config-prog.el -- Programming settings -*- lexical-binding: t; -*-
+
 ;;;; Programming configs
 
 ;; Display line numbers
@@ -55,5 +57,3 @@
 (setq-default compilation-always-kill t)
 (setq-default compilation-ask-about-save nil)
 (setq-default compilation-scroll-output 'first-error)
-
-
