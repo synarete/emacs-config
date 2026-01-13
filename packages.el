@@ -63,6 +63,7 @@
 ;; Language Server Protocol
 ;; https://github.com/emacs-lsp/lsp-mode
 (use-package lsp-mode
+  :ensure t
   :defer 2
   :hook ((c-mode python-mode) . lsp-deferred)
   :commands lsp lsp-deferred)

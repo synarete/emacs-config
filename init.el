@@ -5,7 +5,7 @@
 (message "[ Setup packages ]")
 (my-user-config "packages.el")
 
-(message "[ Configure behaviour ]")
+(message "[ Configure ]")
 (my-user-config "config.el")
 
 (message "[ Setup key-bindings ]")

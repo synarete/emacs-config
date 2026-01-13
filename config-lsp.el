@@ -2,6 +2,7 @@
 
 ;;;; LSP config
 (require 'lsp-mode)
+(require 'lsp-ui)
 
 ;; Preferred lsp key prefix
 (setq lsp-keymap-prefix "C-l")
@@ -52,8 +53,7 @@
   (setq lsp-ui-sideline-show-code-actions t)
   (setq lsp-ui-sideline-delay 0.1))
 
-(when (package-installed-p 'lsp-ui)
-  (add-hook 'c-mode-hook #'my-lsp-ui-mode))
+(add-hook 'c-mode-hook #'my-lsp-ui-mode)
 
 ;; Add the which-key integration
 (require 'which-key)
