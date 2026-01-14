@@ -60,7 +60,3 @@
 
 ;; Prevent extraneous Tabs
 (setq-default indent-tabs-mode nil)
-
-;; Use ido
-(require 'ido)
-(ido-mode t)

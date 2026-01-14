@@ -6,3 +6,7 @@
   (setq scroll-preserve-screen-position 1)
   (setq scroll-margin 0)
   (setq mouse-wheel-follow-mouse t))
+
+;; Use ido
+(require 'ido)
+(ido-mode t)

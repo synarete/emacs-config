@@ -82,19 +82,7 @@
   :ensure t
   :defer 1
   :config
-  (progn
-    (setq treemacs-no-png-images t)
-    ;; (setq treemacs-width 40)
-    (setq treemacs-indentation 1)
-    (setq treemacs-follow-after-init t)
-    (setq treemacs-recenter-after-file-follow nil)
-    (setq treemacs-silent-refresh t)
-    (setq treemacs-silent-filewatch t)
-    (setq treemacs-show-hidden-files t)
-    (setq treemacs-never-persist t)
-    (treemacs-filewatch-mode t)
-    (set-face-attribute 'treemacs-root-face nil :height 1.0)
-    ))
+  (treemacs-filewatch-mode t))
 
 (use-package treemacs-projectile
   :defer 2
