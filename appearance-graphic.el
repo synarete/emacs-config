@@ -8,9 +8,6 @@
 ;; Add border inside frames
 (add-to-list 'default-frame-alist '(internal-border-width . 4))
 
-;; Full-screen by default
-;; (toggle-frame-fullscreen)
-
 ;;;; Theme
 ;; Start with nice base theme
 (load-theme 'doom-opera t)
@@ -79,3 +76,6 @@
     (set-face-attribute 'cursor nil :background "gray")))
 
 (add-hook 'overwrite-mode-hook #'my-cursor-mode)
+
+;; Full-screen by default
+(toggle-frame-fullscreen)
