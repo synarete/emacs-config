@@ -13,6 +13,7 @@
 (setq treemacs-silent-filewatch t)
 (setq treemacs-show-hidden-files t)
 (setq treemacs-never-persist t)
+(setq treemacs-persist-process nil)
 
 ;; Use normal face for treemacs root
 (custom-set-faces
