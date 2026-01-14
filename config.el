@@ -11,7 +11,7 @@
                 :needs '(flyspell))
 
 (my-user-config "config-prog.el"
-                :needs '(cc-mode make-mode xref flymake flyspell))
+                :needs '(flymake flyspell))
 
 (my-user-config "config-lsp.el"
                 :needs '(lsp-mode lsp-ui which-key))
