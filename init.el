@@ -1,6 +1,6 @@
 ;;; init.el --- Initialization file for Emacs -*- lexical-binding: t; -*-
 
-(message "[ Start initialization (user: %s) ]" (user-login-name))
+(message "[ Start init (user: %s) ]" (user-login-name))
 
 (message "[ Setup packages ]")
 (my-user-config "packages.el")
@@ -13,10 +13,6 @@
 
 (message "[ Update appearance ]")
 (my-user-config "appearance.el")
+(my-user-config-if (display-graphic-p) "appearance-graphic.el")
 
-(when (display-graphic-p)
-  (message "[ Update graphic appearance ]")
-  (my-user-config "appearance-graphic.el"))
-
-(message "[ Done initialization in %s (user: %s) ]"
-         (emacs-init-time) (user-login-name))
+(message "[ Done init in %s (user: %s) ]" (emacs-init-time) (user-login-name))

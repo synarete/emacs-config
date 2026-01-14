@@ -10,4 +10,9 @@
           (load file-path)
         (message "Config file not found: %s" file-path)))))
 
+(defun my-user-config-if (pred file-name)
+  "Load FILE-NAME only if PRED is true."
+  (when pred (my-user-config file-name)))
+
+;; Usage:
 (provide 'helpers)
