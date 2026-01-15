@@ -1,89 +1,9 @@
 ;;; keybind.el -- My key-binding -*- lexical-binding: t; -*-
 
-;; Delete TABs the normal way
-(setq backward-delete-char-untabify-method nil)
+(my-user-config "keybind-common.el")
 
-;; Yank with middle mouse
-(setq mouse-yank-at-point t)
+(my-user-config "keybind-cua.el")
 
-;; Save
-(global-set-key (kbd "C-x s") 'save-buffer)
+(my-user-config "keybind-global.el")
 
-;; Save and quit
-(global-set-key (kbd "C-x q") 'save-buffers-kill-emacs)
-
-;; Save-all (remapped)
-(defun my-save-all-buffers ()
-  (interactive)
-  (message "Save some buffers")
-  (save-some-buffers t))
-
-(global-set-key (kbd "C-x C-s") #'my-save-all-buffers)
-
-;; Goto line
-(global-set-key (kbd "C-x g") 'goto-line)
-
-;; Ctrl-o to open a (new) file
-(global-set-key (kbd "C-o") 'find-file)
-
-;; Close (kill) current file (buffer)
-(global-set-key (kbd "C-x k") 'kill-current-buffer)
-
-;; Ctrl-p to goto previous position
-(global-set-key (kbd "C-p") 'pop-global-mark)
-
-;; Mark all
-(global-set-key (kbd "C-a") 'mark-whole-buffer)
-
-;; Ctrl-f for search symbol in buffer
-(global-set-key (kbd "C-f") 'isearch-forward-symbol-at-point)
-(define-key isearch-mode-map (kbd "C-f") 'isearch-repeat-forward)
-
-;; Window switching
-;; (windmove-default-keybindings 'control)
-(windmove-default-keybindings 'meta)
-
-;; Window resize
-(global-set-key (kbd "C-S-<left>") 'shrink-window-horizontally)
-(global-set-key (kbd "C-S-<right>") 'enlarge-window-horizontally)
-(global-set-key (kbd "C-S-<down>") 'shrink-window)
-(global-set-key (kbd "C-S-<up>") 'enlarge-window)
-
-;; Cycle buffers
-(when (display-graphic-p)
-  (global-set-key (kbd "M-S-<left>") 'previous-buffer)
-  (global-set-key (kbd "M-S-<right>") 'next-buffer))
-
-;; Use cua-mode
-(cua-mode t)
-(setq cua-auto-tabify-rectangles nil)
-(transient-mark-mode 1)
-(setq cua-keep-region-after-copy t)
-
-;; Toggle treemacs with F1
-(global-set-key (kbd "<f1>") 'treemacs)
-
-;; Pop ibuffer with F2
-(global-set-key (kbd "<f2>") 'ibuffer)
-
-;; Build (or clean) project with F3
-(defun my-compile-make ()
-  (interactive)
-  (projectile-with-default-dir (projectile-acquire-root)
-    (compile "make")))
-
-(defun my-compile-make-clean ()
-  (interactive)
-  (projectile-with-default-dir (projectile-acquire-root)
-    (compile "make clean")))
-
-(global-set-key (kbd "<f3>") #'my-compile-make)
-(global-set-key (kbd "C-<f3>") #'my-compile-make-clean)
-
-;; Debugging
-(require 'gud)
-(define-key gud-mode-map (kbd "<up>") 'comint-previous-input)
-(define-key gud-mode-map (kbd "<down>") 'comint-next-input)
-(define-key gud-minor-mode-map (kbd "<f5>") #'gud-next)
-(define-key gud-minor-mode-map (kbd "<f6>") #'gud-step)
-(define-key gud-minor-mode-map (kbd "<f7>") #'gud-finish)
+(my-user-config "keybind-gud.el" :needs '(gud))

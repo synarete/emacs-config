@@ -19,7 +19,8 @@
       (message "File not found: %s" file-path))
 
      ;; Load the file
-     (t (load file-path)))))
+     (t
+      (load file-path)))))
 
 ;; Usage:
 (provide 'helpers)

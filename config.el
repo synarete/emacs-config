@@ -4,23 +4,16 @@
 
 (my-user-config "config-comint.el")
 
-(my-user-config "config-ibuffer.el"
-                :needs '(ibuffer))
+(my-user-config "config-ibuffer.el" :needs '(ibuffer))
 
-(my-user-config "config-text.el"
-                :needs '(flyspell))
+(my-user-config "config-text.el" :needs '(flyspell))
 
-(my-user-config "config-prog.el"
-                :needs '(flymake flyspell))
+(my-user-config "config-prog.el" :needs '(flymake))
 
-(my-user-config "config-lsp.el"
-                :needs '(lsp-mode lsp-ui which-key))
+(my-user-config "config-lsp.el" :needs '(lsp-ui which-key))
 
-(my-user-config "config-gdb.el"
-                :needs '(gud))
+(my-user-config "config-gdb.el" :needs '(gud))
 
-(my-user-config "config-treemacs.el"
-                :needs '(treemacs))
+(my-user-config "config-treemacs.el" :needs '(treemacs))
 
-(my-user-config "config-misc.el"
-                :needs '(ido))
+(my-user-config "config-misc.el" :needs '(ido))
