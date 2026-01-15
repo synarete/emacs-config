@@ -1,5 +1,11 @@
 ;;; config-common.el -- Common configuration -*- lexical-binding: t; -*-
 
+;; Show emacs version on frame title
+(defconst my-emacs-version
+  (format "%d.%d" emacs-major-version emacs-minor-version))
+
+(setq frame-title-format (format "Emacs %s" my-emacs-version))
+
 ;; Dedicated custom file
 (setq custom-file (expand-file-name "custom.el" user-emacs-directory))
 
@@ -16,8 +22,6 @@
 (setq auto-save-default nil)
 
 ;; Show only emacs version in scratch buffer
-(defconst my-emacs-version
-  (format "%d.%d" emacs-major-version emacs-minor-version))
 (setq initial-scratch-message (format ";; Emacs %s" my-emacs-version))
 
 ;; Re-visit files at last place
