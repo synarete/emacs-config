@@ -2,8 +2,8 @@
 
 (require 'cl-lib)
 
-(cl-defun my-user-config (file-name &key needs when)
-  "Load a configuration FILE-NAME from the user-emacs-directory."
+(cl-defun my-load-user-init (file-name &key needs when)
+  "Load a init-configuration FILE-NAME from the user-emacs-directory."
   (let ((file-path (expand-file-name file-name user-emacs-directory)))
     (cond
      ;; Check if packages are missing
