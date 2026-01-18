@@ -53,7 +53,6 @@
         ("C-x k"        . kill-current-buffer)     ; Kill current buffer
         ("C-p"          . pop-global-mark)         ; Jump to previous position
         ("C-a"          . mark-whole-buffer)       ; Select all buffer
-        ("C-c s"        . shell)                   ; Start shell
         ;; Search
         ("C-f"          . isearch-forward-symbol-at-point) ; Search symbol
         ("C-S-f"        . isearch-repeat-forward)  ; Search next symbol

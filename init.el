@@ -4,7 +4,7 @@
          (user-login-name))
 
 ;; Packages
-(message "[ Setup packages ]")
+(message "[ Packages ]")
 (my-load-user-init "packages.el")
 
 ;; Configurations
@@ -35,7 +35,7 @@
                    :needs '(ido))
 
 ;; Key-bindings
-(message "[ Setup key-bindings ]")
+(message "[ Key-bindings ]")
 (my-load-user-init "keybind-common.el")
 
 (my-load-user-init "keybind-cua.el")
@@ -46,7 +46,7 @@
                    :needs '(gud))
 
 ;; Appearance
-(message "[ Update appearance ]")
+(message "[ Appearance ]")
 (my-load-user-init "appearance-common.el")
 
 (my-load-user-init "appearance-prog.el")
@@ -57,6 +57,9 @@
 (my-load-user-init "appearance-graphic.el"
                    :needs '(doom-themes doom-modeline)
                    :when 'display-graphic-p)
+;; Finally
+(message "[ After init ]")
+(my-load-user-init "after-init.el")
 
 ;; Ready!
 (message "[ Done init in %s (user: %s) ]"
