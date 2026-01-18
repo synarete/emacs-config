@@ -18,7 +18,7 @@
       (save-some-buffers t)
       (message "Saved %d buffers" count))
      (t
-      (message "No buffers need saving")))))
+      (message "(No buffers need to be saved)")))))
 
 (defun my-compile-make ()
   "Compile with `make`"
@@ -45,17 +45,14 @@
       '(
         ("<f1>"         . treemacs)                ; Open Treemacs
         ("<f2>"         . ibuffer)                 ; Pop Ibuffer
+        ("C-o"          . find-file)               ; Open file
+        ("C-a"          . mark-whole-buffer)       ; Select all buffer
+        ("C-p"          . pop-global-mark)         ; Jump to previous position
+        ("C-x g"        . goto-line)               ; Go to specific line
         ("C-x s"        . save-buffer)             ; Save buffer
         ("C-x q"        . save-buffers-kill-emacs) ; Save and quit Emacs
-        ("C-x C-s"      . my-save-all-buffers)     ; Save all modified buffers
-        ("C-x g"        . goto-line)               ; Go to specific line
-        ("C-o"          . find-file)               ; Open file
         ("C-x k"        . kill-current-buffer)     ; Kill current buffer
-        ("C-p"          . pop-global-mark)         ; Jump to previous position
-        ("C-a"          . mark-whole-buffer)       ; Select all buffer
-        ;; Search
-        ("C-f"          . isearch-forward-symbol-at-point) ; Search symbol
-        ("C-S-f"        . isearch-repeat-forward)  ; Search next symbol
+        ("C-x C-s"      . my-save-all-buffers)     ; Save all modified buffers
         ;; Build/clean project with make
         ("<f3>"         . my-compile-make)
         ("C-<f3>"       . my-compile-make-clean)
