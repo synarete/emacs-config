@@ -59,7 +59,8 @@
                    :when 'display-graphic-p)
 ;; Finally
 (message "[ After init ]")
-(my-load-user-init "after-init.el")
+(my-load-user-init "after-init.el"
+                   :needs '(treemacs))
 
 ;; Ready!
 (message "[ Done init in %s (user: %s) ]"

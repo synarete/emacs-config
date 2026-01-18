@@ -32,6 +32,13 @@
   (projectile-with-default-dir (projectile-acquire-root)
     (compile "make clean")))
 
+(defun my-start-shell ()
+  "Start shell"
+  (interactive)
+  (shell)
+  (switch-to-buffer "*shell*")
+  (delete-other-windows))
+
 (defun my-global-set-keys (keymap bindings)
   "Set multiple key BINDINGS in a KEYMAP."
   (dolist (binding bindings)
@@ -43,8 +50,6 @@
 ;; Define key mappings
 (setq my-key-bindings
       '(
-        ("<f1>"         . treemacs)                ; Open Treemacs
-        ("<f2>"         . ibuffer)                 ; Pop Ibuffer
         ("C-o"          . find-file)               ; Open file
         ("C-a"          . mark-whole-buffer)       ; Select all buffer
         ("C-p"          . pop-global-mark)         ; Jump to previous position
@@ -53,9 +58,13 @@
         ("C-x q"        . save-buffers-kill-emacs) ; Save and quit Emacs
         ("C-x k"        . kill-current-buffer)     ; Kill current buffer
         ("C-x C-s"      . my-save-all-buffers)     ; Save all modified buffers
+        ("<f1>"         . treemacs)                ; Open Treemacs
+        ("<f2>"         . ibuffer)                 ; Pop Ibuffer
         ;; Build/clean project with make
         ("<f3>"         . my-compile-make)
         ("C-<f3>"       . my-compile-make-clean)
+        ;; Shell
+        ("<f4>"         . my-start-shell)
         ;; Window resize
         ("C-S-<left>"   . shrink-window-horizontally)
         ("C-S-<right>"  . enlarge-window-horizontally)

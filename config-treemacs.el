@@ -18,6 +18,3 @@
 ;; Use normal face for treemacs root
 (custom-set-faces
  '(treemacs-root-face ((t (:height 1.0)))))
-
-;; Start with treemacs open
-(treemacs-select-window)
