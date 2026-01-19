@@ -76,6 +76,3 @@
     (set-face-attribute 'cursor nil :background "gray")))
 
 (add-hook 'overwrite-mode-hook #'my-cursor-mode)
-
-;; Full-screen by default
-(toggle-frame-fullscreen)
