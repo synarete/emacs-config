@@ -6,5 +6,7 @@
 ;; Yank with middle mouse
 (setq mouse-yank-at-point t)
 
-;; Window switching with ALT
-(windmove-default-keybindings 'meta)
+;; Window switching with ALT (or CTRL in terminal mode)
+(if (display-graphic-p)
+    (windmove-default-keybindings 'meta)
+  (windmove-default-keybindings 'ctrl))
