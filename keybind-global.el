@@ -10,15 +10,19 @@
     (buffer-list))))
 
 (defun my-save-all-buffers ()
-  "Save all modified file-visited buffers."
+  "Save all modified file-visited buffers with error handling."
   (interactive)
-  (let ((count (my-num-visited-modified-buffers)))
-    (cond
-     ((> count 0)
-      (save-some-buffers t)
-      (message "Saved %d buffers" count))
-     (t
-      (message "(No buffers need to be saved)")))))
+  (condition-case err
+      (let ((count (my-num-visited-modified-buffers)))
+        (cond
+         ((> count 0)
+          (save-some-buffers t)
+          (message "Saved %d buffers" count))
+         (t
+          (message "(No buffers need to be saved)"))))
+    (error
+     (message "An error occurred while saving buffers: %s"
+              (error-message-string err)))))
 
 (defun my-compile-make ()
   "Compile with `make`"
