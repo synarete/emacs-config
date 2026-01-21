@@ -13,8 +13,8 @@
 
 ;; Remove trailing whitespaces upon save
 (defun my-prog-mode-save ()
-  (add-hook 'before-save-hook 'delete-trailing-whitespace)
-  (add-hook 'before-save-hook 'whitespace-cleanup))
+  (add-hook 'before-save-hook #'delete-trailing-whitespace)
+  (add-hook 'before-save-hook #'whitespace-cleanup))
 
 (add-hook 'prog-mode-hook #'my-prog-mode-save)
 
@@ -44,6 +44,10 @@
   (setq-local indent-tabs-mode t))
 
 (add-hook 'sh-mode-hook #'my-sh-mode-style)
+
+;; Scheme
+(when (executable-find "guile3.0")
+  (setq geiser-guile-binary "guile3.0"))
 
 ;; Enable spell-checker in prog mode
 (require 'flyspell)
