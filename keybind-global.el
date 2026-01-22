@@ -48,9 +48,6 @@
   (dolist (binding bindings)
     (define-key keymap (kbd (car binding)) (cdr binding))))
 
-;; Start a search for the symbol under the cursor with C-f
-(global-set-key (kbd "C-f") 'isearch-forward-symbol-at-point)
-
 ;; Define key mappings
 (setq my-key-bindings
       '(
@@ -81,3 +78,7 @@
 
 ;; Apply the keybindings
 (my-global-set-keys global-map my-key-bindings)
+
+;; Start/continue search for the symbol under the cursor with C-f
+(global-set-key (kbd "C-f") 'isearch-forward-symbol-at-point)
+(define-key isearch-mode-map (kbd "C-f") 'isearch-repeat-forward)
