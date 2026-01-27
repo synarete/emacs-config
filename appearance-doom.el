@@ -2,7 +2,7 @@
 
 ;;;; Theme
 ;; Prefer darker theme
-(load-theme 'doom-tomorrow-night t)
+(load-theme 'doom-opera t)
 
 ;;;; Mode-line
 (setq doom-modeline-bar-width 0)

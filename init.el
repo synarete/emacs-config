@@ -5,10 +5,12 @@
 
 ;; Packages
 (message "[ Packages ]")
+
 (my-load-user-init "packages.el")
 
 ;; Configurations
 (message "[ Configure ]")
+
 (my-load-user-init "config-common.el")
 
 (my-load-user-init "config-comint.el")
@@ -36,6 +38,7 @@
 
 ;; Key-bindings
 (message "[ Key-bindings ]")
+
 (my-load-user-init "keybind-common.el")
 
 (my-load-user-init "keybind-cua.el")
@@ -47,6 +50,7 @@
 
 ;; Appearance
 (message "[ Appearance ]")
+
 (my-load-user-init "appearance-common.el")
 
 (my-load-user-init "appearance-prog.el")
@@ -58,7 +62,7 @@
                    :needs '(doom-themes doom-modeline)
                    :when 'display-graphic-p)
 
-(my-load-user-init "appearance-tweak-theme.el")
+(my-load-user-init "appearance-theme-ext.el")
 
 ;; Finally
 (message "[ After init ]")

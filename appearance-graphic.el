@@ -1,9 +1,5 @@
 ;;; appearance-graphic.el   -*- lexical-binding: t; -*-
 
-;;;; Theme
-;; Alternative dark theme in graphic mode
-(load-theme 'doom-opera t)
-
 ;;;; Frame
 ;; Prevent automatic frame resizing when graphic elements change
 (setq frame-inhibit-implied-resize t)
@@ -32,17 +28,6 @@
 (setq display-time-day-and-date t)
 (setq display-time-24hr-format t)
 (display-time)
-
-;;;; Cursor
-;; Change cursor color in overwrite mode
-(defun my-cursor-mode ()
-  (interactive)
-  (if overwrite-mode
-      (set-face-attribute 'cursor nil :background "brown")
-    (set-face-attribute 'cursor nil :background "gray")))
-
-(when (boundp 'overwrite-mode-hook)
-  (add-hook 'overwrite-mode-hook #'my-cursor-mode))
 
 ;;;; Shell
 (defun my-shell-mode ()

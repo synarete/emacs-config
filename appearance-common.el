@@ -12,15 +12,17 @@
 ;; Hide the scroll bar
 (scroll-bar-mode 0)
 
+;; Highligh current line
+(global-hi-lock-mode 1)
+
 ;; Do not display load average in mode line
 (setq display-time-default-load-average nil)
 
 ;; Split window proportionally
 (setq window-combination-resize t)
 
-;;;; Cursor
+;; Cursor
 (setq-default cursor-type 'box)
-(set-cursor-color "gray")
 (blink-cursor-mode 1)
 
 ;;;; Hightlights
@@ -36,15 +38,3 @@
 
 ;; Keep syntax highlighting in the current line
 (set-face-foreground 'highlight nil)
-
-;; Highligh current line unless in special-mode
-(defun my-hl-line ()
-  (hl-line-mode
-   (if (or
-        (derived-mode-p 'shell-mode)
-        (equal major-mode 'term-mode)
-        (equal major-mode 'gud-mode)
-        (equal major-mode 'minibuffer-mode))
-       0 1)))
-
-;;(add-hook 'after-change-major-mode-hook #'my-hl-line)
