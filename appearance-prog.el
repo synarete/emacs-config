@@ -29,3 +29,7 @@
     (whitespace-mode)))
 
 (add-hook 'prog-mode-hook #'my-whitespace-style)
+
+;; Highlight line
+(add-hook 'prog-mode-hook #'hl-line-mode)
+

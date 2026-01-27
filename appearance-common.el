@@ -25,7 +25,6 @@
 (setq-default cursor-type 'box)
 (blink-cursor-mode 1)
 
-;;;; Hightlights
 ;; Highlight matching parantheses when the point is on them
 (show-paren-mode 1)
 (setq show-paren-delay 0)
