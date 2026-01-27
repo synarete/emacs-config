@@ -49,6 +49,11 @@
 (set-face-attribute 'mode-line-inactive nil
                     :box '(:line-width 2 :color "#222224"))
 
+;; Display time in mode-line
+(setq display-time-day-and-date t)
+(setq display-time-24hr-format t)
+(display-time)
+
 ;;;; Shell
 (defun my-shell-mode ()
   (set (make-local-variable 'face-remapping-alist)
