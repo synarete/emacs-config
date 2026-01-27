@@ -18,8 +18,12 @@
 ;; Split window proportionally
 (setq window-combination-resize t)
 
-;;;; Hightlights
+;;;; Cursor
+(setq-default cursor-type 'box)
+(set-cursor-color "gray")
+(blink-cursor-mode 1)
 
+;;;; Hightlights
 ;; Highlight matching parantheses when the point is on them
 (show-paren-mode 1)
 (setq show-paren-delay 0)
@@ -43,4 +47,4 @@
         (equal major-mode 'minibuffer-mode))
        0 1)))
 
-(add-hook 'after-change-major-mode-hook #'my-hl-line)
+;;(add-hook 'after-change-major-mode-hook #'my-hl-line)

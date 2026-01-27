@@ -52,8 +52,8 @@
 (setq my-key-bindings
       '(
         ("C-o"          . find-file)               ; Open file
-        ("C-a"          . mark-whole-buffer)       ; Select all buffer
         ("C-p"          . pop-global-mark)         ; Jump to previous position
+        ("C-x a"        . mark-whole-buffer)       ; Select all buffer
         ("C-x g"        . goto-line)               ; Go to specific line
         ("C-x s"        . save-buffer)             ; Save buffer
         ("C-x q"        . save-buffers-kill-emacs) ; Save and quit Emacs

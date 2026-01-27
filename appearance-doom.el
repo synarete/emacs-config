@@ -1,8 +1,8 @@
 ;;; appearance-doom.el  -*- lexical-binding: t; -*-
 
 ;;;; Theme
-;; Start with nice theme
-(load-theme 'doom-sourcerer t)
+;; Prefer darker theme
+(load-theme 'doom-tomorrow-night t)
 
 ;;;; Mode-line
 (setq doom-modeline-bar-width 0)

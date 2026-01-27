@@ -57,6 +57,9 @@
 (my-load-user-init "appearance-graphic.el"
                    :needs '(doom-themes doom-modeline)
                    :when 'display-graphic-p)
+
+(my-load-user-init "appearance-tweak-theme.el")
+
 ;; Finally
 (message "[ After init ]")
 (my-load-user-init "after-init.el"
