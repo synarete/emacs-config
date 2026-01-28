@@ -52,8 +52,8 @@
 (setq my-key-bindings
       '(
         ("C-o"          . find-file)               ; Open file
-        ("C-a"          . mark-whole-buffer)       ; Select all buffer
         ("C-p"          . pop-global-mark)         ; Jump to previous position
+        ("C-x a"        . mark-whole-buffer)       ; Select all buffer
         ("C-x g"        . goto-line)               ; Go to specific line
         ("C-x s"        . save-buffer)             ; Save buffer
         ("C-x q"        . save-buffers-kill-emacs) ; Save and quit Emacs
@@ -67,10 +67,10 @@
         ;; Shell
         ("<f4>"         . my-start-shell)
         ;; Window resize
-        ("C-S-<left>"   . shrink-window-horizontally)
-        ("C-S-<right>"  . enlarge-window-horizontally)
-        ("C-S-<down>"   . shrink-window)
-        ("C-S-<up>"     . enlarge-window)
+        ("C-x <left>"   . shrink-window-horizontally)
+        ("C-x <right>"  . enlarge-window-horizontally)
+        ("C-x <down>"   . shrink-window)
+        ("C-x <up>"     . enlarge-window)
         ;; Cycle buffers
         ("M-S-<left>"   . previous-buffer)
         ("M-S-<right>"  . next-buffer)

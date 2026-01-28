@@ -7,9 +7,7 @@
 (set-face-background 'trailing-whitespace "#212123")
 
 ;; Line highlight
-(global-hi-lock-mode 0)
 (set-face-background 'hl-line "#2d3335" t)
-(global-hi-lock-mode 1)
 
 ;; Line numbers colors
 (set-face-attribute 'line-number nil :foreground "gray29")
@@ -27,4 +25,4 @@
                     :box '(:line-width 2 :color "#222224"))
 
 ;; Cursor
-(set-cursor-color "gray")
+(set-face-attribute 'cursor nil :background "gray")
