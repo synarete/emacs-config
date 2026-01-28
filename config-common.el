@@ -64,3 +64,8 @@
 
 ;; Prevent extraneous Tabs
 (setq-default indent-tabs-mode nil)
+
+;; Improved scrolling
+(setq scroll-conservatively 101)
+(setq scroll-preserve-screen-position 1)
+(setq scroll-margin 0)
