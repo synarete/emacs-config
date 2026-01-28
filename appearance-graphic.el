@@ -1,5 +1,8 @@
 ;;; appearance-graphic.el   -*- lexical-binding: t; -*-
 
+;; Hide the scroll bar
+(scroll-bar-mode 0)
+
 ;;;; Frame
 ;; Prevent automatic frame resizing when graphic elements change
 (setq frame-inhibit-implied-resize t)

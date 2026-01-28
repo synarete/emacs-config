@@ -9,9 +9,6 @@
 ;; Hide the menu bar
 (menu-bar-mode 0)
 
-;; Hide the scroll bar
-(scroll-bar-mode 0)
-
 ;; Highligh current line
 (global-hi-lock-mode 1)
 
