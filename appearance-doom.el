@@ -1,9 +1,5 @@
 ;;; appearance-doom.el  -*- lexical-binding: t; -*-
 
-;;;; Theme
-;; Prefer darker theme
-(load-theme 'doom-opera t)
-
 ;;;; Mode-line
 (setq doom-modeline-bar-width 0)
 (setq doom-modeline-buffer-file-name-style 'relative-to-project)
@@ -14,3 +10,7 @@
 (setq doom-modeline-battery nil)
 (setq doom-modeline-env-version nil)
 (doom-modeline-mode 1)
+
+;;;; Theme
+;; Prefer darker theme
+(load-theme 'doom-opera t)
