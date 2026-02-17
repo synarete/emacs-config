@@ -48,11 +48,15 @@
          ))))
 
 (defun my-ibuffer-mode ()
-  (ibuffer-switch-to-saved-filter-groups "default")
+  (setq ibuffer-expert t)
   (setq ibuffer-show-empty-filter-groups nil)
   (setq ibuffer-default-shrink-to-minimum-size nil)
   (setq ibuffer-use-other-window nil)
   (setq ibuffer-display-summary nil)
+  (setq ibuffer-default-sorting-mode 'filename/process)
+  (setq ibuffer-title-face 'font-lock-doc-face)
+  (setq ibuffer-use-header-line t)
+  (ibuffer-switch-to-saved-filter-groups "default")
   (ibuffer-auto-mode 1))
 
 (add-hook 'ibuffer-mode-hook #'my-ibuffer-mode)
