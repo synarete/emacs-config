@@ -61,3 +61,11 @@
 (setq-default compilation-always-kill t)
 (setq-default compilation-ask-about-save nil)
 (setq-default compilation-scroll-output 'first-error)
+
+;;;; Company
+(require 'company)
+(defun my-company-mode ()
+  (setq company-frontends
+        '(company-echo-metadata-frontend company-echo-frontend)))
+
+(add-hook 'prog-mode-hook #'my-company-mode)

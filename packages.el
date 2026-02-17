@@ -28,8 +28,7 @@
 ;; https://github.com/company-mode/company-mode
 (use-package company
   :ensure t
-  :defer 1
-  :hook (prog-mode . company-mode))
+  :defer 1)
 
 ;; Balance parentheses, brackets, braces, etc.
 ;; https://github.com/Fuco1/smartparens
