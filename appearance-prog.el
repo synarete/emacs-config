@@ -21,14 +21,21 @@
             (tab-mark 9 [187 9] [92 9])
             ))
     (set-face-attribute 'whitespace-tab nil
-                        :background 'unspecified :foreground "gray19")
+                        :background 'unspecified
+                        :foreground "gray19")
     (set-face-attribute 'whitespace-space nil
-                        :background 'unspecified :foreground "gray19")
+                        :background 'unspecified
+                        :foreground "gray19")
     (set-face-attribute 'whitespace-space-after-tab nil
-                        :background 'unspecified :foreground "gray19")
+                        :background 'unspecified
+                        :foreground "gray19")
     (whitespace-mode)))
 
 (add-hook 'prog-mode-hook #'my-whitespace-style)
 
 ;; Highlight line
 ;; (add-hook 'prog-mode-hook #'hl-line-mode)
+
+;; Company
+(set-face-attribute 'company-echo nil :foreground "#b48ead")
+(set-face-attribute 'company-echo-common nil :foreground "ivory")
