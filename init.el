@@ -62,6 +62,9 @@
                    :needs '(doom-themes doom-modeline)
                    :when 'display-graphic-p)
 
+(my-load-user-init "appearance-magit.el"
+                   :needs '(magit))
+
 (my-load-user-init "appearance-theme-ext.el")
 
 ;; Finally

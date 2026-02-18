@@ -6,7 +6,7 @@
 (setq ibuffer-saved-filter-groups
       (quote
        (("default"
-         ("Debug"
+         ("GDB"
           (or
            (mode . gud-mode)
            (mode . gud-tooltip-mode)
@@ -45,6 +45,8 @@
            (mode . text-mode)
            (mode . markdown-mode)
            (mode . rst-mode)))
+         ("Magit"
+          (derived-mode . magit-mode))
          ))))
 
 (defun my-ibuffer-mode ()
