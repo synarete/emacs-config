@@ -26,3 +26,7 @@
 
 ;; Cursor
 (set-face-attribute 'cursor nil :background "gray")
+
+;; Parentheses
+(set-face-attribute 'show-paren-match nil
+                    :background "gray29" :foreground "ivory" :weight 'bold)
