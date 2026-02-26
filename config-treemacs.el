@@ -18,3 +18,8 @@
 ;; Use normal face for treemacs root
 (custom-set-faces
  '(treemacs-root-face ((t (:height 1.0)))))
+
+;; Disable mouse right-click on treemacs
+(with-eval-after-load 'treemacs
+  (define-key treemacs-mode-map [mouse-3] nil)
+  (define-key treemacs-mode-map [down-mouse-3] nil))
