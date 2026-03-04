@@ -30,6 +30,7 @@
 
 # Custom variables local file
 /custom.el
+/private.el
 
 # GNUS
 /*.gpg
