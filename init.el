@@ -34,7 +34,7 @@
                    :needs '(treemacs))
 
 (my-load-user-init "config-mouse.el"
-                   :when 'display-graphic-p)
+                   :graphic t)
 
 ;; Key-bindings
 (message "[ Key-bindings ]")
@@ -59,8 +59,8 @@
                    :needs '(doom-themes doom-modeline))
 
 (my-load-user-init "appearance-graphic.el"
-                   :needs '(doom-themes doom-modeline)
-                   :when 'display-graphic-p)
+                   :graphic t
+                   :needs '(doom-themes doom-modeline))
 
 (my-load-user-init "appearance-magit.el"
                    :needs '(magit))
