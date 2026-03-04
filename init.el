@@ -33,8 +33,8 @@
 (my-load-user-init "config-treemacs.el"
                    :needs '(treemacs))
 
-(my-load-user-init "config-misc.el"
-                   :needs '(ido))
+(my-load-user-init "config-mouse.el"
+                   :when 'display-graphic-p)
 
 ;; Key-bindings
 (message "[ Key-bindings ]")
