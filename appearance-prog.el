@@ -37,5 +37,5 @@
 ;; (add-hook 'prog-mode-hook #'hl-line-mode)
 
 ;; Company
-(set-face-attribute 'company-echo-common nil :foreground "#d9dee9")
-(set-face-attribute 'company-echo nil :foreground "#ebcb8b")
+(set-face-attribute 'company-echo-common nil :foreground "#d8dee9")
+(set-face-attribute 'company-echo nil :foreground "#b48ead")
