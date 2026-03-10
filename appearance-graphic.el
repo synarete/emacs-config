@@ -35,6 +35,6 @@
 ;;;; Shell
 (defun my-shell-mode ()
   (set (make-local-variable 'face-remapping-alist)
-       '((default :background "gray4"))))
+       '((default :background "gray1"))))
 
 (add-hook 'shell-mode-hook #'my-shell-mode)
