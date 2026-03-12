@@ -33,6 +33,9 @@
 ;; Disable version control
 (setq vc-handled-backends nil)
 
+;; Open file-at-point without asking for confirmation if path exists
+(setq ffap-no-confirm t)
+
 ;;; Behaviour configs
 
 ;; No beep

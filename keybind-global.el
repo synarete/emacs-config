@@ -52,6 +52,7 @@
 (setq my-key-bindings
       '(
         ("C-o"          . find-file)               ; Open file
+        ("C-c f"        . find-file-at-point)      ; Open file under cursor
         ("C-p"          . pop-global-mark)         ; Jump to previous position
         ("C-x a"        . mark-whole-buffer)       ; Select all buffer
         ("C-x g"        . goto-line)               ; Go to specific line
@@ -59,6 +60,7 @@
         ("C-x q"        . save-buffers-kill-emacs) ; Save and quit Emacs
         ("C-x k"        . kill-current-buffer)     ; Kill current buffer
         ("C-x C-s"      . my-save-all-buffers)     ; Save all modified buffers
+        ;; Specials
         ("<f1>"         . treemacs)                ; Open Treemacs
         ("<f2>"         . ibuffer)                 ; Pop Ibuffer
         ;; Build/clean project with make
