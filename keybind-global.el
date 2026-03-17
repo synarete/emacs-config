@@ -24,6 +24,12 @@
      (message "An error occurred while saving buffers: %s"
               (error-message-string err)))))
 
+(defun my-save-and-quit ()
+  "Save all buffers silently and kill Emacs."
+  (interactive)
+  (save-some-buffers t)
+  (kill-emacs))
+
 (defun my-compile-make ()
   "Compile with `make`"
   (interactive)
@@ -57,9 +63,9 @@
         ("C-x a"        . mark-whole-buffer)       ; Select all buffer
         ("C-x g"        . goto-line)               ; Go to specific line
         ("C-x s"        . save-buffer)             ; Save buffer
-        ("C-x q"        . save-buffers-kill-emacs) ; Save and quit Emacs
         ("C-x k"        . kill-current-buffer)     ; Kill current buffer
-        ("C-x C-s"      . my-save-all-buffers)     ; Save all modified buffers
+        ("C-x C-s"      . my-save-all-buffers)     ; Save modified buffers
+        ("C-x C-q"      . my-save-and-quit)        ; Save all and quit Emacs
         ;; Specials
         ("<f1>"         . treemacs)                ; Open Treemacs
         ("<f2>"         . ibuffer)                 ; Pop Ibuffer
