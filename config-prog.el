@@ -35,6 +35,20 @@
 
 (add-to-list 'c-mode-common-hook #'my-c-mode-style)
 
+;; C23 missing
+(defun my-c23-keywords-hook ()
+  "Add C23 keywords to font-lock for C mode."
+  (let ((c23-kw (regexp-opt '("alignas" "alignof" "bool" "constexpr"
+                              "false" "nullptr" "static_assert" "thread_local"
+                              "true" "typeof" "typeof_unqual") 'symbols))
+        (c23-tp (regexp-opt '("_BitInt" "_Decimal32" "_Decimal64"
+                              "_Decimal128") 'symbols)))
+    (font-lock-add-keywords nil
+                            `((,c23-kw . font-lock-keyword-face)
+                              (,c23-tp . font-lock-type-face)))))
+
+(add-hook 'c-mode-hook #'my-c23-keywords-hook)
+
 ;; Shell script style (following Linux kernel convention).
 (defun my-sh-mode-style ()
   (setq-local tab-width 8)
