@@ -1,4 +1,6 @@
-;;; keybind-gud.el -- Key-binding mappings -*- lexical-binding: t; -*-
+;;; keybind-global.el -- Key-binding mappings -*- lexical-binding: t; -*-
+
+(require 'projectile)
 
 (defun my-num-visited-modified-buffers ()
   "Return the number of visited and modified buffers."
@@ -55,7 +57,7 @@
     (define-key keymap (kbd (car binding)) (cdr binding))))
 
 ;; Define key mappings
-(setq my-key-bindings
+(defvar my-key-bindings
       '(
         ("C-o"          . find-file)               ; Open file
         ("C-c f"        . find-file-at-point)      ; Open file under cursor

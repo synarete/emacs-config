@@ -28,7 +28,7 @@
   (setq lsp-enable-folding nil)
   (setq lsp-enable-imenu nil)
   (setq lsp-enable-snippet nil)
-  (setq read-process-output-max (* 1024 1024))
+  (setq read-process-output-max (* 4 1024 1024))
   (setq lsp-idle-delay 0.5)
   (setq lsp-clients-clangd-args
         '("-j=1"

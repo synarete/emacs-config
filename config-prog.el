@@ -13,8 +13,8 @@
 
 ;; Remove trailing whitespaces upon save
 (defun my-prog-mode-save ()
-  (add-hook 'before-save-hook #'delete-trailing-whitespace)
-  (add-hook 'before-save-hook #'whitespace-cleanup))
+  (add-hook 'before-save-hook #'delete-trailing-whitespace nil t)
+  (add-hook 'before-save-hook #'whitespace-cleanup nil t))
 
 (add-hook 'prog-mode-hook #'my-prog-mode-save)
 
@@ -33,7 +33,7 @@
   (setq-local tab-always-indent t)
   (setq-local tab-width 8))
 
-(add-to-list 'c-mode-common-hook #'my-c-mode-style)
+(add-hook 'c-mode-common-hook #'my-c-mode-style)
 
 ;; C23 missing
 (defun my-c23-keywords-hook ()
@@ -60,8 +60,8 @@
 (add-hook 'sh-mode-hook #'my-sh-mode-style)
 
 ;; Scheme
-(when (executable-find "guile3.0")
-  (setq geiser-guile-binary "guile3.0"))
+(when-let ((guile-path (executable-find "guile3.0")))
+  (setq geiser-guile-binary guile-path))
 
 ;; Enable spell-checker in prog mode
 (require 'flyspell)

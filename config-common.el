@@ -51,7 +51,7 @@
 (setq use-dialog-box nil)
 
 ;; Do not ask before saving buffers
-(setq buffer-save-without-query 't)
+(setq buffer-save-without-query t)
 
 ;; Don't Lock Files
 (setq-default create-lockfiles nil)

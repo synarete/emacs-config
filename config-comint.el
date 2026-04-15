@@ -1,3 +1,5 @@
+;;; config-comint.el -- Command-interpreter configs -*- lexical-binding: t; -*-
+
 ;;;; Command-interpreter (Shell and Term)
 (require 'comint)
 
@@ -20,4 +22,3 @@
 
 ;; Use pretty colors in comint-mode
 (ansi-color-for-comint-mode-on)
-
