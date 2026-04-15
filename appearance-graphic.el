@@ -15,16 +15,19 @@
 (window-divider-mode)
 
 ;;;; Font setup
+(require 'seq)
+
 (defconst my-font-list
   '("IBM Plex Mono-14" "Source Code Pro-13" "Monospace-12"))
 
-(defun my-find-font (my-font-name)
-  (find-font (font-spec :name my-font-name)))
-
 (defun my-select-font ()
-  (seq-find #'my-find-font my-font-list))
+  (seq-find
+   (lambda (name)
+     (ignore-errors (find-font (font-spec :name name))))
+   my-font-list))
 
-(add-to-list 'default-frame-alist (cons 'font (my-select-font)))
+(when-let ((font-name (my-select-font)))
+  (add-to-list 'default-frame-alist `(font . ,font-name)))
 
 ;;;; Mode-line
 ;; Display time in mode-line

@@ -16,8 +16,7 @@
 (setq treemacs-persist-process nil)
 
 ;; Use normal face for treemacs root
-(custom-set-faces
- '(treemacs-root-face ((t (:height 1.0)))))
+(set-face-attribute 'treemacs-root-face nil :height 1.0)
 
 ;; Disable mouse right-click on treemacs
 (with-eval-after-load 'treemacs

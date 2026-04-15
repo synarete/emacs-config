@@ -19,12 +19,14 @@
 (add-hook 'prog-mode-hook #'my-prog-mode-save)
 
 ;; Coding-style
-(setq c-default-style
+(defconst my-c-default-style
       '((cc-mode . "linux")
         (python-mode . "python")
         (awk-mode . "awk")
         (java-mode . "java")
         (other . "gnu")))
+
+(setq c-default-style my-c-default-style)
 
 ;; C style
 (defun my-c-mode-style ()

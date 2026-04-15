@@ -12,46 +12,46 @@
 
 ;; LSP settings
 (defun my-lsp-mode ()
-  (setq lsp-auto-guess-root t)
-  (setq lsp-log-io nil)
-  (setq lsp-restart 'auto-restart)
-  (setq lsp-enable-symbol-highlighting nil)
-  (setq lsp-enable-on-type-formatting nil)
-  (setq lsp-signature-auto-activate t)
-  (setq lsp-signature-doc-lines 1)
-  (setq lsp-signature-render-documentation nil)
-  (setq lsp-modeline-code-actions-enable nil)
-  (setq lsp-modeline-diagnostics-enable nil)
-  (setq lsp-headerline-breadcrumb-enable nil)
-  (setq lsp-semantic-tokens-enable nil)
-  (setq lsp-diagnostics-provider :none)
-  (setq lsp-enable-folding nil)
-  (setq lsp-enable-imenu nil)
-  (setq lsp-enable-snippet nil)
-  (setq read-process-output-max (* 4 1024 1024))
-  (setq lsp-idle-delay 0.5)
-  (setq lsp-clients-clangd-args
-        '("-j=1"
-          "--background-index"
-          "--completion-style=detailed"
-          "--header-insertion=never"
-          "--header-insertion-decorators=0"
-          "--all-scopes-completion"
-          "--suggest-missing-includes")))
+  (setq-local lsp-auto-guess-root t)
+  (setq-local lsp-log-io nil)
+  (setq-local lsp-restart 'auto-restart)
+  (setq-local lsp-enable-symbol-highlighting nil)
+  (setq-local lsp-enable-on-type-formatting nil)
+  (setq-local lsp-signature-auto-activate t)
+  (setq-local lsp-signature-doc-lines 1)
+  (setq-local lsp-signature-render-documentation nil)
+  (setq-local lsp-modeline-code-actions-enable nil)
+  (setq-local lsp-modeline-diagnostics-enable nil)
+  (setq-local lsp-headerline-breadcrumb-enable nil)
+  (setq-local lsp-semantic-tokens-enable nil)
+  (setq-local lsp-diagnostics-provider :none)
+  (setq-local lsp-enable-folding nil)
+  (setq-local lsp-enable-imenu nil)
+  (setq-local lsp-enable-snippet nil)
+  (setq-local read-process-output-max (* 4 1024 1024))
+  (setq-local lsp-idle-delay 0.5)
+  (setq-local lsp-clients-clangd-args
+              '("-j=1"
+                "--background-index"
+                "--completion-style=detailed"
+                "--header-insertion=never"
+                "--header-insertion-decorators=0"
+                "--all-scopes-completion"
+                "--suggest-missing-includes")))
 
 (add-hook 'c-mode-hook #'my-lsp-mode)
 (add-hook 'python-mode-hook #'my-lsp-mode)
 
 ;; LSP-UI settings
 (defun my-lsp-ui-mode ()
-  (setq lsp-ui-doc-enable nil)
-  (setq lsp-ui-doc-header t)
-  (setq lsp-ui-doc-include-signature t)
-  (setq lsp-ui-doc-border (face-foreground 'default))
-  (setq lsp-ui-doc-show-with-mouse nil)
-  (setq lsp-ui-sideline-enable nil)
-  (setq lsp-ui-sideline-show-code-actions t)
-  (setq lsp-ui-sideline-delay 0.1))
+  (setq-local lsp-ui-doc-enable nil)
+  (setq-local lsp-ui-doc-header t)
+  (setq-local lsp-ui-doc-include-signature t)
+  (setq-local lsp-ui-doc-border (face-foreground 'default))
+  (setq-local lsp-ui-doc-show-with-mouse nil)
+  (setq-local lsp-ui-sideline-enable nil)
+  (setq-local lsp-ui-sideline-show-code-actions t)
+  (setq-local lsp-ui-sideline-delay 0.1))
 
 (add-hook 'c-mode-hook #'my-lsp-ui-mode)
 

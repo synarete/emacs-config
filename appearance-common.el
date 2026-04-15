@@ -10,7 +10,7 @@
 (menu-bar-mode 0)
 
 ;; Highligh current line
-(global-hi-lock-mode 1)
+(global-hi-line-mode 1)
 
 ;; Do not display load average in mode line
 (setq display-time-default-load-average nil)

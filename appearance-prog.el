@@ -4,18 +4,18 @@
 
 ;; Extend margins in prog-mode
 (defun my-prog-mode-margins ()
-  (interactive)
-  (setq left-margin-width 1)
-  (setq right-margin-width 1))
+  (setq left-margin-width 1
+        right-margin-width 1)
+  (set-window-buffer nil (current-buffer)))
 
 (add-hook 'prog-mode-hook #'my-prog-mode-margins)
 
 ;; Whitespaces
 (defun my-whitespace-style ()
   (progn
-    (setq show-trailing-whitespace t)
+    (setq-local show-trailing-whitespace t)
     ;;(setq whitespace-style '(face empty trailing tab-mark))
-    (setq whitespace-display-mappings
+    (setq-local whitespace-display-mappings
           '(
             ;; (space-mark 32 [183] [46])
             (tab-mark 9 [187 9] [92 9])
@@ -37,5 +37,6 @@
 ;; (add-hook 'prog-mode-hook #'hl-line-mode)
 
 ;; Company
-(set-face-attribute 'company-echo-common nil :foreground "#d8dee9")
-(set-face-attribute 'company-echo nil :foreground "#b48ead")
+(with-eval-after-load 'company
+  (set-face-attribute 'company-echo-common nil :foreground "#d8dee9")
+  (set-face-attribute 'company-echo nil :foreground "#b48ead"))

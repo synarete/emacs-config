@@ -13,4 +13,6 @@
 
 ;;;; Theme
 ;; Prefer darker theme
-(load-theme 'doom-opera t)
+(condition-case err
+    (load-theme 'doom-opera t)
+  (error (message "Failed to load theme: %s" (error-message-string err))))

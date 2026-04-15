@@ -1,6 +1,5 @@
 ;;; appearance-magit.el  -*- lexical-binding: t; -*-
 
-(require 'magit)
 (defun my-magit-style ()
   (dolist
       (face '(;; Inactive (dim) sections

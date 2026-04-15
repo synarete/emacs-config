@@ -10,7 +10,6 @@
 (set-selection-coding-system 'utf-8)
 (set-file-name-coding-system 'utf-8)
 (set-clipboard-coding-system 'utf-8)
-(set-buffer-file-coding-system 'utf-8)
 
 ;; Show default column-indicator (80) in text-mode
 (add-hook 'text-mode-hook #'display-fill-column-indicator-mode)
