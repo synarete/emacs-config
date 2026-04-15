@@ -26,9 +26,6 @@
 (show-paren-mode 1)
 (setq show-paren-delay 0)
 
-;; Highlight the marked region.
-(setq-default transient-mark-mode t)
-
 ;; Highlight text selection
 (transient-mark-mode 1)
 

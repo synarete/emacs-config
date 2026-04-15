@@ -73,6 +73,5 @@
 (setq scroll-preserve-screen-position 1)
 (setq scroll-margin 0)
 
-;; Use ido
-(require 'ido)
-(ido-mode t)
+;; Use Vertico
+(vertico-mode)

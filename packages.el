@@ -58,13 +58,19 @@
   :ensure t
   :defer t)
 
-;; Language Server Protocol
+;; LSP (Language Server Protocol)
 ;; https://github.com/emacs-lsp/lsp-mode
 (use-package lsp-mode
   :ensure t
   :defer t
   :hook ((c-mode python-mode) . lsp-deferred)
   :commands lsp lsp-deferred)
+
+;; LSP UI
+;; https://github.com/emacs-lsp/lsp-ui
+(use-package lsp-ui
+  :ensure t
+  :defer t)
 
 ;; Projects via projectile
 ;; https://github.com/bbatsov/projectile
@@ -92,6 +98,12 @@
 (use-package flyspell
   :ensure t
   :defer t)
+
+;; USe Vertico as completion framework
+;; https://github.com/minad/vertico
+(use-package vertico
+  :ensure t
+  :init (vertico-mode))
 
 ;; Use Doom emacs themes
 ;; https://github.com/doomemacs/themes

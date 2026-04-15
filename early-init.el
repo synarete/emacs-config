@@ -10,4 +10,4 @@
 (setq site-run-file nil)
 
 ;; Bring on helpers
-(load (concat user-emacs-directory "helpers.el"))
+(load (expand-file-name "helpers.el" user-emacs-directory))
