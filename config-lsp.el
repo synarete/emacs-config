@@ -11,6 +11,15 @@
 (define-key lsp-mode-map (kbd lsp-keymap-prefix) lsp-command-map)
 
 ;; LSP settings
+(defconst my-lsp-clients-clangd-args
+  '("-j=1"
+    "--background-index"
+    "--completion-style=detailed"
+    "--header-insertion=never"
+    "--header-insertion-decorators=0"
+    "--all-scopes-completion"
+    "--suggest-missing-includes"))
+
 (defun my-lsp-mode ()
   (setq-local lsp-auto-guess-root t)
   (setq-local lsp-log-io nil)
@@ -30,14 +39,7 @@
   (setq-local lsp-enable-snippet nil)
   (setq-local read-process-output-max (* 4 1024 1024))
   (setq-local lsp-idle-delay 0.5)
-  (setq-local lsp-clients-clangd-args
-              '("-j=1"
-                "--background-index"
-                "--completion-style=detailed"
-                "--header-insertion=never"
-                "--header-insertion-decorators=0"
-                "--all-scopes-completion"
-                "--suggest-missing-includes")))
+  (setq-local lsp-clients-clangd-args my-lsp-clients-clangd-args))
 
 (add-hook 'c-mode-hook #'my-lsp-mode)
 (add-hook 'python-mode-hook #'my-lsp-mode)
