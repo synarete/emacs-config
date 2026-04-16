@@ -99,7 +99,7 @@
   :ensure t
   :defer t)
 
-;; USe Vertico as completion framework
+;; Use Vertico as completion framework
 ;; https://github.com/minad/vertico
 (use-package vertico
   :ensure t

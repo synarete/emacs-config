@@ -2,14 +2,6 @@
 
 ;;;; Prog-mode visuals
 
-;; Extend margins in prog-mode
-(defun my-prog-mode-margins ()
-  (setq left-margin-width 1
-        right-margin-width 1)
-  (set-window-buffer nil (current-buffer)))
-
-(add-hook 'prog-mode-hook #'my-prog-mode-margins)
-
 ;; Whitespaces
 (defun my-whitespace-style ()
   (progn

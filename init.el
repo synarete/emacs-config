@@ -37,7 +37,6 @@
 (my-load-user-init "config-mouse.el"
                    :graphic t)
 
-
 ;; Key-bindings
 (message "[ Key-bindings ]")
 

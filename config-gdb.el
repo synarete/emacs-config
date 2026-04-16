@@ -6,4 +6,4 @@
 (setq gdb-display-io-nopopup t)
 (setq gdb-non-stop-setting nil)
 (setq gdb-restore-window-configuration-after-quit t)
-(setq gdb-many-windows t)
+(setq gdb-many-windows nil)
