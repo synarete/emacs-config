@@ -13,8 +13,6 @@
 
 (my-load-user-init "config-common.el")
 
-(my-load-user-init "config-comint.el")
-
 (my-load-user-init "config-ibuffer.el"
                    :needs '(ibuffer))
 
@@ -33,8 +31,12 @@
 (my-load-user-init "config-treemacs.el"
                    :needs '(treemacs))
 
+(my-load-user-init "config-misc.el"
+                   :needs '(vertico))
+
 (my-load-user-init "config-mouse.el"
                    :graphic t)
+
 
 ;; Key-bindings
 (message "[ Key-bindings ]")
