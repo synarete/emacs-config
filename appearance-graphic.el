@@ -29,6 +29,9 @@
 (when-let ((font-name (my-select-font)))
   (add-to-list 'default-frame-alist `(font . ,font-name)))
 
+;; Avoid italic fonts
+(set-face-attribute 'italic nil :slant 'normal)
+
 ;;;; Mode-line
 ;; Display time in mode-line
 (setq display-time-day-and-date t)

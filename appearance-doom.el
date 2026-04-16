@@ -9,6 +9,13 @@
 (setq doom-modeline-time-live-icon nil)
 (setq doom-modeline-battery nil)
 (setq doom-modeline-env-version nil)
+
+;; Disable italic fonts in modeline
+(with-eval-after-load 'doom-modeline
+  (set-face-attribute 'mode-line nil :slant 'normal)
+  (set-face-attribute 'mode-line-inactive nil :slant 'normal)
+  (set-face-attribute 'doom-modeline nil :slant 'normal))
+
 (doom-modeline-mode 1)
 
 ;;;; Theme
