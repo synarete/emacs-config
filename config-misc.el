@@ -21,8 +21,8 @@
 (setq comint-scroll-show-maximum-output t)
 
 ;; Use pretty colors in comint-mode
-(ansi-color-for-comint-mode-on)
-
+(add-hook 'shell-mode-hook #'ansi-color-for-comint-mode-on)
+(add-to-list 'comint-output-filter-functions #'ansi-color-process-output)
 
 ;;;; Vertico
 (require 'vertico)
