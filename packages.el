@@ -58,7 +58,6 @@
 (use-package lsp-mode
   :ensure t
   :defer t
-  :hook ((c-mode python-mode) . lsp-deferred)
   :commands lsp lsp-deferred)
 
 ;; LSP UI
