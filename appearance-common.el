@@ -28,3 +28,6 @@
 
 ;; Keep syntax highlighting in the current line
 (set-face-foreground 'highlight nil)
+
+;; Avoid fringe mode (too ugly)
+(fringe-mode 0)
