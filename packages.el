@@ -70,8 +70,8 @@
 ;; Projects via projectile
 ;; https://github.com/bbatsov/projectile
 (use-package projectile
-  :demand t
-  :config
+  :defer t
+  :init
   (projectile-mode +1))
 
 ;; Project-view via treemacs

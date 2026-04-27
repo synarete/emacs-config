@@ -1,4 +1,4 @@
-;;; appearance-tweak-theme.el  -*- lexical-binding: t; -*-
+;;; appearance-theme-ext.el  -*- lexical-binding: t; -*-
 
 ;; Improve theme's background
 (set-face-background 'default "#131517" t)
