@@ -86,12 +86,10 @@
 
 ;; GNU flymake
 (use-package flymake
-  :ensure t
   :defer t)
 
 ;; Spell check with flyspell
 (use-package flyspell
-  :ensure t
   :defer t)
 
 ;; Use Vertico as completion framework
