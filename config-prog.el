@@ -80,10 +80,10 @@
 
 ;;;; Company
 (require 'company)
-(defun my-company-mode ()
-  (setq company-echo-delay 0.3)
-  (setq company-frontends
-        '(company-echo-metadata-frontend
-          company-echo-frontend)))
 
-(add-hook 'prog-mode-hook #'my-company-mode)
+(setq company-echo-delay 0.3)
+(setq company-frontends
+      '(company-echo-metadata-frontend
+        company-echo-frontend))
+
+(add-hook 'prog-mode-hook #'company-mode)
