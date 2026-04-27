@@ -39,9 +39,9 @@
 
 ;; Git via magit
 ;; https://magit.vc/
-;; (use-package magit
-;;  :ensure t
-;;  :defer 2)
+(use-package magit
+  :ensure t
+  :defer t)
 
 ;; Scheme/Guile development
 ;; https://www.nongnu.org/geiser/
