@@ -9,8 +9,6 @@
 (require 'make-mode)
 (require 'sh-script)
 (require 'xref)
-;; (require 'eglot)
-;; (require 'eldoc)
 (require 'bind-key)
 (require 'package)
 
@@ -18,9 +16,6 @@
              '("melpa" . "https://melpa.org/packages/"))
 (add-to-list 'package-archives
              '("melpa-stable" . "https://stable.melpa.org/packages/"))
-(when (< emacs-major-version 27)
-  (package-initialize))
-
 
 ;;; Extra packages
 
