@@ -31,6 +31,3 @@
 
 ;; Avoid fringe mode (too ugly)
 (fringe-mode 0)
-
-;; Without fringes, need reserve enough space to line-numbers
-(setq display-line-numbers-width 5)
