@@ -59,31 +59,29 @@
 ;; Define key mappings
 (defvar my-key-bindings
       '(
-        ("C-o"          . find-file)               ; Open file
-        ("C-c f"        . find-file-at-point)      ; Open file under cursor
-        ("C-p"          . pop-global-mark)         ; Jump to previous position
-        ("C-x a"        . mark-whole-buffer)       ; Select all buffer
-        ("C-x g"        . goto-line)               ; Go to specific line
-        ("C-x s"        . save-buffer)             ; Save buffer
-        ("C-x k"        . kill-current-buffer)     ; Kill current buffer
-        ("C-x C-s"      . my-save-all-buffers)     ; Save modified buffers
-        ("C-x C-q"      . my-save-and-quit)        ; Save all and quit Emacs
+        ("C-o"     . find-file)
+        ("C-c f"   . find-file-at-point)
+        ("C-p"     . pop-global-mark)
+        ("C-x a"   . mark-whole-buffer)
+        ("C-x g"   . goto-line)
+        ("C-x s"   . save-buffer)
+        ("C-x k"   . kill-current-buffer)
+        ("C-x C-s" . my-save-all-buffers)
+        ("C-x C-q" . my-save-and-quit)
         ;; Specials
-        ("<f1>"         . treemacs)                ; Open Treemacs
-        ("<f2>"         . ibuffer)                 ; Pop Ibuffer
+        ("<f1>"    . treemacs)
+        ("<f2>"    . ibuffer)
         ;; Build/clean project with make
-        ("<f3>"         . my-compile-make)
-        ("C-<f3>"       . my-compile-make-clean)
+        ("<f3>"    . my-compile-make)
+        ("C-<f3>"  . my-compile-make-clean)
         ;; Shell
-        ("<f4>"         . my-start-shell)
-        ;; Window resize
-        ("C-x <left>"   . shrink-window-horizontally)
-        ("C-x <right>"  . enlarge-window-horizontally)
-        ("C-x <down>"   . shrink-window)
-        ("C-x <up>"     . enlarge-window)
+        ("<f4>"    . my-start-shell)
         ;; Cycle buffers
-        ("M-S-<left>"   . previous-buffer)
-        ("M-S-<right>"  . next-buffer)
+        ("M-S-<left>"  . previous-buffer)
+        ("M-S-<right>" . next-buffer)
+        ;; Window resize
+        ("M-[" . shrink-window)
+        ("M-]" . shrink-window-horizontally)
         ))
 
 ;; Apply the keybindings
