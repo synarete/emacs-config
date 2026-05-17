@@ -36,7 +36,7 @@
   "Compile with `make`"
   (interactive)
   (projectile-with-default-dir (projectile-acquire-root)
-    (compile "make")))
+    (compile "make -j7")))
 
 (defun my-compile-make-clean ()
   "Compile-clean with `make`"
