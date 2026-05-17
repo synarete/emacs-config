@@ -48,8 +48,7 @@
   "Start shell"
   (interactive)
   (shell)
-  (switch-to-buffer "*shell*")
-  (delete-other-windows))
+  (switch-to-buffer "*shell*"))
 
 (defun my-global-set-keys (keymap bindings)
   "Set multiple key BINDINGS in a KEYMAP."
