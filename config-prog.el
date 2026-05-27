@@ -20,11 +20,11 @@
 
 ;; Coding-style
 (defconst my-c-default-style
-      '((cc-mode . "linux")
-        (python-mode . "python")
-        (awk-mode . "awk")
-        (java-mode . "java")
-        (other . "gnu")))
+  '((cc-mode . "linux")
+    (python-mode . "python")
+    (awk-mode . "awk")
+    (java-mode . "java")
+    (other . "gnu")))
 
 (setq c-default-style my-c-default-style)
 
@@ -74,16 +74,16 @@
 (add-hook 'c-mode-hook #'flymake-mode)
 
 ;;;; Compilation settings
-(setq-default compilation-always-kill t)
-(setq-default compilation-ask-about-save nil)
-(setq-default compilation-scroll-output 'first-error)
+(setopt compilation-always-kill t)
+(setopt compilation-ask-about-save nil)
+(setopt compilation-scroll-output 'first-error)
 
 ;;;; Company
 (require 'company)
 
-(setq company-echo-delay 0.3)
-(setq company-frontends
-      '(company-echo-metadata-frontend
-        company-echo-frontend))
+(setopt company-echo-delay 0.3)
+(setopt company-frontends
+        '(company-echo-metadata-frontend
+          company-echo-frontend))
 
 (add-hook 'prog-mode-hook #'company-mode)
