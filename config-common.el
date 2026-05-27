@@ -39,16 +39,16 @@
 ;;; Behaviour configs
 
 ;; No beep
-(setq visible-bell nil)
+(setopt visible-bell nil)
 
 ;; Disable annoying bell
-(setq ring-bell-function 'ignore)
+(setopt ring-bell-function 'ignore)
 
 ;; Prefer short y-or-n answers
 (setopt use-short-answers t)
 
 ;; Prefer keyboard over dialog-box
-(setq use-dialog-box nil)
+(setopt use-dialog-box nil)
 
 ;; Do not ask before saving buffers
 (setq buffer-save-without-query t)
@@ -63,12 +63,12 @@
 (setq-default display-fill-column-indicator-column 80)
 
 ;; Isearch settings
-(setq isearch-lazy-count t)
+(setopt isearch-lazy-count t)
 
 ;; Prevent extraneous Tabs
 (setq-default indent-tabs-mode nil)
 
 ;; Improved scrolling
-(setq scroll-conservatively 101)
-(setq scroll-preserve-screen-position 1)
-(setq scroll-margin 0)
+(setopt scroll-conservatively 101)
+(setopt scroll-preserve-screen-position 1)
+(setopt scroll-margin 0)
