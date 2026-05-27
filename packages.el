@@ -95,7 +95,7 @@
 ;; https://github.com/minad/vertico
 (use-package vertico
   :ensure t
-  :init (vertico-mode))
+  :defer t)
 
 ;; Use Doom emacs themes
 ;; https://github.com/doomemacs/themes
