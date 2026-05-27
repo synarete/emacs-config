@@ -1,7 +1,7 @@
 ;;; config-mouse.el  -*- lexical-binding: t; -*-
 
 ;; Mouse wheel scrolls
-(setq mouse-wheel-follow-mouse t)
+(setopt mouse-wheel-follow-mouse t)
 
 ;; Yank with middle mouse
-(setq mouse-yank-at-point t)
+(setopt mouse-yank-at-point t)
