@@ -10,10 +10,10 @@
 (menu-bar-mode 0)
 
 ;; Do not display load average in mode line
-(setq display-time-default-load-average nil)
+(setopt display-time-default-load-average nil)
 
 ;; Split window proportionally
-(setq window-combination-resize t)
+(setopt window-combination-resize t)
 
 ;; Cursor
 (setq-default cursor-type 'box)
@@ -21,7 +21,7 @@
 
 ;; Highlight matching parantheses when the point is on them
 (show-paren-mode 1)
-(setq show-paren-delay 0)
+(setopt show-paren-delay 0)
 
 ;; Highlight text selection
 (transient-mark-mode 1)
