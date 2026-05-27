@@ -1,8 +1,8 @@
 ;;; keybind-gud.el -- Debug key-binding  -*- lexical-binding: t; -*-
 
-(require 'gud)
-(define-key gud-mode-map (kbd "<up>") #'comint-previous-input)
-(define-key gud-mode-map (kbd "<down>") #'comint-next-input)
-(define-key gud-minor-mode-map (kbd "<f5>") #'gud-next)
-(define-key gud-minor-mode-map (kbd "<f6>") #'gud-step)
-(define-key gud-minor-mode-map (kbd "<f7>") #'gud-finish)
+(with-eval-after-load 'gud
+  (keymap-set gud-mode-map "<up>" #'comint-previous-input)
+  (keymap-set gud-mode-map "<down>" #'comint-next-input)
+  (keymap-set gud-minor-mode-map "<f5>" #'gud-next)
+  (keymap-set gud-minor-mode-map "<f6>" #'gud-step)
+  (keymap-set gud-minor-mode-map "<f7>" #'gud-finish))
