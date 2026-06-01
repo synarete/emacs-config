@@ -32,6 +32,17 @@
   (save-some-buffers t)
   (kill-emacs))
 
+(defun my-isearch-region-or-forward ()
+  "Search for the active region, or start a normal search if none is active."
+  (interactive)
+  (if (region-active-p)
+      (let ((region-text
+             (buffer-substring-no-properties (region-beginning) (region-end))))
+        (deactivate-mark)
+        (isearch-mode t)
+        (isearch-process-search-string region-text region-text))
+    (isearch-forward)))
+
 (defun my-compile-make ()
   "Compile with `make`"
   (interactive)
@@ -61,6 +72,7 @@
         ("C-o"     . find-file)
         ("C-c f"   . find-file-at-point)
         ("C-p"     . pop-global-mark)
+        ("C-s"     . my-isearch-region-or-forward)
         ("C-x a"   . mark-whole-buffer)
         ("C-x g"   . goto-line)
         ("C-x s"   . save-buffer)
