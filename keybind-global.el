@@ -58,8 +58,8 @@
 (defun my-start-shell ()
   "Start shell"
   (interactive)
-  (shell)
-  (switch-to-buffer "*shell*"))
+  (eat)
+  (switch-to-buffer "*eat*"))
 
 (defun my-global-set-keys (keymap bindings)
   "Set multiple key BINDINGS in a KEYMAP."

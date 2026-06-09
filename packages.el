@@ -111,3 +111,11 @@
 (use-package doom-modeline
   :ensure t
   :defer t)
+
+;; Emulate a terminal
+;; https://codeberg.org/akib/emacs-eat
+(use-package eat
+  :ensure t
+  :config
+  ;; Automatically gives Eshell a full terminal emulation boost
+  (add-hook 'eshell-load-hook #'eat-eshell-mode))

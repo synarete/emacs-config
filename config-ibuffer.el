@@ -23,7 +23,8 @@
       (or
        (mode . shell-mode)
        (mode . term-mode)
-       (mode . eshell-mode)))
+       (mode . eshell-mode)
+       (mode . eat-mode)))
      ("C/C++"
       (or
        (mode . c-mode)

@@ -44,3 +44,4 @@
        '((default :background "gray1"))))
 
 (add-hook 'shell-mode-hook #'my-shell-mode)
+(add-hook 'eat-mode-hook #'my-shell-mode)
