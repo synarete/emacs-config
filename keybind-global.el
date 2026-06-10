@@ -91,8 +91,8 @@
         ("M-S-<left>"  . previous-buffer)
         ("M-S-<right>" . next-buffer)
         ;; Window resize
-        ("M-[" . shrink-window)
-        ("M-]" . shrink-window-horizontally)
+        ("M-S-+" . enlarge-window)
+        ("M-+"   . enlarge-window-horizontally)
         ))
 
 ;; Apply the keybindings
