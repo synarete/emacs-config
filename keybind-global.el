@@ -93,6 +93,7 @@
         ;; Window resize
         ("M-S-+" . enlarge-window)
         ("M-+"   . enlarge-window-horizontally)
+        ("M-S--" . shrink-window)
         ("M--"   . shrink-window-horizontally)
         ))
 
