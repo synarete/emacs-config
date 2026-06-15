@@ -15,6 +15,10 @@
 (setq treemacs-never-persist t)
 (setq treemacs-persist-process nil)
 
+;; Allow resizing treemacs window
+(setq treemacs--width-is-locked nil)
+(setq treemacs-width-is-initially-locked nil)
+
 ;; Use normal face for treemacs root
 (set-face-attribute 'treemacs-root-face nil :height 1.0)
 
