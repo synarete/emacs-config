@@ -93,6 +93,7 @@
         ;; Window resize
         ("M-S-+" . enlarge-window)
         ("M-+"   . enlarge-window-horizontally)
+        ("M--"   . shrink-window-horizontally)
         ))
 
 ;; Apply the keybindings
