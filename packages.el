@@ -8,7 +8,6 @@
 (require 'cc-mode)
 (require 'make-mode)
 (require 'sh-script)
-(require 'xref)
 (require 'bind-key)
 (require 'package)
 

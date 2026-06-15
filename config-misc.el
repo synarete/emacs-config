@@ -31,3 +31,14 @@
 
 (setq vertico-cycle t)
 (vertico-mode 1)
+
+
+;;;; XRef
+(require 'xref)
+
+(defun my-xref-buffer-mode-hook ()
+  (display-line-numbers-mode 1)
+  (setq-local display-line-numbers-width 3)
+  (setq-local display-line-numbers-extra-text-width 2))
+
+(add-hook 'xref--xref-buffer-mode-hook #'my-xref-buffer-mode-hook)
