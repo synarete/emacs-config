@@ -6,9 +6,6 @@
 ;; No need to have time in mode-line
 (setq display-time-mode nil)
 
-;; Try to have GUI-like colors
-(setq termguicolors t)
-
 ;; No pixelwise in terminal
 (setopt frame-resize-pixelwise nil)
 

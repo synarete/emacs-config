@@ -5,7 +5,7 @@
 (require 'lsp-ui)
 
 ;; Preferred lsp key prefix
-(setq lsp-keymap-prefix "C-l")
+(setq lsp-keymap-prefix "C-c l")
 
 ;; Define the key binding in lsp-mode-map
 (define-key lsp-mode-map (kbd lsp-keymap-prefix) lsp-command-map)
