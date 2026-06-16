@@ -13,7 +13,6 @@
 (setq treemacs-silent-filewatch t)
 (setq treemacs-show-hidden-files t)
 (setq treemacs-never-persist t)
-(setq treemacs-persist-process nil)
 
 ;; Allow resizing treemacs window
 (setq treemacs--width-is-locked nil)

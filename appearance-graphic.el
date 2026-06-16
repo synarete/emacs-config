@@ -10,8 +10,7 @@
 ;; Add border inside frames
 (add-to-list 'default-frame-alist '(internal-border-width . 4))
 
-;; Minimal window-divider
-(customize-set-variable 'window-divider-default-right-width 4)
+;; Window divider
 (window-divider-mode)
 
 ;;;; Font setup
@@ -40,7 +39,7 @@
 
 ;;;; Shell
 (defun my-shell-mode ()
-  (set (make-local-variable 'face-remapping-alist)
+  (set (setq-local 'face-remapping-alist)
        '((default :background "gray1"))))
 
 (add-hook 'shell-mode-hook #'my-shell-mode)

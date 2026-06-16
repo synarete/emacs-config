@@ -13,8 +13,10 @@
 
 ;; Remove trailing whitespaces upon save
 (defun my-prog-mode-save ()
-  (add-hook 'before-save-hook #'delete-trailing-whitespace nil t)
-  (add-hook 'before-save-hook #'whitespace-cleanup nil t))
+  (unless (memq #'delete-trailing-whitespace before-save-hook)
+    (add-hook 'before-save-hook #'delete-trailing-whitespace nil t))
+  (unless (memq #'whitespace-cleanup before-save-hook)
+    (add-hook 'before-save-hook #'whitespace-cleanup nil t)))
 
 (add-hook 'prog-mode-hook #'my-prog-mode-save)
 

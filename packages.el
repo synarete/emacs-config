@@ -76,8 +76,7 @@
 ;; https://github.com/Alexander-Miller/treemacs
 (use-package treemacs
   :ensure t
-  :config
-  (treemacs-filewatch-mode t))
+  :defer r)
 
 (use-package treemacs-projectile
   :after (treemacs projectile))

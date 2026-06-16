@@ -46,8 +46,11 @@
 (defun my-compile-make ()
   "Compile with `make`"
   (interactive)
-  (projectile-with-default-dir (projectile-acquire-root)
-    (compile "make -j7")))
+  (let* ((num-cpus (num-processors))
+         (jobs (max 1 (1- num-cpus)))
+         (make-cmd (format "make -j%d" jobs)))
+    (projectile-with-default-dir (projectile-acquire-root)
+      (compile make-cmd))))
 
 (defun my-compile-make-clean ()
   "Compile-clean with `make`"
