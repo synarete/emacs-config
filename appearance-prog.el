@@ -3,7 +3,7 @@
 ;;;; Prog-mode visuals
 
 ;; Whitespaces
-(defun my-whitespace-style ()
+(defun my-whitespace-style-hook ()
   (progn
     (setq-local show-trailing-whitespace t)
     ;;(setq whitespace-style '(face empty trailing tab-mark))
@@ -23,7 +23,7 @@
                         :foreground "gray19")
     (whitespace-mode)))
 
-(add-hook 'prog-mode-hook #'my-whitespace-style)
+(add-hook 'prog-mode-hook #'my-whitespace-style-hook)
 
 ;; Highlight line
 ;; (add-hook 'prog-mode-hook #'hl-line-mode)

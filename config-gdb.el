@@ -8,8 +8,8 @@
 (setq gdb-restore-window-configuration-after-quit t)
 (setq gdb-many-windows nil)
 
-(defun my-gdb-mode ()
+(defun my-gdb-mode-hook ()
   "Add extra space before line-number for GDB pos indicator."
   (setq-local display-line-numbers-width 5))
 
-(add-hook 'gdb-mode-hook #'my-gdb-mode)
+(add-hook 'gdb-mode-hook #'my-gdb-mode-hook)

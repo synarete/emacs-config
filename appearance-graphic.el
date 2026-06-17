@@ -38,9 +38,9 @@
 (display-time)
 
 ;;;; Shell
-(defun my-shell-mode ()
-  (set (setq-local 'face-remapping-alist)
-       '((default :background "gray1"))))
+(defun my-shell-mode-hook ()
+  "Customize background for shell and terminal buffers."
+  (face-remap-add-relative 'default :background "gray1"))
 
-(add-hook 'shell-mode-hook #'my-shell-mode)
-(add-hook 'eat-mode-hook #'my-shell-mode)
+(add-hook 'shell-mode-hook #'my-shell-mode-hook)
+(add-hook 'eat-mode-hook #'my-shell-mode-hook)

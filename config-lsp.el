@@ -52,22 +52,22 @@
   (setq-local lsp-ui-sideline-show-code-actions t)
   (setq-local lsp-ui-sideline-delay 0.1))
 
-(defun my-lsp-setup-c ()
+(defun my-lsp-setup-c-hook ()
   "Enable LSP in C mode only if clangd is installed."
   (when (executable-find "clangd")
     (my-lsp-mode)
     (my-lsp-ui-mode)
     (lsp-deferred)))
 
-(defun my-lsp-setup-python ()
+(defun my-lsp-setup-python-hook ()
   "Enable LSP in Python mode only if pylsp or pyright are installed."
   (when (or (executable-find "pylsp") (executable-find "pyright"))
     (my-lsp-mode)
     (my-lsp-ui-mode)
     (lsp-deferred)))
 
-(add-hook 'c-mode-hook #'my-lsp-setup-c)
-(add-hook 'python-mode-hook #'my-lsp-setup-python)
+(add-hook 'c-mode-hook #'my-lsp-setup-c-hook)
+(add-hook 'python-mode-hook #'my-lsp-setup-python-hook)
 
 ;; Add the which-key integration
 (require 'which-key)

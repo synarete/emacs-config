@@ -25,12 +25,12 @@
                     :box '(:line-width 2 :color "#222224"))
 
 ;; Cursor
-(defun my-cursor-style ()
+(defun my-cursor-style-hook ()
   (if overwrite-mode
       (set-face-attribute 'cursor nil :background "red")
     (set-face-attribute 'cursor nil :background "gray")))
 
-(add-hook 'overwrite-mode-hook #'my-cursor-style)
+(add-hook 'overwrite-mode-hook #'my-cursor-style-hook)
 (set-face-attribute 'cursor nil :background "gray")
 
 ;; Parentheses

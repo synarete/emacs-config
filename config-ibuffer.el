@@ -49,7 +49,7 @@
       (derived-mode . magit-mode))
      )))
 
-(defun my-ibuffer-mode ()
+(defun my-ibuffer-mode-hook ()
   (setq ibuffer-expert t)
   (setq ibuffer-show-empty-filter-groups nil)
   (setq ibuffer-default-shrink-to-minimum-size nil)
@@ -61,4 +61,4 @@
   (ibuffer-switch-to-saved-filter-groups "default")
   (ibuffer-auto-mode 1))
 
-(add-hook 'ibuffer-mode-hook #'my-ibuffer-mode)
+(add-hook 'ibuffer-mode-hook #'my-ibuffer-mode-hook)

@@ -12,13 +12,13 @@
 (add-hook 'prog-mode-hook #'display-fill-column-indicator-mode)
 
 ;; Remove trailing whitespaces upon save
-(defun my-prog-mode-save ()
+(defun my-prog-mode-save-hook ()
   (unless (memq #'delete-trailing-whitespace before-save-hook)
     (add-hook 'before-save-hook #'delete-trailing-whitespace nil t))
   (unless (memq #'whitespace-cleanup before-save-hook)
     (add-hook 'before-save-hook #'whitespace-cleanup nil t)))
 
-(add-hook 'prog-mode-hook #'my-prog-mode-save)
+(add-hook 'prog-mode-hook #'my-prog-mode-save-hook)
 
 ;; Coding-style
 (defconst my-c-default-style
@@ -31,13 +31,13 @@
 (setq c-default-style my-c-default-style)
 
 ;; C style
-(defun my-c-mode-style ()
+(defun my-c-mode-style-hook ()
   (c-set-style "linux")
   (setq-local c-indent-level 8)
   (setq-local tab-always-indent t)
   (setq-local tab-width 8))
 
-(add-hook 'c-mode-common-hook #'my-c-mode-style)
+(add-hook 'c-mode-common-hook #'my-c-mode-style-hook)
 
 ;; C23 missing
 (defun my-c23-keywords-hook ()
@@ -54,14 +54,14 @@
 (add-hook 'c-mode-hook #'my-c23-keywords-hook)
 
 ;; Shell script style (following Linux kernel convention).
-(defun my-sh-mode-style ()
+(defun my-sh-mode-style-hook ()
   (setq-local tab-width 8)
   (setq-local tab-always-indent t)
   (setq-local sh-basic-offset 8)
   (setq-local sh-indent-after-continuation 'always)
   (setq-local indent-tabs-mode t))
 
-(add-hook 'sh-mode-hook #'my-sh-mode-style)
+(add-hook 'sh-mode-hook #'my-sh-mode-style-hook)
 
 ;; Scheme
 (when-let ((guile-path (executable-find "guile3.0")))
@@ -85,7 +85,6 @@
 
 (setopt company-echo-delay 0.3)
 (setopt company-frontends
-        '(company-echo-metadata-frontend
-          company-echo-frontend))
+        '(company-echo-metadata-frontend company-echo-frontend))
 
 (add-hook 'prog-mode-hook #'company-mode)
