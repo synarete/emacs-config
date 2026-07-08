@@ -1,13 +1,13 @@
 ;;; appearance-theme-ext.el  -*- lexical-binding: t; -*-
 
 ;; Improve theme's background
-(set-face-background 'default "#131517" t)
+(set-face-attribute 'default nil :background "#131517")
 
 ;; Trailing white-space color
-(set-face-background 'trailing-whitespace "#212123")
+(set-face-attribute 'trailing-whitespace nil :background "#212123")
 
 ;; Line highlight
-(set-face-background 'hl-line "#2d3335" t)
+(set-face-attribute 'hl-line nil :background "#2d3335")
 
 ;; Line numbers colors
 (set-face-attribute 'line-number nil :foreground "gray29")

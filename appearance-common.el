@@ -22,6 +22,7 @@
 ;; Highlight matching parantheses when the point is on them
 (show-paren-mode 1)
 (setopt show-paren-delay 0)
+(setopt show-parent-context-when-visible t)
 
 ;; Highlight text selection
 (transient-mark-mode 1)

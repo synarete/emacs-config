@@ -33,9 +33,9 @@
 
 ;;;; Mode-line
 ;; Display time in mode-line
-(setq display-time-day-and-date t)
-(setq display-time-24hr-format t)
-(display-time)
+(setopt display-time-day-and-date t)
+(setopt display-time-24hr-format t)
+(display-time-mode 1)
 
 ;;;; Shell
 (defun my-shell-mode-hook ()
