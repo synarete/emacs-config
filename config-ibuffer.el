@@ -3,7 +3,7 @@
 (require 'ibuffer)
 
 ;;;; IBuffer settings & layout
-(setq ibuffer-saved-filter-groups
+(setopt ibuffer-saved-filter-groups
   '(("default"
      ("GDB"
       (or

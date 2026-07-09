@@ -66,7 +66,7 @@
 (setopt isearch-lazy-count t)
 
 ;; Prevent extraneous Tabs
-(setq-default indent-tabs-mode nil)
+(setopt indent-tabs-mode nil)
 
 ;; Improved scrolling
 (setopt scroll-conservatively 101)
