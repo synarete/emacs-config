@@ -50,6 +50,9 @@
 ;; Prefer keyboard over dialog-box
 (setopt use-dialog-box nil)
 
+;; Skip fontification during input
+(setq redisplay-skip-fontification-on-input t)
+
 ;; Do not ask before saving buffers
 (setq buffer-save-without-query t)
 
