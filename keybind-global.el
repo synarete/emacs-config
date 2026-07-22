@@ -73,7 +73,6 @@
 (defvar my-key-bindings
       '(
         ("C-o"     . find-file)
-        ("C-c f"   . find-file-at-point)
         ("C-p"     . pop-global-mark)
         ("C-s"     . my-isearch-region-or-forward)
         ("C-x a"   . mark-whole-buffer)
