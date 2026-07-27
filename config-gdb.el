@@ -2,6 +2,7 @@
 
 ;;;; GUD configuration
 (require 'gud)
+
 (setq gdb-show-main t)
 (setq gdb-display-io-nopopup t)
 (setq gdb-non-stop-setting nil)
@@ -13,3 +14,12 @@
   (setq-local display-line-numbers-width 5))
 
 (add-hook 'gdb-mode-hook #'my-gdb-mode-hook)
+
+(defun my-gdb ()
+  "Launch GDB from the current project root directory."
+  (interactive)
+  (let ((default-directory
+         (if (project-current)
+             (project-root (project-current))
+           default-directory)))
+    (call-interactively #'gdb)))
