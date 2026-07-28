@@ -58,11 +58,12 @@
   (projectile-with-default-dir (projectile-acquire-root)
     (compile "make clean")))
 
-(defun my-start-shell ()
-  "Start shell"
+(defun my-toggle-shell ()
+  "Toggle the Eat shell buffer."
   (interactive)
-  (eat)
-  (switch-to-buffer "*eat*"))
+  (if (string= (buffer-name) "*eat*")
+      (bury-buffer)
+    (eat)))
 
 (defun my-global-set-keys (keymap bindings)
   "Set multiple key BINDINGS in a KEYMAP."
@@ -88,7 +89,7 @@
         ("<f3>"    . my-compile-make)
         ("C-<f3>"  . my-compile-make-clean)
         ;; Shell
-        ("<f4>"    . my-start-shell)
+        ("<f4>"    . my-toggle-shell)
         ;; Cycle buffers
         ("M-S-<left>"  . previous-buffer)
         ("M-S-<right>" . next-buffer)
