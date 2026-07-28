@@ -58,6 +58,13 @@
   (projectile-with-default-dir (projectile-acquire-root)
     (compile "make clean")))
 
+(defun my-toggle-ibuffer ()
+  "Toggle the ibuffer display."
+  (interactive)
+  (if (derived-mode-p 'ibuffer-mode)
+      (quit-window)
+    (ibuffer)))
+
 (defun my-toggle-shell ()
   "Toggle the Eat shell buffer."
   (interactive)
@@ -84,7 +91,7 @@
         ("C-x C-q" . my-save-and-quit)
         ;; Specials
         ("<f1>"    . treemacs)
-        ("<f2>"    . ibuffer)
+        ("<f2>"    . my-toggle-ibuffer)
         ;; Build/clean project with make
         ("<f3>"    . my-compile-make)
         ("C-<f3>"  . my-compile-make-clean)
