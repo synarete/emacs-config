@@ -110,6 +110,6 @@
 ;; Apply the keybindings
 (my-global-set-keys global-map my-key-bindings)
 
-;; Start/continue search for the symbol under the cursor with C-f
-(global-set-key (kbd "C-f") 'isearch-forward-symbol-at-point)
+;; Start/continue search for the word under the cursor with C-f
+(global-set-key (kbd "C-f") 'isearch-forward-thing-at-point)
 (define-key isearch-mode-map (kbd "C-f") 'isearch-repeat-forward)
