@@ -58,6 +58,7 @@
   (setq ibuffer-default-sorting-mode 'filename/process)
   (setq ibuffer-title-face 'font-lock-doc-face)
   (setq ibuffer-use-header-line t)
+  (hl-line-mode 1)
   (ibuffer-switch-to-saved-filter-groups "default")
   (ibuffer-auto-mode 1))
 
