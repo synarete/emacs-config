@@ -11,7 +11,7 @@
 (add-to-list 'default-frame-alist '(internal-border-width . 4))
 
 ;; Window divider
-(window-divider-mode)
+;; (window-divider-mode)
 
 ;;;; Font setup
 (require 'seq)

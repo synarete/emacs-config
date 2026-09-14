@@ -48,15 +48,16 @@
 
 (my-load-user-init "appearance-prog.el")
 
-(my-load-user-init "appearance-doom.el" :needs '(doom-themes doom-modeline))
+(my-load-user-init "appearance-doom.el"
+                   :needs '(doom-themes doom-modeline))
 
 (my-load-user-init "appearance-graphic.el"
                    :graphic t :needs '(doom-themes doom-modeline))
 
 (my-load-user-init "appearance-magit.el" :needs '(magit))
 
-(my-load-user-init "appearance-theme-ext.el")
-
+(my-load-user-init "appearance-theme-ext.el"
+                   :needs '(doom-themes doom-modeline auto-dim-other-buffers))
 ;; Finally
 (message "[ After init ]")
 (my-load-user-init "after-init.el" :needs '(treemacs))
