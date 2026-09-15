@@ -16,6 +16,12 @@
 (add-to-list 'package-archives
              '("melpa-stable" . "https://stable.melpa.org/packages/"))
 
+(setq package-archive-priorities
+      '(("melpa-stable" . 10)
+        ("gnu"          . 5)
+        ("nongnu"       . 5)
+        ("melpa"        . 0)))
+
 ;;; Extra packages
 
 ;; Support buffer auto-completion.
