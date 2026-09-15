@@ -17,12 +17,11 @@
 /lisp
 /transient
 /recentf
-
-# Extra run-time files and subdirs
 /.lsp-session*
 /projects
 /eshell
 /projectile-bookmarks.eld
+/projectile-frecency.eld
 /places
 /eln-cache
 /tramp
