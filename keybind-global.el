@@ -44,19 +44,21 @@
     (isearch-forward)))
 
 (defun my-compile-make ()
-  "Compile with `make`"
+  "Compile with `make` in the current projectile project."
   (interactive)
-  (let* ((num-cpus (num-processors))
-         (jobs (max 1 (1- num-cpus)))
-         (make-cmd (format "make -j%d" jobs)))
-    (projectile-with-default-dir (projectile-acquire-root)
-      (compile make-cmd))))
+  (when-let ((root (projectile-acquire-root)))
+    (let* ((num-cpus (max 1 (1- (num-processors))))
+           (jobs (max 1 num-cpus))
+           (make-cmd (format "make -j%d" jobs)))
+      (projectile-with-default-dir root
+        (compile make-cmd)))))
 
 (defun my-compile-make-clean ()
-  "Compile-clean with `make`"
+  "Compile-clean with `make` in the current projectile project."
   (interactive)
-  (projectile-with-default-dir (projectile-acquire-root)
-    (compile "make clean")))
+  (when-let ((root (projectile-acquire-root)))
+    (projectile-with-default-dir root
+      (compile "make clean"))))
 
 (defun my-toggle-ibuffer ()
   "Toggle the ibuffer display."
@@ -81,7 +83,6 @@
 (defvar my-key-bindings
       '(
         ("C-o"     . find-file)
-        ("C-p"     . pop-global-mark)
         ("C-s"     . my-isearch-region-or-forward)
         ("C-x a"   . mark-whole-buffer)
         ("C-x g"   . goto-line)
