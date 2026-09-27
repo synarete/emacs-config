@@ -11,7 +11,7 @@
 (defun my-auto-dim-ignore-shell-p (&optional buffer)
   "Return non-nil if BUFFER (defaults to current) is a shell or terminal mode."
   (with-current-buffer (or buffer (current-buffer))
-    (provided-mode-derived-p major-mode 'eat-mode 'eshell-mode 'comint-mode)))
+    (provided-mode-derived-p major-mode 'eat-mode 'eshell-mode)))
 
 (add-hook 'auto-dim-other-buffers-never-dim-buffer-functions
           #'my-auto-dim-ignore-shell-p)
