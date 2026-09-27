@@ -14,7 +14,7 @@
 (defun my-setup-auto-dim-face ()
   "Darker background color for non-active buffers."
   (let* ((current-bg (face-background 'default nil t))
-         (darkened-bg (color-darken-name current-bg 10)))
+         (darkened-bg (color-darken-name current-bg 25)))
     (face-spec-set 'auto-dim-other-buffers-face
                    `((t :background ,darkened-bg)))))
 
