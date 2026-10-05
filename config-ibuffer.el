@@ -25,6 +25,12 @@
              (mode . term-mode)
              (mode . eshell-mode)
              (mode . eat-mode)))
+           ("Mail"
+            (or
+             (mode . mu4e-main-mode)
+             (mode . mu4e-headers-mode)
+             (mode . mu4e-view-mode)
+             (mode . mu4e-compose-mode)))
            ("C/C++"
             (or
              (mode . c-mode)
