@@ -24,8 +24,11 @@
       mu4e-trash-folder  "/[Gmail]/Trash"
       mu4e-refile-folder "/[Gmail]/All Mail")
 
-
-;;; Allow Gmail trash-delete via single key
+;; Useful shortcut keys
+(setq mu4e-maildir-shortcuts
+      '(("/INBOX" . ?i)
+        ("/[Gmail]/Sent Mail" . ?s)
+        ("/[Gmail]/All Mail"  . ?a)))
 
 ;; Marked actions apply immediately without extra prompt when executing ('x')
 (setq mu4e-headers-confirm-2-marks nil)
@@ -35,3 +38,17 @@
 
 ;; Show context header indicators cleanly
 (setq mu4e-headers-leave-behavior 'apply)
+
+;; Open mail by split vertical
+(setq mu4e-split-view 'vertical)
+(setq mu4e-headers-visible-columns nil)
+
+;; Use plain text format for sending
+(setq mu4e-compose-format-flowed nil)
+
+;; Set the line wrap width to 80 and enable automatic wrapping
+(defun my-mu4e-compose-hook ()
+  (setq-local fill-column 80)
+  (auto-fill-mode 1))
+
+(add-hook 'mu4e-compose-mode-hook #'my-mu4e-compose-hook)
