@@ -30,7 +30,7 @@
 
 (my-load-user-init "config-misc.el" :needs '(vertico))
 
-(my-load-user-init "config-gmail.el")
+(my-load-user-init "config-mail.el")
 
 ;; Key-bindings
 (message "[ Key-bindings ]")

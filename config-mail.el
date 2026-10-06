@@ -6,7 +6,7 @@
 (setq mu4e-maildir
       (expand-file-name "Mail" (getenv "HOME"))
       mu4e-get-mail-command "offlineimap"
-      mu4e-update-interval 300) ; Auto-sync every 5 minutes
+      mu4e-update-interval 1200) ; Auto-sync every 20 minutes
 
 ;; Sending Mail via msmtp
 (setq send-mail-function 'sendmail-send-it
@@ -38,10 +38,10 @@
 
 ;; Show context header indicators cleanly
 (setq mu4e-headers-leave-behavior 'apply)
+(setq mu4e-headers-visible-lines 20)
 
-;; Open mail by split vertical
-(setq mu4e-split-view 'vertical)
-(setq mu4e-headers-visible-columns nil)
+;; Split settings
+(setq mu4e-split-view 'horizontal)
 
 ;; Use plain text format for sending
 (setq mu4e-compose-format-flowed nil)
@@ -52,3 +52,10 @@
   (auto-fill-mode 1))
 
 (add-hook 'mu4e-compose-mode-hook #'my-mu4e-compose-hook)
+
+;; Nicer text-wrapping and padding for article-mode
+(defun my-mu4e-padding ()
+  (my-setup-buffer-margins (current-buffer)))
+
+(add-hook 'gnus-article-mode-hook #'my-mu4e-padding)
+(add-hook 'mu4e-article-mode-hook #'visual-line-mode)
