@@ -116,8 +116,7 @@
   :ensure t
   :defer t)
 
-;; Dim other-buffers
-;; https://github.com/mina86/auto-dim-other-buffers.el
-(use-package auto-dim-other-buffers
+;; LLMs
+(use-package gptel
   :ensure t
   :defer t)

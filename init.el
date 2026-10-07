@@ -32,6 +32,8 @@
 
 (my-load-user-init "config-mail.el")
 
+(my-load-user-init "config-gptel.el" :needs '(gptel))
+
 ;; Key-bindings
 (message "[ Key-bindings ]")
 
