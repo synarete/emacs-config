@@ -36,9 +36,33 @@
 ;; Prevent Gmail IMAP duplicate issues
 (setq mu4e-trash-without-flag t)
 
+;; Treat deleted/trashed mail properly for Gmail's archive model
+(setq mu4e-sent-messages-behavior 'delete)
+
 ;; Show context header indicators cleanly
 (setq mu4e-headers-leave-behavior 'apply)
 (setq mu4e-headers-visible-lines 20)
+
+;; Include related messages even if they aren't in the current folder/maildir
+(setq mu4e-headers-include-related t)
+
+;; Hide duplicate messages sharing the same Message-ID
+(setq mu4e-headers-skip-duplicates t)
+
+;; Clean thread visuals
+(setq mu4e-headers-thread-root-prefix        '("* " . "* ")
+      mu4e-headers-thread-first-child-prefix '("\\-> " . "\\-> ")
+      mu4e-headers-thread-child-prefix       '("|-> " . "|-> ")
+      mu4e-headers-thread-last-child-prefix  '("\\-> " . "\\-> ")
+      mu4e-headers-thread-connection-prefix  '("|   " . "|   ")
+      mu4e-headers-thread-blank-prefix       '("    " . "    ")
+      mu4e-headers-thread-duplicate-prefix   '("=   " . "=   "))
+
+;; Turn off fancy Unicodes
+(setq mu4e-use-fancy-chars nil)
+
+;; Enable threaded view by default in headers view
+(setq mu4e-headers-show-threads t)
 
 ;; Split settings
 (setq mu4e-split-view 'horizontal)
@@ -59,3 +83,16 @@
 
 (add-hook 'gnus-article-mode-hook #'my-mu4e-padding)
 (add-hook 'mu4e-article-mode-hook #'visual-line-mode)
+
+;; Force all mu4e header styles to use standard, non-italic text
+(with-eval-after-load 'mu4e
+  (set-face-attribute 'mu4e-related-face nil   :slant 'normal)
+  (set-face-attribute 'mu4e-replied-face nil   :slant 'normal)
+  (set-face-attribute 'mu4e-forwarded-face nil :slant 'normal)
+  (set-face-attribute 'mu4e-unread-face nil    :slant 'normal)
+  (set-face-attribute 'mu4e-header-face nil    :slant 'normal))
+
+;; Strips background colors from thread-folding markers
+(with-eval-after-load 'mu4e
+  (set-face-attribute 'mu4e-thread-fold-face nil
+                      :background 'unspecified :inherit 'default))
