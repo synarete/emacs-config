@@ -23,6 +23,9 @@
 ;; Use pretty colors in comint-mode
 (add-to-list 'comint-output-filter-functions #'ansi-color-process-output)
 
+;;;; Eat & eshell
+(setq eat-kill-buffer-on-exit t)
+
 ;; Automatically gives Eshell a full terminal emulation boost
 (add-hook 'eshell-load-hook #'eat-eshell-mode)
 
@@ -31,7 +34,6 @@
 
 (setq vertico-cycle t)
 (vertico-mode 1)
-
 
 ;;;; XRef
 (require 'xref)
