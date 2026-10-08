@@ -95,4 +95,6 @@
 ;; Strips background colors from thread-folding markers
 (with-eval-after-load 'mu4e
   (set-face-attribute 'mu4e-thread-fold-face nil
-                      :background 'unspecified :inherit 'default))
+                      :background 'unspecified :inherit 'default)
+  (set-face-attribute 'mu4e-header-highlight-face nil
+                      :underline nil))
