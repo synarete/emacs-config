@@ -30,7 +30,7 @@
 
 (my-load-user-init "config-misc.el" :needs '(vertico))
 
-(my-load-user-init "config-mail.el")
+(my-load-user-init "config-mu4e.el")
 
 (my-load-user-init "config-gptel.el" :needs '(gptel))
 
