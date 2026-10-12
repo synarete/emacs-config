@@ -41,7 +41,7 @@
 
 ;; Show context header indicators cleanly
 (setq mu4e-headers-leave-behavior 'apply)
-(setq mu4e-headers-visible-lines 20)
+(setq mu4e-headers-visible-lines 30)
 
 ;; Include related messages even if they aren't in the current folder/maildir
 (setq mu4e-headers-include-related t)
