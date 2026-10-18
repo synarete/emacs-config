@@ -71,4 +71,4 @@
       ("Magit"
        (derived-mode . magit-mode))))))
 
-(provide 'config-ibuffer)
+(provide 'my-config-ibuffer)

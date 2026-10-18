@@ -1,25 +1,38 @@
 ;;; config-gdb.el -- Debug (GDB) configuration -*- lexical-binding: t; -*-
 
-;;;; GUD configuration
-(require 'gud)
-
-(setq gdb-show-main t)
-(setq gdb-display-io-nopopup t)
-(setq gdb-non-stop-setting nil)
-(setq gdb-restore-window-configuration-after-quit t)
-(setq gdb-many-windows nil)
-
 (defun my-gdb-mode-hook ()
   "Add extra space before line-number for GDB pos indicator."
   (setq-local display-line-numbers-width 5))
-
-(add-hook 'gdb-mode-hook #'my-gdb-mode-hook)
 
 (defun my-gdb ()
   "Launch GDB from the current project root directory."
   (interactive)
   (let ((default-directory
-         (if (project-current)
-             (project-root (project-current))
+         (if-let ((proj (project-current)))
+             (project-root proj)
            default-directory)))
     (call-interactively #'gdb)))
+
+(use-package gdb-mi
+  :ensure nil
+  :defer t
+  :custom
+  (gdb-show-main t)
+  (gdb-display-io-nopopup t)
+  (gdb-non-stop-setting nil)
+  (gdb-restore-window-configuration-after-quit t)
+  (gdb-many-windows nil)
+
+  :hook
+  (gdb-mode . my-gdb-mode-hook)
+
+  :bind
+  (:map gud-mode-map
+        ("<up>"   . comint-previous-input)
+        ("<down>" . comint-next-input))
+  (:map gud-minor-mode-map
+        ("<f5>" . gud-next)
+        ("<f6>" . gud-step)
+        ("<f7>" . gud-finish)))
+
+(provide 'my-config-gdb)
