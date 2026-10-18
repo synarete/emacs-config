@@ -1,28 +1,22 @@
 ;;; config-treemacs.el -- Treemacs configuration -*- lexical-binding: t; -*-
 
-(require 'treemacs)
+(use-package treemacs
+  :ensure t
+  :custom
+  (treemacs-no-png-images t)
+  (treemacs-indentation 1)
+  (treemacs-follow-after-init t)
+  (treemacs-recenter-after-file-follow nil)
+  (treemacs-silent-refresh t)
+  (treemacs-silent-filewatch t)
+  (treemacs-show-hidden-files t)
+  (treemacs-never-persist t)
+  (treemacs--width-is-locked nil)
+  (treemacs-width-is-initially-locked nil)
+  :config
+  (set-face-attribute 'treemacs-root-face nil :height 1.0)
+  :bind
+  (:map treemacs-mode-map
+        ([mouse-3] . nil)
+        ([down-mouse-3] . nil)))
 
-;; Use simple text only
-(setq treemacs-no-png-images t)
-
-;; Sane treemacs settings
-(setq treemacs-indentation 1)
-(setq treemacs-follow-after-init t)
-(setq treemacs-recenter-after-file-follow nil)
-(setq treemacs-silent-refresh t)
-(setq treemacs-silent-filewatch t)
-(setq treemacs-show-hidden-files t)
-(setq treemacs-never-persist t)
-;; (setq treemacs-is-never-other-window t)
-
-;; Allow resizing treemacs window
-(setq treemacs--width-is-locked nil)
-(setq treemacs-width-is-initially-locked nil)
-
-;; Use normal face for treemacs root
-(set-face-attribute 'treemacs-root-face nil :height 1.0)
-
-;; Disable mouse right-click on treemacs
-(with-eval-after-load 'treemacs
-  (define-key treemacs-mode-map [mouse-3] nil)
-  (define-key treemacs-mode-map [down-mouse-3] nil))
