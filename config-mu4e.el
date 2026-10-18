@@ -5,8 +5,10 @@
 ;; Resolve Mail dir relative to user home directory dynamically
 (setq mu4e-maildir
       (expand-file-name "Mail" (getenv "HOME"))
-      mu4e-get-mail-command "offlineimap"
-      mu4e-update-interval 1200) ; Auto-sync every 20 minutes
+      mu4e-get-mail-command "offlineimap")
+
+;; Require explicit update request
+(setq mu4e-update-interval nil)
 
 ;; Sending Mail via msmtp
 (setq send-mail-function 'sendmail-send-it
