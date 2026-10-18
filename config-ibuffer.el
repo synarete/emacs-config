@@ -1,61 +1,7 @@
 ;;; config-ibuffer.el -- Ibuffer configuration -*- lexical-binding: t; -*-
 
-(require 'ibuffer)
-
-;;;; IBuffer settings & layout
-(setopt ibuffer-saved-filter-groups
-        '(("default"
-           ("GDB"
-            (or
-             (mode . gud-mode)
-             (mode . gud-tooltip-mode)
-             (mode . gdb-breakpoints-mode)
-             (mode . gdb-disassembly-mode)
-             (mode . gdb-frames-mode)
-             (mode . gdb-inferior-io-mode)
-             (mode . gdb-locals-mode)
-             (mode . gdb-memory-mode)
-             (mode . gdb-registers-mode)
-             (mode . gdb-script-mode)
-             (mode . gdb-threads-mode)
-             ))
-           ("Shell"
-            (or
-             (mode . shell-mode)
-             (mode . term-mode)
-             (mode . eshell-mode)
-             (mode . eat-mode)))
-           ("Mail"
-            (or
-             (mode . mu4e-main-mode)
-             (mode . mu4e-headers-mode)
-             (mode . mu4e-view-mode)
-             (mode . mu4e-compose-mode)))
-           ("C/C++"
-            (or
-             (mode . c-mode)
-             (mode . c++-mode)))
-           ("Python"
-            (mode . python-mode))
-           ("Lisp/Scheme"
-            (or
-             (mode . scheme-mode)
-             (mode . lisp-mode)
-             (mode . emacs-lisp-mode)))
-           ("Script"
-            (or
-             (mode . sh-mode)
-             (mode . shell-script-mode)))
-           ("Text"
-            (or
-             (mode . text-mode)
-             (mode . markdown-mode)
-             (mode . rst-mode)))
-           ("Magit"
-            (derived-mode . magit-mode))
-           )))
-
 (defun my-ibuffer-mode-hook ()
+  "Custom hook settings for Ibuffer."
   (setq ibuffer-expert t)
   (setq ibuffer-show-empty-filter-groups nil)
   (setq ibuffer-default-shrink-to-minimum-size nil)
@@ -68,4 +14,61 @@
   (ibuffer-switch-to-saved-filter-groups "default")
   (ibuffer-auto-mode 1))
 
-(add-hook 'ibuffer-mode-hook #'my-ibuffer-mode-hook)
+
+(use-package ibuffer
+  :ensure nil
+  :hook
+  (ibuffer-mode . my-ibuffer-mode-hook)
+
+  :custom
+  (ibuffer-saved-filter-groups
+   '(("default"
+      ("GDB"
+       (or
+        (mode . gud-mode)
+        (mode . gud-tooltip-mode)
+        (mode . gdb-breakpoints-mode)
+        (mode . gdb-disassembly-mode)
+        (mode . gdb-frames-mode)
+        (mode . gdb-inferior-io-mode)
+        (mode . gdb-locals-mode)
+        (mode . gdb-memory-mode)
+        (mode . gdb-registers-mode)
+        (mode . gdb-script-mode)
+        (mode . gdb-threads-mode)))
+      ("Shell"
+       (or
+        (mode . shell-mode)
+        (mode . term-mode)
+        (mode . eshell-mode)
+        (mode . eat-mode)))
+      ("Mail"
+       (or
+        (mode . mu4e-main-mode)
+        (mode . mu4e-headers-mode)
+        (mode . mu4e-view-mode)
+        (mode . mu4e-compose-mode)))
+      ("C/C++"
+       (or
+        (mode . c-mode)
+        (mode . c++-mode)))
+      ("Python"
+       (mode . python-mode))
+      ("Lisp/Scheme"
+       (or
+        (mode . scheme-mode)
+        (mode . lisp-mode)
+        (mode . emacs-lisp-mode)))
+      ("Script"
+       (or
+        (mode . sh-mode)
+        (mode . shell-script-mode)))
+      ("Text"
+       (or
+        (mode . text-mode)
+        (mode . markdown-mode)
+        (mode . rst-mode)))
+      ("Magit"
+       (derived-mode . magit-mode))))))
+
+(provide 'config-ibuffer)
