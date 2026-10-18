@@ -1,6 +1,6 @@
 ;;; config-misc.el -- Misc configurations -*- lexical-binding: t; -*-
 
-;;;; Command-interpreter (Shell and Term)
+;;; Command-interpreter (Shell and Term)
 (require 'comint)
 
 ;; Avoid input duplicates
@@ -23,19 +23,19 @@
 ;; Use pretty colors in comint-mode
 (add-to-list 'comint-output-filter-functions #'ansi-color-process-output)
 
-;;;; Eat & eshell
+;;; Eat & eshell
 (setq eat-kill-buffer-on-exit t)
 
 ;; Automatically gives Eshell a full terminal emulation boost
 (add-hook 'eshell-load-hook #'eat-eshell-mode)
 
-;;;; Vertico
+;;; Vertico
 (require 'vertico)
 
 (setq vertico-cycle t)
 (vertico-mode 1)
 
-;;;; XRef
+;;; XRef
 (require 'xref)
 
 (defun my-xref-buffer-mode-hook ()

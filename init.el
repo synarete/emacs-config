@@ -12,6 +12,8 @@
 
 (my-load-user-init "config-common.el")
 
+(my-load-user-init "config-ediff.el")
+
 (my-load-user-init "config-nw.el" :term t)
 
 (my-load-user-init "config-mouse.el" :graphic t)
