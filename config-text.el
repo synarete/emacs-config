@@ -14,6 +14,4 @@
 ;; Show default column-indicator (80) in text-mode
 (add-hook 'text-mode-hook #'display-fill-column-indicator-mode)
 
-;; Enable spell-checker in text mode
-(require 'flyspell)
-(add-hook 'text-mode-hook #'flyspell-mode)
+

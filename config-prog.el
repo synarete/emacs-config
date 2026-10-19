@@ -67,10 +67,6 @@
 (when-let ((guile-path (executable-find "guile3.0")))
   (setq geiser-guile-binary guile-path))
 
-;; Enable spell-checker in prog mode
-(require 'flyspell)
-(add-hook 'prog-mode-hook #'flyspell-prog-mode)
-
 ;;;; Flymake
 (require 'flymake)
 (add-hook 'c-mode-hook #'flymake-mode)

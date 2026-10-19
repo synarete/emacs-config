@@ -20,7 +20,7 @@
 
 (my-load-user-init "config-ibuffer.el" :needs '(ibuffer))
 
-(my-load-user-init "config-text.el" :needs '(flyspell))
+(my-load-user-init "config-text.el")
 
 (my-load-user-init "config-prog.el" :needs '(flymake))
 
@@ -31,6 +31,8 @@
 (my-load-user-init "config-treemacs.el" :needs '(treemacs))
 
 (my-load-user-init "config-misc.el" :needs '(vertico))
+
+(my-load-user-init "config-flyspell.el" :needs '(flyspell))
 
 (my-load-user-init "config-mu4e.el")
 
