@@ -70,6 +70,4 @@
 (add-hook 'python-mode-hook #'my-lsp-setup-python-hook)
 
 ;; Add the which-key integration
-(require 'which-key)
-(which-key-mode t)
 (add-hook 'lsp-mode-hook #'lsp-enable-which-key-integration)

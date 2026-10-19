@@ -45,8 +45,6 @@
 
 (my-load-user-init "keybind-global.el")
 
-(my-load-user-init "keybind-gud.el" :needs '(gud))
-
 ;; Appearance
 (message "[ Appearance ]")
 

@@ -44,3 +44,8 @@
   (setq-local display-line-numbers-extra-text-width 2))
 
 (add-hook 'xref--xref-buffer-mode-hook #'my-xref-buffer-mode-hook)
+
+;;; Which-key
+(require 'which-key)
+(which-key-mode t)
+
