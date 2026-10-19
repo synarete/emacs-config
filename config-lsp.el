@@ -1,16 +1,7 @@
 ;;; config-lsp.el -- LSP settings -*- lexical-binding: t; -*-
 
 ;;;; LSP config
-(require 'lsp-mode)
-(require 'lsp-ui)
 
-;; Preferred lsp key prefix
-(setq lsp-keymap-prefix "C-c l")
-
-;; Define the key binding in lsp-mode-map
-(define-key lsp-mode-map (kbd lsp-keymap-prefix) lsp-command-map)
-
-;; LSP settings
 (defconst my-lsp-clients-clangd-args
   '("-j=1"
     "--background-index"
@@ -18,7 +9,8 @@
     "--header-insertion=never"
     "--header-insertion-decorators=0"
     "--all-scopes-completion"
-    "--suggest-missing-includes"))
+    "--suggest-missing-includes")
+  "Arguments for clangd binary in lsp-mode.")
 
 (defun my-lsp-mode ()
   (setq-local lsp-auto-guess-root t)
@@ -41,7 +33,6 @@
   (setq-local lsp-idle-delay 0.5)
   (setq-local lsp-clients-clangd-args my-lsp-clients-clangd-args))
 
-;; LSP-UI settings
 (defun my-lsp-ui-mode ()
   (setq-local lsp-ui-doc-enable nil)
   (setq-local lsp-ui-doc-header t)
@@ -66,8 +57,20 @@
     (my-lsp-ui-mode)
     (lsp-deferred)))
 
-(add-hook 'c-mode-hook #'my-lsp-setup-c-hook)
-(add-hook 'python-mode-hook #'my-lsp-setup-python-hook)
+(use-package lsp-mode
+  :ensure t
+  :init
+  (setq lsp-keymap-prefix "C-c l")
 
-;; Add the which-key integration
-(add-hook 'lsp-mode-hook #'lsp-enable-which-key-integration)
+  :hook
+  (c-mode . my-lsp-setup-c-hook)
+  (c++-mode . my-lsp-setup-c-hook)
+  (python-mode . my-lsp-setup-python-hook)
+  (lsp-mode . lsp-enable-which-key-integration)
+
+  :bind-keymap
+  ("C-c l" . lsp-command-map))
+
+(use-package lsp-ui
+  :ensure t
+  :commands lsp-ui-mode)
