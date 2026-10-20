@@ -34,5 +34,3 @@
         ("<f5>" . gud-next)
         ("<f6>" . gud-step)
         ("<f7>" . gud-finish)))
-
-(provide 'my-config-gdb)

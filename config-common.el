@@ -66,6 +66,12 @@
 ;; Delete TABs the normal way
 (setq backward-delete-char-untabify-method nil)
 
+;; Mouse wheel scrolls
+(setopt mouse-wheel-follow-mouse t)
+
+;; Yank with middle mouse
+(setopt mouse-yank-at-point t)
+
 ;; =============================================================================
 ;; Built-in Package Configurations
 ;; =============================================================================
