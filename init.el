@@ -12,15 +12,7 @@
 
 (my-load-user-init "config-common.el")
 
-(my-load-user-init "config-ediff.el")
-
-(my-load-user-init "config-nw.el" :term t)
-
-(my-load-user-init "config-mouse.el" :graphic t)
-
-(my-load-user-init "config-ibuffer.el" :needs '(ibuffer))
-
-(my-load-user-init "config-text.el")
+(my-load-user-init "config-packages.el")
 
 (my-load-user-init "config-prog.el" :needs '(flymake))
 
@@ -37,6 +29,10 @@
 (my-load-user-init "config-mu4e.el")
 
 (my-load-user-init "config-gptel.el" :needs '(gptel))
+
+(my-load-user-init "config-nw.el" :term t)
+
+(my-load-user-init "config-mouse.el" :graphic t)
 
 ;; Key-bindings
 (message "[ Key-bindings ]")
