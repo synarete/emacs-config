@@ -141,6 +141,13 @@
   (cua-keep-region-after-copy t)
   (cua-enable-cua-keys t))
 
+;; Windmove
+(use-package windmove
+  :ensure nil
+  :config
+  (windmove-default-keybindings)
+  (setq windmove-wrap-around t))
+
 
 ;; =============================================================================
 ;; Ediff settings
