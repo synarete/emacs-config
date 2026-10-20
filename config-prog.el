@@ -76,11 +76,3 @@
 (setopt compilation-ask-about-save nil)
 (setopt compilation-scroll-output 'first-error)
 
-;;;; Company
-(require 'company)
-
-(setopt company-echo-delay 0.3)
-(setopt company-frontends
-        '(company-echo-metadata-frontend company-echo-frontend))
-
-(add-hook 'prog-mode-hook #'company-mode)
