@@ -20,8 +20,6 @@
 
 (my-load-user-init "config-gdb.el" :needs '(gud))
 
-(my-load-user-init "config-treemacs.el" :needs '(treemacs))
-
 (my-load-user-init "config-mu4e.el")
 
 (my-load-user-init "config-gptel.el" :needs '(gptel))
