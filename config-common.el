@@ -1,10 +1,15 @@
 ;;; config-common.el -- Common configuration -*- lexical-binding: t; -*-
 
-;; Show emacs version on frame title
+;; =============================================================================
+;; General Setup & Environment
+;; =============================================================================
+
+;; Show emacs version on frame title and scratch buffer
 (defconst my-emacs-version
   (format "%d.%d" emacs-major-version emacs-minor-version))
 
 (setq frame-title-format (format "Emacs %s" my-emacs-version))
+(setq initial-scratch-message (format ";; Emacs %s" my-emacs-version))
 
 ;; Dedicated custom file
 (setq custom-file (expand-file-name "custom.el" user-emacs-directory))
@@ -21,57 +26,59 @@
 ;; Do not create #auto-save# files
 (setq auto-save-default nil)
 
-;; Show only emacs version in scratch buffer
-(setq initial-scratch-message (format ";; Emacs %s" my-emacs-version))
-
-;; Re-visit files at last place
-(save-place-mode 1)
-
-;; Revert buffers when underlying file changed
-(global-auto-revert-mode t)
+;; Don't lock files
+(setq-default create-lockfiles nil)
 
 ;; Disable version control
 (setq vc-handled-backends nil)
 
-;; Open file-at-point without asking for confirmation if path exists
-(setq ffap-no-confirm t)
-
-;;; Behaviour configs
-
-;; No beep
-(setopt visible-bell nil)
-
-;; Disable annoying bell
-(setopt ring-bell-function 'ignore)
-
-;; Prefer short y-or-n answers
-(setopt use-short-answers t)
-
-;; Prefer keyboard over dialog-box
-(setopt use-dialog-box nil)
-
-;; Skip fontification during input
-(setq redisplay-skip-fontification-on-input t)
-
 ;; Do not ask before saving buffers
 (setq buffer-save-without-query t)
-
-;; Don't Lock Files
-(setq-default create-lockfiles nil)
 
 ;; Kill active processes upon exit, without prompt
 (setq confirm-kill-processes nil)
 
-;; Default column-indicator at 80
+;; Performance & Display tweaks
+(setq redisplay-skip-fontification-on-input t)
 (setq-default display-fill-column-indicator-column 80)
-
-;; Isearch settings
-(setopt isearch-lazy-count t)
-
-;; Prevent extraneous Tabs
 (setopt indent-tabs-mode nil)
+
+;; UI & Interaction
+(setopt visible-bell nil)
+(setopt ring-bell-function 'ignore)
+(setopt use-short-answers t)
+(setopt use-dialog-box nil)
 
 ;; Improved scrolling
 (setopt scroll-conservatively 101)
 (setopt scroll-preserve-screen-position 1)
 (setopt scroll-margin 0)
+
+
+;; =============================================================================
+;; Built-in Package Configurations
+;; =============================================================================
+
+;; Re-visit files at last place
+(use-package saveplace
+  :ensure nil
+  :init
+  (save-place-mode 1))
+
+;; Revert buffers when underlying file changed
+(use-package autorevert
+  :ensure nil
+  :init
+  (global-auto-revert-mode 1))
+
+;; Open file-at-point without asking for confirmation if path exists
+(use-package ffap
+  :ensure nil
+  :custom
+  (ffap-no-confirm t))
+
+;; Isearch settings
+(use-package isearch
+  :ensure nil
+  :custom
+  (isearch-lazy-count t))
