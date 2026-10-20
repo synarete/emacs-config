@@ -145,7 +145,7 @@
 (use-package windmove
   :ensure nil
   :config
-  (windmove-default-keybindings)
+  (windmove-default-keybindings 'meta)
   (setq windmove-wrap-around t))
 
 

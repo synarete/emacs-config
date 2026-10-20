@@ -30,5 +30,5 @@
 ;; Keep syntax highlighting in the current line
 (set-face-foreground 'highlight nil)
 
-;; Avoid fringe mode (too ugly)
-(fringe-mode 0)
+;; Hide the scroll bar
+(scroll-bar-mode 0)
