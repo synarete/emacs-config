@@ -33,10 +33,6 @@
 ;; Key-bindings
 (message "[ Key-bindings ]")
 
-(my-load-user-init "keybind-common.el")
-
-(my-load-user-init "keybind-cua.el")
-
 (my-load-user-init "keybind-global.el")
 
 ;; Appearance

@@ -63,6 +63,9 @@
 (set-file-name-coding-system 'utf-8)
 (set-clipboard-coding-system 'utf-8)
 
+;; Delete TABs the normal way
+(setq backward-delete-char-untabify-method nil)
+
 ;; =============================================================================
 ;; Built-in Package Configurations
 ;; =============================================================================
@@ -127,6 +130,17 @@
   :ensure nil
   :init
   (which-key-mode 1))
+
+;; CUA settings
+(use-package cua-base
+  :ensure nil
+  :init
+  (cua-mode 1)
+  :custom
+  (cua-auto-tabify-rectangles nil)
+  (cua-keep-region-after-copy t)
+  (cua-enable-cua-keys t))
+
 
 ;; =============================================================================
 ;; Ediff settings
