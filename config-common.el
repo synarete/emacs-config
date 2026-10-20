@@ -96,6 +96,38 @@
   :custom
   (isearch-lazy-count t))
 
+;; Command interpreter settings
+(use-package comint
+  :ensure nil
+  :custom
+  (comint-input-ignoredups t)
+  :config
+  (setq comint-move-point-for-output t
+        comint-process-echoes t
+        comint-prompt-read-only t
+        comint-scroll-to-bottom-on-input t
+        comint-scroll-to-bottom-on-output t
+        comint-scroll-show-maximum-output t)
+  (add-to-list 'comint-output-filter-functions #'ansi-color-process-output))
+
+
+;; Xref settings
+(defun my-xref-buffer-mode-hook ()
+  (display-line-numbers-mode 1)
+  (setq-local display-line-numbers-width 3)
+  (setq-local display-line-numbers-extra-text-width 2))
+
+(use-package xref
+  :ensure nil
+  :hook
+  (xref--xref-buffer-mode . my-xref-buffer-mode-hook))
+
+;; Which-key settings
+(use-package which-key
+  :ensure nil
+  :init
+  (which-key-mode 1))
+
 ;; =============================================================================
 ;; Ediff settings
 ;; =============================================================================

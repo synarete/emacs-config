@@ -28,3 +28,17 @@
   :ensure nil
   :hook ((prog-mode . flyspell-prog-mode)
          (text-mode . flyspell-mode)))
+
+;; Eat terminal settings
+(use-package eat
+  :custom
+  (eat-kill-buffer-on-exit t)
+  :hook
+  (eshell-load . eat-eshell-mode))
+
+;; Vertico settings
+(use-package vertico
+  :custom
+  (vertico-cycle t)
+  :init
+  (vertico-mode 1))
