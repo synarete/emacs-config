@@ -72,6 +72,7 @@
 ;; Yank with middle mouse
 (setopt mouse-yank-at-point t)
 
+
 ;; =============================================================================
 ;; Built-in Package Configurations
 ;; =============================================================================
@@ -99,38 +100,6 @@
   :custom
   (ffap-no-confirm t))
 
-;; Isearch settings
-(use-package isearch
-  :ensure nil
-  :custom
-  (isearch-lazy-count t))
-
-;; Command interpreter settings
-(use-package comint
-  :ensure nil
-  :custom
-  (comint-input-ignoredups t)
-  :config
-  (setq comint-move-point-for-output t
-        comint-process-echoes t
-        comint-prompt-read-only t
-        comint-scroll-to-bottom-on-input t
-        comint-scroll-to-bottom-on-output t
-        comint-scroll-show-maximum-output t)
-  (add-to-list 'comint-output-filter-functions #'ansi-color-process-output))
-
-
-;; Xref settings
-(defun my-xref-buffer-mode-hook ()
-  (display-line-numbers-mode 1)
-  (setq-local display-line-numbers-width 3)
-  (setq-local display-line-numbers-extra-text-width 2))
-
-(use-package xref
-  :ensure nil
-  :hook
-  (xref--xref-buffer-mode . my-xref-buffer-mode-hook))
-
 ;; Which-key settings
 (use-package which-key
   :ensure nil
@@ -153,6 +122,47 @@
   :config
   (windmove-default-keybindings 'meta)
   (setq windmove-wrap-around t))
+
+
+;; =============================================================================
+;; Xref settings
+;; =============================================================================
+
+(defun my-xref-buffer-mode-hook ()
+  (display-line-numbers-mode 1)
+  (setq-local display-line-numbers-width 3)
+  (setq-local display-line-numbers-extra-text-width 2))
+
+(use-package xref
+  :ensure nil
+  :hook
+  (xref--xref-buffer-mode . my-xref-buffer-mode-hook))
+
+
+;; =============================================================================
+;; Isearch settings
+;; =============================================================================
+(defun my-isearch-region-or-forward ()
+  "Search for the active region, or start a normal search if none is active."
+  (interactive)
+  (if (region-active-p)
+      (let ((region-text
+             (buffer-substring-no-properties (region-beginning) (region-end))))
+        (deactivate-mark)
+        (isearch-mode t)
+        (isearch-process-search-string region-text region-text))
+    (isearch-forward)))
+
+(use-package isearch
+  :ensure nil
+  :custom
+  (isearch-lazy-count t)
+
+  :bind
+  ("C-f" . isearch-forward-thing-at-point)
+  ("C-s" . my-isearch-region-or-forward)
+  (:map isearch-mode-map
+        ("C-f" . isearch-repeat-forward)))
 
 
 ;; =============================================================================
@@ -180,6 +190,24 @@
   (when (fboundp 'winner-mode)
     (winner-mode 1)
     (add-hook 'ediff-after-quit-hook-internal #'winner-undo)))
+
+
+;; =============================================================================
+;; Command interpreter settings
+;; =============================================================================
+
+(use-package comint
+  :ensure nil
+  :custom
+  (comint-input-ignoredups t)
+  :config
+  (setq comint-move-point-for-output t
+        comint-process-echoes t
+        comint-prompt-read-only t
+        comint-scroll-to-bottom-on-input t
+        comint-scroll-to-bottom-on-output t
+        comint-scroll-show-maximum-output t)
+  (add-to-list 'comint-output-filter-functions #'ansi-color-process-output))
 
 
 ;; =============================================================================

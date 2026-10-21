@@ -32,17 +32,6 @@
   (save-some-buffers t)
   (kill-emacs))
 
-(defun my-isearch-region-or-forward ()
-  "Search for the active region, or start a normal search if none is active."
-  (interactive)
-  (if (region-active-p)
-      (let ((region-text
-             (buffer-substring-no-properties (region-beginning) (region-end))))
-        (deactivate-mark)
-        (isearch-mode t)
-        (isearch-process-search-string region-text region-text))
-    (isearch-forward)))
-
 (defun my-compile-make ()
   "Compile with `make` in the current projectile project."
   (interactive)
@@ -83,7 +72,6 @@
 (defvar my-key-bindings
       '(
         ("C-o"     . find-file)
-        ("C-s"     . my-isearch-region-or-forward)
         ("C-x a"   . mark-whole-buffer)
         ("C-x g"   . goto-line)
         ("C-x s"   . save-buffer)
@@ -111,6 +99,3 @@
 ;; Apply the keybindings
 (my-global-set-keys global-map my-key-bindings)
 
-;; Start/continue search for the word under the cursor with C-f
-(global-set-key (kbd "C-f") 'isearch-forward-thing-at-point)
-(define-key isearch-mode-map (kbd "C-f") 'isearch-repeat-forward)
