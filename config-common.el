@@ -211,6 +211,38 @@
 
 
 ;; =============================================================================
+;; Compile settitngs
+;; =============================================================================
+
+(defun my-compile-make ()
+  "Compile with `make` in the current projectile project."
+  (interactive)
+  (when-let ((root (projectile-acquire-root)))
+    (let* ((num-cpus (max 1 (1- (num-processors))))
+           (jobs (max 1 num-cpus))
+           (make-cmd (format "make -j%d" jobs)))
+      (projectile-with-default-dir root
+        (compile make-cmd)))))
+
+(defun my-compile-make-clean ()
+  "Compile-clean with `make` in the current projectile project."
+  (interactive)
+  (when-let ((root (projectile-acquire-root)))
+    (projectile-with-default-dir root
+      (compile "make clean"))))
+
+(use-package compile
+  :ensure nil
+  :custom
+  (compilation-always-kill t)
+  (compilation-ask-about-save nil)
+  (compilation-scroll-output 'first-error)
+  :bind
+  ("<f3>"   . my-compile-make)
+  ("C-<f3>" . my-compile-make-clean))
+
+
+;; =============================================================================
 ;; IBuffer settings
 ;; =============================================================================
 

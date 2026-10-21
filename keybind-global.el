@@ -32,23 +32,6 @@
   (save-some-buffers t)
   (kill-emacs))
 
-(defun my-compile-make ()
-  "Compile with `make` in the current projectile project."
-  (interactive)
-  (when-let ((root (projectile-acquire-root)))
-    (let* ((num-cpus (max 1 (1- (num-processors))))
-           (jobs (max 1 num-cpus))
-           (make-cmd (format "make -j%d" jobs)))
-      (projectile-with-default-dir root
-        (compile make-cmd)))))
-
-(defun my-compile-make-clean ()
-  "Compile-clean with `make` in the current projectile project."
-  (interactive)
-  (when-let ((root (projectile-acquire-root)))
-    (projectile-with-default-dir root
-      (compile "make clean"))))
-
 (defun my-toggle-ibuffer ()
   "Toggle the ibuffer display."
   (interactive)
@@ -75,8 +58,6 @@
         ("<f1>"    . treemacs)
         ("<f2>"    . my-toggle-ibuffer)
         ;; Build/clean project with make
-        ("<f3>"    . my-compile-make)
-        ("C-<f3>"  . my-compile-make-clean)
         ;; Cycle buffers
         ("M-S-<left>"  . previous-buffer)
         ("M-S-<right>" . next-buffer)

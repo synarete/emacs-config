@@ -71,8 +71,4 @@
 (require 'flymake)
 (add-hook 'c-mode-hook #'flymake-mode)
 
-;;;; Compilation settings
-(setopt compilation-always-kill t)
-(setopt compilation-ask-about-save nil)
-(setopt compilation-scroll-output 'first-error)
 
