@@ -260,11 +260,20 @@
   (ibuffer-switch-to-saved-filter-groups "default")
   (ibuffer-auto-mode 1))
 
+(defun my-toggle-ibuffer ()
+  "Toggle the ibuffer display."
+  (interactive)
+  (if (derived-mode-p 'ibuffer-mode)
+      (quit-window)
+    (ibuffer)))
 
 (use-package ibuffer
   :ensure nil
   :hook
   (ibuffer-mode . my-ibuffer-mode-hook)
+
+  :bind
+  ("<f2>" . my-toggle-ibuffer)
 
   :custom
   (ibuffer-saved-filter-groups

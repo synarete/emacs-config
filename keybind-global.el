@@ -32,13 +32,6 @@
   (save-some-buffers t)
   (kill-emacs))
 
-(defun my-toggle-ibuffer ()
-  "Toggle the ibuffer display."
-  (interactive)
-  (if (derived-mode-p 'ibuffer-mode)
-      (quit-window)
-    (ibuffer)))
-
 (defun my-global-set-keys (keymap bindings)
   "Set multiple key BINDINGS in a KEYMAP."
   (dolist (binding bindings)
@@ -56,7 +49,7 @@
         ("C-x C-q" . my-save-and-quit)
         ;; Specials
         ("<f1>"    . treemacs)
-        ("<f2>"    . my-toggle-ibuffer)
+        
         ;; Build/clean project with make
         ;; Cycle buffers
         ("M-S-<left>"  . previous-buffer)
