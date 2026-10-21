@@ -122,6 +122,11 @@
   :config
   (windmove-default-keybindings 'meta)
   (setq windmove-wrap-around t))
+ 
+;; Flymake
+ (use-package flymake
+  :ensure nil
+  :hook (c-mode . flymake-mode))
 
 
 ;; =============================================================================

@@ -81,12 +81,6 @@
 (use-package treemacs-projectile
   :after (treemacs projectile))
 
-;; GNU flymake
-(use-package flymake
-  :defer t)
-
-(use-package flyspell :ensure t :defer t)
-(use-package vertico :ensure t :defer t)
 
 ;; Use Doom emacs themes
 ;; https://github.com/doomemacs/themes
@@ -97,6 +91,9 @@
   (doom-themes-enable-bold nil)
   (doom-themes-enable-italic nil))
 
+(use-package flymake :defer t)
+(use-package flyspell :ensure t :defer t)
+(use-package vertico :ensure t :defer t)
 (use-package eat :ensure t :defer t)
 (use-package gptel :ensure t :defer t)
 (use-package doom-modeline :ensure t :defer t)

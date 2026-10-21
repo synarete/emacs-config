@@ -67,8 +67,4 @@
 (when-let ((guile-path (executable-find "guile3.0")))
   (setq geiser-guile-binary guile-path))
 
-;;;; Flymake
-(require 'flymake)
-(add-hook 'c-mode-hook #'flymake-mode)
-
 
