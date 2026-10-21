@@ -56,13 +56,6 @@
       (quit-window)
     (ibuffer)))
 
-(defun my-toggle-shell ()
-  "Toggle the Eat shell buffer."
-  (interactive)
-  (if (string= (buffer-name) "*eat*")
-      (bury-buffer)
-    (eat)))
-
 (defun my-global-set-keys (keymap bindings)
   "Set multiple key BINDINGS in a KEYMAP."
   (dolist (binding bindings)
@@ -84,8 +77,6 @@
         ;; Build/clean project with make
         ("<f3>"    . my-compile-make)
         ("C-<f3>"  . my-compile-make-clean)
-        ;; Shell
-        ("<f4>"    . my-toggle-shell)
         ;; Cycle buffers
         ("M-S-<left>"  . previous-buffer)
         ("M-S-<right>" . next-buffer)

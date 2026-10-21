@@ -1,6 +1,8 @@
 ;;; config-packages.el -- Packages settings -*- lexical-binding: t; -*-
 
+;; =============================================================================
 ;; Where to find packages
+;; =============================================================================
 (require 'package)
 
 (add-to-list 'package-archives
@@ -24,6 +26,7 @@
   (company-echo-common ((t (:foreground "#d8dee9"))))
   (company-echo        ((t (:foreground "#b48ead")))))
 
+
 ;; =============================================================================
 ;; Flyspell settings
 ;; =============================================================================
@@ -32,14 +35,26 @@
   :hook ((prog-mode . flyspell-prog-mode)
          (text-mode . flyspell-mode)))
 
+
 ;; =============================================================================
 ;; Eat terminal settings
 ;; =============================================================================
+
+(defun my-toggle-shell ()
+  "Toggle the Eat shell buffer."
+  (interactive)
+  (if (string= (buffer-name) "*eat*")
+      (bury-buffer)
+    (eat)))
+
 (use-package eat
   :custom
   (eat-kill-buffer-on-exit t)
   :hook
-  (eshell-load . eat-eshell-mode))
+  (eshell-load . eat-eshell-mode)
+  :bind
+  ("<f4>" . my-toggle-shell))
+
 
 ;; =============================================================================
 ;; Vertico settings
@@ -49,6 +64,7 @@
   (vertico-cycle t)
   :init
   (vertico-mode 1))
+
 
 ;; =============================================================================
 ;; Treemacs settings
