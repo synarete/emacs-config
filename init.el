@@ -43,9 +43,6 @@
 (my-load-user-init "appearance-doom.el"
                    :needs '(doom-themes doom-modeline))
 
-(my-load-user-init "appearance-graphic.el"
-                   :graphic t :needs '(doom-themes doom-modeline))
-
 (my-load-user-init "appearance-theme-ext.el"
                    :needs '(doom-themes doom-modeline))
 

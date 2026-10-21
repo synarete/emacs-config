@@ -47,11 +47,15 @@
       (bury-buffer)
     (eat)))
 
+(defun my-eat-face-remap ()
+  (face-remap-add-relative 'default :background "gray2"))
+
 (use-package eat
   :custom
   (eat-kill-buffer-on-exit t)
   :hook
   (eshell-load . eat-eshell-mode)
+  (eat-mode . my-eat-face-remap)
   :bind
   ("<f4>" . my-toggle-shell))
 

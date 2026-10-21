@@ -85,15 +85,8 @@
 (use-package flymake
   :defer t)
 
-;; Spell check with flyspell
-(use-package flyspell
-  :defer t)
-
-;; Use Vertico as completion framework
-;; https://github.com/minad/vertico
-(use-package vertico
-  :ensure t
-  :defer t)
+(use-package flyspell :ensure t :defer t)
+(use-package vertico :ensure t :defer t)
 
 ;; Use Doom emacs themes
 ;; https://github.com/doomemacs/themes
@@ -104,19 +97,6 @@
   (doom-themes-enable-bold nil)
   (doom-themes-enable-italic nil))
 
-;; Use Doom emacs mode-line
-;; https://github.com/seagle0128/doom-modeline
-(use-package doom-modeline
-  :ensure t
-  :defer t)
-
-;; Emulate a terminal
-;; https://codeberg.org/akib/emacs-eat
-(use-package eat
-  :ensure t
-  :defer t)
-
-;; LLMs
-(use-package gptel
-  :ensure t
-  :defer t)
+(use-package eat :ensure t :defer t)
+(use-package gptel :ensure t :defer t)
+(use-package doom-modeline :ensure t :defer t)

@@ -1,5 +1,11 @@
 ;;; appearance-common.el  -*- lexical-binding: t; -*-
 
+(require 'seq)
+
+;; =============================================================================
+;; Common appearance settings
+;; =============================================================================
+
 ;; Display buffer-size
 (size-indication-mode)
 
@@ -32,3 +38,48 @@
 
 ;; Hide the scroll bar
 (scroll-bar-mode 0)
+
+
+;; =============================================================================
+;; Frame and font configuration
+;; =============================================================================
+
+;; Private font settings
+(defconst my-font-list
+  '("IBM Plex Mono-14" "Source Code Pro-13" "Monospace-12"))
+
+(defun my-select-font ()
+  (seq-find
+   (lambda (name)
+     (ignore-errors (find-font (font-spec :name name))))
+   my-font-list))
+
+;; Frame configuration
+(use-package frame
+  :ensure nil
+  :custom
+  ;; Prevent automatic frame resizing when graphic elements change
+  (frame-inhibit-implied-resize t)
+
+  :config
+  ;; Add internal border padding inside frames
+  (add-to-list 'default-frame-alist '(internal-border-width . 4))
+
+  ;; Apply first available font dynamically
+  (when-let ((font-name (my-select-font)))
+    (add-to-list 'default-frame-alist `(font . ,font-name)))
+
+  ;; Avoid italic fonts across all faces
+  (set-face-attribute 'italic nil :slant 'normal))
+
+
+;; =============================================================================
+;; Time-display setup
+;; =============================================================================
+(use-package time
+  :ensure nil
+  :custom
+  (display-time-day-and-date t)
+  (display-time-24hr-format t)
+  :config
+  (display-time-mode 1))
