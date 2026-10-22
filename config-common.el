@@ -146,6 +146,36 @@
 (add-hook 'prog-mode-hook #'my-prog-mode-save-hook)
 
 
+;; =============================================================================
+;; White-spaces in prog-mode
+;; =============================================================================
+
+(defun my-apply-whitespace-faces (&rest _)
+  "Apply subtle whitespace face overrides over the active theme."
+  (set-face-attribute 'whitespace-tab nil
+                      :background 'unspecified
+                      :foreground "gray19")
+  (set-face-attribute 'whitespace-space nil
+                      :background 'unspecified
+                      :foreground "gray19")
+  (set-face-attribute 'whitespace-space-after-tab nil
+                      :background 'unspecified
+                      :foreground "gray19"))
+
+;; Re-apply faces whenever any theme (like doom-theme) is loaded
+(add-hook 'enable-theme-functions #'my-apply-whitespace-faces)
+
+;; Apply immediately for the currently loaded theme
+(my-apply-whitespace-faces)
+
+(defun my-whitespace-style-hook ()
+  "Configure subtle whitespace visualization for programming modes."
+  (setq-local whitespace-style '(face trailing tabs tab-mark))
+  (setq-local whitespace-display-mappings
+              '((tab-mark 9 [187 9] [92 9])))
+  (whitespace-mode 1))
+
+(add-hook 'prog-mode-hook #'my-whitespace-style-hook)
 
 
 ;; =============================================================================

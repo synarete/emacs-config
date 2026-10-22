@@ -36,8 +36,6 @@
 
 (my-load-user-init "appearance-packages.el")
 
-(my-load-user-init "appearance-prog.el")
-
 (my-load-user-init "appearance-doom.el"
                    :needs '(doom-themes doom-modeline))
 
@@ -46,7 +44,7 @@
 
 ;; Finally
 (message "[ After init ]")
-(my-load-user-init "after-init.el" :needs '(treemacs))
+(my-load-user-init "after-init.el")
 
 ;; Ready!
 (message "[ Done init in %s (user: %s) ]" (emacs-init-time) (user-login-name))
