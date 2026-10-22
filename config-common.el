@@ -9,7 +9,7 @@
   (format "%d.%d" emacs-major-version emacs-minor-version))
 
 (setq frame-title-format (format "Emacs %s" my-emacs-version))
-(setq initial-scratch-message (format ";; Emacs %s" my-emacs-version))
+(setopt initial-scratch-message (format ";; Emacs %s" my-emacs-version))
 
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -17,25 +17,25 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 ;; Dedicated custom file
-(setq custom-file (expand-file-name "custom.el" user-emacs-directory))
+(setopt custom-file (expand-file-name "custom.el" user-emacs-directory))
 
 ;; Don't tell user when doing GC
-(setq garbage-collection-messages nil)
+(setopt garbage-collection-messages nil)
 
 ;; Skip the startup screen
-(setq-default inhibit-startup-screen t)
+(setopt inhibit-startup-screen t)
 
 ;; Do not create backup~ files
-(setq make-backup-files nil)
+(setopt make-backup-files nil)
 
 ;; Do not create #auto-save# files
-(setq auto-save-default nil)
+(setopt auto-save-default nil)
 
 ;; Don't lock files
-(setq-default create-lockfiles nil)
+(setopt create-lockfiles nil)
 
 ;; Disable version control
-(setq vc-handled-backends nil)
+(setopt vc-handled-backends nil)
 
 ;; Do not ask before saving file-visiting buffers
 (defun my-save-without-query-hook ()
@@ -44,11 +44,11 @@
 (add-hook 'find-file-hook #'my-save-without-query-hook)
 
 ;; Kill active processes upon exit, without prompt
-(setq confirm-kill-processes nil)
+(setopt confirm-kill-processes nil)
 
 ;; Performance & Display tweaks
 (setq redisplay-skip-fontification-on-input t)
-(setq-default display-fill-column-indicator-column 80)
+(setopt display-fill-column-indicator-column 80)
 (setopt indent-tabs-mode nil)
 
 ;; UI & Interaction
@@ -69,7 +69,7 @@
 (set-file-name-coding-system 'utf-8)
 
 ;; Delete TABs the normal way
-(setq backward-delete-char-untabify-method nil)
+(setopt backward-delete-char-untabify-method nil)
 
 ;; Middle-click yanks at point, not at click position
 (setopt mouse-yank-at-point t)
@@ -125,9 +125,10 @@
 ;; Windmove
 (use-package windmove
   :ensure nil
+  :custom
+  (windmove-wrap-around t)
   :config
-  (windmove-default-keybindings 'meta)
-  (setq windmove-wrap-around t))
+  (windmove-default-keybindings 'meta))
 
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -319,12 +320,11 @@
   :ensure nil
   :custom
   (comint-input-ignoredups t)
-  :config
-  (setq comint-move-point-for-output t
-        comint-prompt-read-only t
-        comint-scroll-to-bottom-on-input t
-        comint-scroll-to-bottom-on-output t
-        comint-scroll-show-maximum-output t))
+  (comint-move-point-for-output t)
+  (comint-prompt-read-only t)
+  (comint-scroll-to-bottom-on-input t)
+  (comint-scroll-to-bottom-on-output t)
+  (comint-scroll-show-maximum-output t))
 
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
