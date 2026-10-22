@@ -37,8 +37,11 @@
 ;; Disable version control
 (setq vc-handled-backends nil)
 
-;; Do not ask before saving buffers
-(setq-default buffer-save-without-query t)
+;; Do not ask before saving file-visiting buffers
+(defun my-save-without-query-hook ()
+  (setq-local buffer-save-without-query t))
+
+(add-hook 'find-file-hook #'my-save-without-query-hook)
 
 ;; Kill active processes upon exit, without prompt
 (setq confirm-kill-processes nil)
