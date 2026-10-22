@@ -24,6 +24,10 @@
 (set-face-attribute 'mode-line-inactive nil
                     :box '(:line-width 2 :color "#222224"))
 
+;; Parentheses
+(set-face-attribute 'show-paren-match nil
+                    :background "gray29" :foreground "ivory" :weight 'bold)
+
 ;; Cursor
 (defun my-cursor-style-hook ()
   (if overwrite-mode
@@ -32,7 +36,3 @@
 
 (add-hook 'overwrite-mode-hook #'my-cursor-style-hook)
 (set-face-attribute 'cursor nil :background "gray")
-
-;; Parentheses
-(set-face-attribute 'show-paren-match nil
-                    :background "gray29" :foreground "ivory" :weight 'bold)

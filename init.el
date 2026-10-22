@@ -1,5 +1,6 @@
 ;;; init.el --- Initialization file for Emacs -*- lexical-binding: t; -*-
 
+
 ;; Start
 (message "[ Start init (user: %s) ]" (user-login-name))
 
@@ -22,12 +23,11 @@
 (message "[ Appearance ]")
 (my-load-user-init "appearance-common.el")
 (my-load-user-init "appearance-packages.el")
-(my-load-user-init "appearance-doom.el")
 (my-load-user-init "appearance-theme-ext.el")
-                  
+
 ;; Finally
 (message "[ After init ]")
 (my-load-user-init "after-init.el")
 
 ;; Ready!
-(message "[ Done init in %s (user: %s) ]" (emacs-init-time) (user-login-name))
+(message "[ Done init in %s ]" (emacs-init-time))
