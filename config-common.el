@@ -38,7 +38,7 @@
 (setq vc-handled-backends nil)
 
 ;; Do not ask before saving buffers
-(setq buffer-save-without-query t)
+(setq-default buffer-save-without-query t)
 
 ;; Kill active processes upon exit, without prompt
 (setq confirm-kill-processes nil)
@@ -195,7 +195,6 @@
 (defun my-c-mode-style-hook ()
   "Apply custom style and indentation rules for C/C++ modes."
   (c-set-style "linux")
-  (setq-local c-indent-level 8)
   (setq-local tab-always-indent t)
   (setq-local tab-width 8))
 
@@ -335,7 +334,6 @@
   (comint-input-ignoredups t)
   :config
   (setq comint-move-point-for-output t
-        comint-process-echoes t
         comint-prompt-read-only t
         comint-scroll-to-bottom-on-input t
         comint-scroll-to-bottom-on-output t
@@ -363,12 +361,9 @@
   (setq-local display-line-numbers-width 5))
 
 (defun my-gdb ()
-  "Launch GDB from the current project root directory."
+  "Launch GDB from the current projectile root directory."
   (interactive)
-  (let ((default-directory
-         (if-let ((proj (project-current)))
-             (project-root proj)
-           default-directory)))
+  (let ((default-directory (or (projectile-project-root) default-directory)))
     (call-interactively #'gdb)))
 
 (use-package gdb-mi
