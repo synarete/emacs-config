@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-# Determine script directory reliably
+# Determine script directory
 basedir=$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd -P)
 initfile="${basedir}/init-packages.el"
 
@@ -17,7 +17,9 @@ if [[ ! -f "${initfile}" ]]; then
   exit 1
 fi
 
-# Run Emacs in batch mode to execute the Elisp bootstrap script
+# Run Emacs in batch mode and install packages (basedir is emacs directory)
 cd "${basedir}"
-emacs -Q --batch -l "${initfile}"
-
+emacs -Q --batch \
+  --eval "(setq user-emacs-directory \"${basedir}/\")" \
+  --init-directory "${basedir}" \
+  -l "${initfile}"

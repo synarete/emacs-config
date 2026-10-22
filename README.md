@@ -11,7 +11,7 @@ Clone the repository into new `~/.emacs.d`:
 Execute packages installation script (may take some time):
 
 ```sh
-  $ ~/.emacs.d/emacs-install-packages.sh
+  $ ~/.emacs.d/bootstrap.sh
   ...
 ```
 
