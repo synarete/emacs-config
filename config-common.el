@@ -193,8 +193,7 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 (defun my-c-mode-style-hook ()
-  "Apply custom style and indentation rules for C/C++ modes."
-  (c-set-style "linux")
+  "Apply custom indentation rules for CC modes."
   (setq-local tab-always-indent t)
   (setq-local tab-width 8))
 
@@ -227,8 +226,8 @@
   :ensure nil
   :custom
   (c-default-style
-   '((cc-mode . "linux")
-     (python-mode . "python")
+   '((c-mode . "linux")
+     (c++-mode . "linux")
      (awk-mode . "awk")
      (java-mode . "java")
      (other . "gnu")))
@@ -261,8 +260,7 @@
 
 (defun my-xref-buffer-mode-hook ()
   (display-line-numbers-mode 1)
-  (setq-local display-line-numbers-width 3)
-  (setq-local display-line-numbers-extra-text-width 2))
+  (setq-local display-line-numbers-width 3))
 
 (use-package xref
   :ensure nil
@@ -302,6 +300,7 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 (use-package ediff
+  :ensure nil
   :defer t
   :custom
   ;; Frame and window layout
@@ -309,8 +308,7 @@
   (ediff-split-window-function 'split-window-horizontally)
 
   ;; UI and display options
-  (ediff-show-registry-before-ediff-regime nil)
-  (ediff-highlight-all-current-diffs t)
+  (ediff-highlight-all-diffs t)
 
   ;; Diff behavior
   (ediff-ignore-similar-regions t)
@@ -395,14 +393,6 @@
 
 (defun my-ibuffer-mode-hook ()
   "Custom hook settings for Ibuffer."
-  (setq ibuffer-expert t)
-  (setq ibuffer-show-empty-filter-groups nil)
-  (setq ibuffer-default-shrink-to-minimum-size nil)
-  (setq ibuffer-use-other-window nil)
-  (setq ibuffer-display-summary nil)
-  (setq ibuffer-default-sorting-mode 'filename/process)
-  (setq ibuffer-title-face 'font-lock-doc-face)
-  (setq ibuffer-use-header-line t)
   (hl-line-mode 1)
   (ibuffer-switch-to-saved-filter-groups "default")
   (ibuffer-auto-mode 1))
@@ -423,6 +413,14 @@
   ("<f2>" . my-toggle-ibuffer)
 
   :custom
+  (ibuffer-expert t)
+  (ibuffer-show-empty-filter-groups nil)
+  (ibuffer-default-shrink-to-minimum-size nil)
+  (ibuffer-use-other-window nil)
+  (ibuffer-display-summary nil)
+  (ibuffer-default-sorting-mode 'filename/process)
+  (ibuffer-title-face 'font-lock-doc-face)
+  (ibuffer-use-header-line t)
   (ibuffer-saved-filter-groups
    '(("default"
       ("GDB"
