@@ -34,3 +34,6 @@
 # GNUS
 /*.gpg
 /network-security.data
+
+# LLM
+/.scratch

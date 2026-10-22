@@ -28,8 +28,7 @@
 
   :config
   ;; Mail directory & sync execution
-  (setq mu4e-maildir (expand-file-name "Mail" (getenv "HOME"))
-        mu4e-get-mail-command "offlineimap"
+  (setq mu4e-get-mail-command "offlineimap"
         mu4e-update-interval nil)
 
   ;; Sending mail via msmtp
@@ -38,30 +37,29 @@
         mail-specify-envelope-from t
         mail-envelope-from 'header)
 
-  ;; Gmail folder mappings
-  (setq mu4e-drafts-folder "/[Gmail]/Drafts"
-        mu4e-sent-folder   "/[Gmail]/Sent Mail"
-        mu4e-trash-folder  "/[Gmail]/Trash"
-        mu4e-refile-folder "/[Gmail]/All Mail")
+  ;; Gmail folder mappings (offlineimap uses '.' as folder separator)
+  (setq mu4e-drafts-folder "/[Gmail].Drafts"
+        mu4e-sent-folder   "/[Gmail].Sent Mail"
+        mu4e-trash-folder  "/[Gmail].Trash"
+        mu4e-refile-folder "/[Gmail].All Mail")
 
   ;; Maildir shortcuts
   (setq mu4e-maildir-shortcuts
         '(("/INBOX"             . ?i)
-          ("/[Gmail]/Sent Mail" . ?s)
-          ("/[Gmail]/All Mail"  . ?a)))
+          ("/[Gmail].Sent Mail" . ?s)
+          ("/[Gmail].All Mail"  . ?a)))
 
   ;; Gmail workflow & marking behavior
-  (setq mu4e-headers-confirm-2-marks nil
-        mu4e-trash-without-flag t
+  (setq mu4e-trash-without-flag t
         mu4e-sent-messages-behavior 'delete
         mu4e-headers-leave-behavior 'apply)
 
   ;; Header display & thread configurations
   (setq mu4e-headers-visible-lines 30
-        mu4e-headers-include-related t
-        mu4e-headers-skip-duplicates t
+        mu4e-search-include-related t
+        mu4e-search-skip-duplicates t
         mu4e-use-fancy-chars nil
-        mu4e-headers-show-threads t
+        mu4e-search-threads t
         mu4e-split-view 'horizontal)
 
   ;; Thread visual prefixing
@@ -92,4 +90,4 @@
   :hook
   ((mu4e-compose-mode . my-mu4e-compose-hook)
    (gnus-article-mode . my-mu4e-padding)
-   (mu4e-article-mode . visual-line-mode)))
+   (mu4e-view-mode . visual-line-mode)))
