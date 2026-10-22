@@ -27,12 +27,3 @@
 ;; Parentheses
 (set-face-attribute 'show-paren-match nil
                     :background "gray29" :foreground "ivory" :weight 'bold)
-
-;; Cursor
-(defun my-cursor-style-hook ()
-  (if overwrite-mode
-      (set-face-attribute 'cursor nil :background "red")
-    (set-face-attribute 'cursor nil :background "gray")))
-
-(add-hook 'overwrite-mode-hook #'my-cursor-style-hook)
-(set-face-attribute 'cursor nil :background "gray")

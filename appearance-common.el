@@ -76,6 +76,7 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Time-display setup
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
 (use-package time
   :ensure nil
   :custom
@@ -83,3 +84,25 @@
   (display-time-24hr-format t)
   :config
   (display-time-mode 1))
+  
+  
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; Cursor settings
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+(defun my-update-cursor-style (&rest _)
+  "Update cursor background color based on `overwrite-mode`."
+  (if overwrite-mode
+      (set-face-attribute 'cursor nil :background "red")
+    (set-face-attribute 'cursor nil :background "gray")))
+
+;; Update cursor color when toggling overwrite-mode on or off
+(advice-add 'overwrite-mode :after #'my-update-cursor-style)
+
+;; Re-apply gray cursor whenever a theme finishes loading
+(if (boundp 'enable-theme-functions)
+    (add-hook 'enable-theme-functions #'my-update-cursor-style)
+  (advice-add 'load-theme :after #'my-update-cursor-style))
+
+;; Initial state setup
+(my-update-cursor-style)
