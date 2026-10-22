@@ -1,52 +1,68 @@
-;;; packages.el -- Init packages -*- lexical-binding: t; -*-
+;;; init-packages.el -- Bootstrap Emacs Packages -*- lexical-binding: t; -*-
 
-(require 'color)
-(require 'whitespace)
-(require 'cc-mode)
-(require 'make-mode)
-(require 'sh-script)
-(require 'bind-key)
 (require 'package)
 
-(add-to-list 'package-archives
-             '("melpa" . "https://melpa.org/packages/"))
-(add-to-list 'package-archives
-             '("melpa-stable" . "https://stable.melpa.org/packages/"))
+(setq package-archives
+      '(("gnu"          . "https://elpa.gnu.org/packages/")
+        ("nongnu"       . "https://elpa.nongnu.org/nongnu/")
+        ("melpa"        . "https://melpa.org/packages/")
+        ("melpa-stable" . "https://stable.melpa.org/packages/")))
 
-(use-package auto-dim-other-buffers :ensure t)
-(use-package autorevert :ensure t)
-(use-package cc-mode :ensure t)
-(use-package comint :ensure t)
-(use-package company :ensure t)
-(use-package compile :ensure t)
-(use-package cua-base :ensure t)
-(use-package doom-modeline :ensure t)
-(use-package doom-themes :ensure t)
-(use-package eat :ensure t)
-(use-package ediff :ensure t)
-(use-package ffap :ensure t)
-(use-package flymake :ensure t)
-(use-package flyspell :ensure t)
-(use-package frame :ensure t)
-(use-package gdb-mi :ensure t)
-(use-package geiser :ensure t)
-(use-package geiser-guile :ensure t)
-(use-package gptel :ensure t)
-(use-package ibuffer :ensure t)
-(use-package isearch :ensure t)
-(use-package lsp-mode :ensure t)
-(use-package lsp-ui :ensure t)
-(use-package magit :ensure t)
-(use-package mu4e :ensure t)
-(use-package projectile :ensure t)
-(use-package saveplace :ensure t)
-(use-package sh-script :ensure t)
-(use-package smartparens :ensure t)
-(use-package text-mode :ensure t)
-(use-package time :ensure t)
-(use-package treemacs :ensure t)
-(use-package treemacs-projectile :ensure t)
-(use-package vertico :ensure t)
-(use-package which-key :ensure t)
-(use-package windmove :ensure t)
-(use-package xref :ensure t)
+(package-initialize)
+
+;; Fetch package index on fresh installations
+(unless package-archive-contents
+  (package-refresh-contents))
+
+;; Emacs 30 includes use-package natively
+(eval-when-compile
+  (require 'use-package))
+
+(setq use-package-always-ensure t
+      use-package-verbose t)
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; External Packages (Downloaded from MELPA / ELPA)
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+(use-package auto-dim-other-buffers)
+(use-package company)
+(use-package doom-modeline)
+(use-package doom-themes)
+(use-package eat)
+(use-package geiser)
+(use-package geiser-guile)
+(use-package gptel)
+(use-package lsp-mode)
+(use-package lsp-ui)
+(use-package magit)
+(use-package projectile)
+(use-package smartparens)
+(use-package treemacs)
+(use-package treemacs-projectile)
+(use-package vertico)
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; Built-in Packages in Emacs 30+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+(use-package autorevert  :ensure nil)
+(use-package cc-mode     :ensure nil)
+(use-package comint      :ensure nil)
+(use-package compile     :ensure nil)
+(use-package cua-base    :ensure nil)
+(use-package ediff       :ensure nil)
+(use-package ffap        :ensure nil)
+(use-package flymake     :ensure nil)
+(use-package flyspell    :ensure nil)
+(use-package frame       :ensure nil)
+(use-package gdb-mi      :ensure nil)
+(use-package ibuffer     :ensure nil)
+(use-package isearch     :ensure nil)
+(use-package saveplace   :ensure nil)
+(use-package sh-script   :ensure nil)
+(use-package text-mode   :ensure nil)
+(use-package time        :ensure nil)
+(use-package which-key   :ensure nil)
+(use-package windmove    :ensure nil)
+(use-package xref        :ensure nil)
