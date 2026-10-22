@@ -77,7 +77,7 @@
 ;; Mouse wheel scrolls
 (setopt mouse-wheel-follow-mouse t)
 
-;; Yank with middle mouse
+;; Middle-click yanks at point, not at click position
 (setopt mouse-yank-at-point t)
 
 ;; Window-divider
@@ -141,15 +141,16 @@
 ;; Programming mode settings
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
-;; Display line numbers, column numbers, and column indicator
+;; Display column number in mode-line (global)
+(column-number-mode 1)
+
+;; Display line numbers and column indicator
 (add-hook 'prog-mode-hook #'display-line-numbers-mode)
-(add-hook 'prog-mode-hook #'column-number-mode)
 (add-hook 'prog-mode-hook #'display-fill-column-indicator-mode)
 
 (defun my-prog-mode-save-hook ()
   "Remove trailing whitespaces upon save."
-  (add-hook 'before-save-hook #'delete-trailing-whitespace nil t)
-  (add-hook 'before-save-hook #'whitespace-cleanup nil t))
+  (add-hook 'before-save-hook #'delete-trailing-whitespace nil t))
 
 (add-hook 'prog-mode-hook #'my-prog-mode-save-hook)
 
