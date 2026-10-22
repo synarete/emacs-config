@@ -52,7 +52,6 @@
 (setopt indent-tabs-mode nil)
 
 ;; UI & Interaction
-(setopt visible-bell nil)
 (setopt ring-bell-function 'ignore)
 (setopt use-short-answers t)
 (setopt use-dialog-box nil)
@@ -60,7 +59,6 @@
 ;; Improved scrolling
 (setopt scroll-conservatively 101)
 (setopt scroll-preserve-screen-position 1)
-(setopt scroll-margin 0)
 
 ;; UTF-8 Encoding Setup
 (prefer-coding-system 'utf-8)
@@ -69,13 +67,9 @@
 (set-keyboard-coding-system 'utf-8)
 (set-selection-coding-system 'utf-8)
 (set-file-name-coding-system 'utf-8)
-(set-clipboard-coding-system 'utf-8)
 
 ;; Delete TABs the normal way
 (setq backward-delete-char-untabify-method nil)
-
-;; Mouse wheel scrolls
-(setopt mouse-wheel-follow-mouse t)
 
 ;; Middle-click yanks at point, not at click position
 (setopt mouse-yank-at-point t)
@@ -126,8 +120,7 @@
   (cua-mode 1)
   :custom
   (cua-auto-tabify-rectangles nil)
-  (cua-keep-region-after-copy t)
-  (cua-enable-cua-keys t))
+  (cua-keep-region-after-copy t))
 
 ;; Windmove
 (use-package windmove
@@ -195,7 +188,6 @@
 
 (defun my-c-mode-style-hook ()
   "Apply custom indentation rules for CC modes."
-  (setq-local tab-always-indent t)
   (setq-local tab-width 8))
 
 (defun my-c23-keywords-hook ()
@@ -243,7 +235,6 @@
 
 (defun my-sh-mode-style-hook ()
   (setq-local tab-width 8)
-  (setq-local tab-always-indent t)
   (setq-local indent-tabs-mode t))
 
 (use-package sh-script
@@ -308,9 +299,6 @@
   (ediff-window-setup-function 'ediff-setup-windows-plain)
   (ediff-split-window-function 'split-window-horizontally)
 
-  ;; UI and display options
-  (ediff-highlight-all-diffs t)
-
   ;; Diff behavior
   (ediff-ignore-similar-regions t)
   (ediff-keep-variants nil)
@@ -336,8 +324,7 @@
         comint-prompt-read-only t
         comint-scroll-to-bottom-on-input t
         comint-scroll-to-bottom-on-output t
-        comint-scroll-show-maximum-output t)
-  (add-to-list 'comint-output-filter-functions #'ansi-color-process-output))
+        comint-scroll-show-maximum-output t))
 
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
