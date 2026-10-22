@@ -101,6 +101,35 @@
 
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; Projectile
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+(defun my-projectile-compile ()
+  "Run `compile` at the projectile root without prompting."
+  (interactive)
+  (let ((default-directory (or (projectile-project-root) default-directory))
+        (compilation-read-command nil))
+    (compile "make")))
+
+(defun my-projectile-compile-clean ()
+  "Run `make clean` at the projectile root without prompting."
+  (interactive)
+  (let ((default-directory (or (projectile-project-root) default-directory))
+        (compilation-read-command nil))
+    (compile "make clean")))
+
+(use-package projectile
+  :ensure t
+  :init
+  (projectile-mode +1)
+  :bind-keymap
+  ("C-c p" . projectile-command-map)
+  :bind
+  ("<f3>"   . my-projectile-compile)
+  ("C-<f3>" . my-projectile-compile-clean))
+
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Geiser and Guile settings
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
