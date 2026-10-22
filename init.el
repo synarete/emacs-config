@@ -23,7 +23,6 @@
 (message "[ Appearance ]")
 (my-load-user-init "appearance-common.el")
 (my-load-user-init "appearance-packages.el")
-(my-load-user-init "appearance-theme-ext.el")
 
 ;; Finally
 (message "[ After init ]")

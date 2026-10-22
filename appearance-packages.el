@@ -82,9 +82,40 @@
 
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;; Doom theme
+;; Doom Theme & Refined Faces
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 (use-package doom-themes
   :ensure t
   :config
-  (load-theme 'doom-opera t))
+  (load-theme 'doom-opera t)
+
+  ;; Enable subtle doom extensions
+  (doom-themes-org-config)
+
+  ;; Custom face overrides
+  (custom-set-faces
+   ;; Background & Highlights
+   '(default ((t (:background "#131517"))))
+   '(trailing-whitespace ((t (:background "#212123"))))
+   '(hl-line ((t (:background "#2d3335"))))
+
+   ;; Line Numbers (Using HEX for cross-platform consistency)
+   '(line-number ((t (:foreground "#4a4a4a"))))
+   '(line-number-current-line ((t (:foreground "#879a87" :weight bold))))
+
+   ;; Vertical Split Divider
+   '(vertical-border ((t (:background "#0a0e14" :foreground "#0a0e14"))))
+
+   ;; Mode-line Box & Contrast
+   '(mode-line
+     ((t (:background "#2e3440"
+                      :box (:line-width (2 . 2) :color "#2e3440")
+                      ))))
+   '(mode-line-inactive
+     ((t (:background "#1c1e20"
+                      :box (:line-width (2 . 2) :color "#1c1e20")
+                      :foreground "#5c6370"))))
+
+   ;; Parentheses
+   '(show-paren-match
+     ((t (:background "#3f444a" :foreground "#ffffef" :weight bold))))))

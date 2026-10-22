@@ -1,7 +1,7 @@
 ;;; config-common.el -- Common configuration -*- lexical-binding: t; -*-
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;; General Setup & Environment
+;; Emacs 30.2 and above
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 ;; Show emacs version on frame title and scratch buffer
@@ -10,6 +10,11 @@
 
 (setq frame-title-format (format "Emacs %s" my-emacs-version))
 (setq initial-scratch-message (format ";; Emacs %s" my-emacs-version))
+
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; General Setup & Environment
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 ;; Dedicated custom file
 (setq custom-file (expand-file-name "custom.el" user-emacs-directory))
@@ -72,6 +77,11 @@
 ;; Yank with middle mouse
 (setopt mouse-yank-at-point t)
 
+;; Window-divider
+(setopt window-divider-default-places t)
+(setopt window-divider-default-bottom-width 1)
+(setopt window-divider-default-right-width 1)
+(window-divider-mode 1)
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Built-in Package Configurations
@@ -116,17 +126,17 @@
   (cua-keep-region-after-copy t)
   (cua-enable-cua-keys t))
 
+;; Flymake
+(use-package flymake
+  :ensure nil
+  :hook (c-mode . flymake-mode))
+
 ;; Windmove
 (use-package windmove
   :ensure nil
   :config
   (windmove-default-keybindings 'meta)
   (setq windmove-wrap-around t))
-
-;; Flymake
-(use-package flymake
-  :ensure nil
-  :hook (c-mode . flymake-mode))
 
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
