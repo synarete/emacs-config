@@ -130,6 +130,24 @@
 
 
 ;; =============================================================================
+;; Shell-script settings
+;; =============================================================================
+
+(defun my-sh-mode-style-hook ()
+  (setq-local tab-width 8)
+  (setq-local tab-always-indent t)
+  (setq-local indent-tabs-mode t))
+
+(use-package sh-script
+  :ensure nil
+  :custom
+  (sh-basic-offset 8)
+  (sh-indent-after-continuation 'always)
+  :hook
+  (sh-mode . my-sh-mode-style-hook))
+
+
+;; =============================================================================
 ;; Xref settings
 ;; =============================================================================
 

@@ -53,16 +53,6 @@
 
 (add-hook 'c-mode-hook #'my-c23-keywords-hook)
 
-;; Shell script style (following Linux kernel convention).
-(defun my-sh-mode-style-hook ()
-  (setq-local tab-width 8)
-  (setq-local tab-always-indent t)
-  (setq-local sh-basic-offset 8)
-  (setq-local sh-indent-after-continuation 'always)
-  (setq-local indent-tabs-mode t))
-
-(add-hook 'sh-mode-hook #'my-sh-mode-style-hook)
-
 ;; Scheme
 (when-let ((guile-path (executable-find "guile3.0")))
   (setq geiser-guile-binary guile-path))
