@@ -129,11 +129,6 @@
   (cua-keep-region-after-copy t)
   (cua-enable-cua-keys t))
 
-;; Flymake
-(use-package flymake
-  :ensure nil
-  :hook (c-mode . flymake-mode))
-
 ;; Windmove
 (use-package windmove
   :ensure nil
