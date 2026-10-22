@@ -414,7 +414,6 @@
       ("GDB"
        (or
         (mode . gud-mode)
-        (mode . gud-tooltip-mode)
         (mode . gdb-breakpoints-mode)
         (mode . gdb-disassembly-mode)
         (mode . gdb-frames-mode)
@@ -448,9 +447,7 @@
         (mode . lisp-mode)
         (mode . emacs-lisp-mode)))
       ("Script"
-       (or
-        (mode . sh-mode)
-        (mode . shell-script-mode)))
+       (mode . sh-mode))
       ("Text"
        (or
         (mode . text-mode)
