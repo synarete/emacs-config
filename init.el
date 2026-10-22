@@ -14,15 +14,11 @@
 
 (my-load-user-init "config-packages.el")
 
-(my-load-user-init "config-lsp.el" :needs '(lsp-ui which-key))
-
-(my-load-user-init "config-gdb.el" :needs '(gud))
+(my-load-user-init "config-lsp.el")
 
 (my-load-user-init "config-mu4e.el")
 
-(my-load-user-init "config-gptel.el" :needs '(gptel))
-
-(my-load-user-init "config-nw.el" :term t)
+(my-load-user-init "config-gptel.el")
 
 ;; Key-bindings
 (message "[ Key-bindings ]")
