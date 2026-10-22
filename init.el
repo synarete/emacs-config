@@ -14,8 +14,6 @@
 
 (my-load-user-init "config-packages.el")
 
-(my-load-user-init "config-prog.el" :needs '(flymake))
-
 (my-load-user-init "config-lsp.el" :needs '(lsp-ui which-key))
 
 (my-load-user-init "config-gdb.el" :needs '(gud))

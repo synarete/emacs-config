@@ -130,6 +130,62 @@
 
 
 ;; =============================================================================
+;; Programming mode settings
+;; =============================================================================
+
+;; Display line numbers, column numbers, and column indicator
+(add-hook 'prog-mode-hook #'display-line-numbers-mode)
+(add-hook 'prog-mode-hook #'column-number-mode)
+(add-hook 'prog-mode-hook #'display-fill-column-indicator-mode)
+
+;; Remove trailing whitespaces upon save
+(defun my-prog-mode-save-hook ()
+  (add-hook 'before-save-hook #'delete-trailing-whitespace nil t)
+  (add-hook 'before-save-hook #'whitespace-cleanup nil t))
+
+(add-hook 'prog-mode-hook #'my-prog-mode-save-hook)
+
+
+
+
+;; =============================================================================
+;; C Development
+;; =============================================================================
+
+(defun my-c-mode-style-hook ()
+  "Apply custom style and indentation rules for C/C++ modes."
+  (c-set-style "linux")
+  (setq-local c-indent-level 8)
+  (setq-local tab-always-indent t)
+  (setq-local tab-width 8))
+
+(defun my-c23-keywords-hook ()
+  "Add C23 keywords and types to font-lock for C mode."
+  (let ((c23-kw (regexp-opt '("alignas" "alignof" "bool" "constexpr"
+                              "false" "nullptr" "static_assert" "thread_local"
+                              "true" "typeof" "typeof_unqual")
+                            'symbols))
+        (c23-tp (regexp-opt '("_BitInt" "_Decimal32" "_Decimal64"
+                              "_Decimal128")
+                            'symbols)))
+    (font-lock-add-keywords nil
+                            `((,c23-kw . font-lock-keyword-face)
+                              (,c23-tp . font-lock-type-face)))))
+
+(use-package cc-mode
+  :ensure nil
+  :custom
+  (c-default-style '((cc-mode . "linux")
+                     (python-mode . "python")
+                     (awk-mode . "awk")
+                     (java-mode . "java")
+                     (other . "gnu")))
+  :hook
+  ((c-mode-common . my-c-mode-style-hook)
+   (c-mode . my-c23-keywords-hook)))
+
+
+;; =============================================================================
 ;; Shell-script settings
 ;; =============================================================================
 
