@@ -1,7 +1,5 @@
 ;;; keybind-global.el -- Key-binding mappings -*- lexical-binding: t; -*-
 
-(require 'projectile)
-
 (defun my-num-visited-modified-buffers ()
   "Return the number of visited and modified buffers."
   (length
@@ -47,14 +45,8 @@
         ("C-x k"   . kill-current-buffer)
         ("C-x C-s" . my-save-all-buffers)
         ("C-x C-q" . my-save-and-quit)
-        ;; Specials
-        ("<f1>"    . treemacs)
-        
-        ;; Build/clean project with make
-        ;; Cycle buffers
         ("M-S-<left>"  . previous-buffer)
         ("M-S-<right>" . next-buffer)
-        ;; Window resize
         ("M-S-+" . enlarge-window)
         ("M-+"   . enlarge-window-horizontally)
         ("M-S--" . shrink-window)

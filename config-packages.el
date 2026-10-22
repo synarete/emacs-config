@@ -94,6 +94,7 @@
   :config
   (set-face-attribute 'treemacs-root-face nil :height 1.0)
   :bind
+  ("<f1>" . treemacs)
   (:map treemacs-mode-map
         ([mouse-3] . nil)
         ([down-mouse-3] . nil)))

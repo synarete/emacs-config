@@ -1,5 +1,13 @@
 ;;; config-mu4e.el -- mu4e settings (gmail) -*- lexical-binding: t; -*-
 
+(defun my-setup-buffer-margins (buf)
+  "Forcefully inject margins into the live window showing BUF."
+  (run-with-timer 0.05 nil
+                  (lambda (b)
+                    (when-let ((win (get-buffer-window b)))
+                      (set-window-margins win 2 2)))
+                  buf))
+
 (defun my-mu4e-compose-hook ()
   "Set fill column to 80 and enable auto-fill mode for email composition."
   (setq-local fill-column 80)
