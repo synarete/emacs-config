@@ -165,21 +165,23 @@
 
 (defun my-apply-whitespace-faces (&rest _)
   "Apply subtle whitespace face overrides over the active theme."
-  (set-face-attribute 'whitespace-tab nil
-                      :background 'unspecified
-                      :foreground "gray19")
-  (set-face-attribute 'whitespace-space nil
-                      :background 'unspecified
-                      :foreground "gray19")
-  (set-face-attribute 'whitespace-space-after-tab nil
-                      :background 'unspecified
-                      :foreground "gray19"))
+  (when (featurep 'whitespace)
+    (set-face-attribute 'whitespace-tab nil
+                        :background 'unspecified
+                        :foreground "gray19")
+    (set-face-attribute 'whitespace-space nil
+                        :background 'unspecified
+                        :foreground "gray19")
+    (set-face-attribute 'whitespace-space-after-tab nil
+                        :background 'unspecified
+                        :foreground "gray19")))
 
 ;; Re-apply faces whenever any theme (like doom-theme) is loaded
 (add-hook 'enable-theme-functions #'my-apply-whitespace-faces)
 
-;; Apply immediately for the currently loaded theme
-(my-apply-whitespace-faces)
+;; Apply once whitespace is loaded (immediately, if it already is)
+(with-eval-after-load 'whitespace
+  (my-apply-whitespace-faces))
 
 (defun my-whitespace-style-hook ()
   "Configure subtle whitespace visualization for programming modes."
