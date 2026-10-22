@@ -1,8 +1,8 @@
 ;;; config-common.el -- Common configuration -*- lexical-binding: t; -*-
 
-;; =============================================================================
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; General Setup & Environment
-;; =============================================================================
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 ;; Show emacs version on frame title and scratch buffer
 (defconst my-emacs-version
@@ -73,9 +73,9 @@
 (setopt mouse-yank-at-point t)
 
 
-;; =============================================================================
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Built-in Package Configurations
-;; =============================================================================
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 ;; Show column indicator
 (use-package text-mode
@@ -122,33 +122,33 @@
   :config
   (windmove-default-keybindings 'meta)
   (setq windmove-wrap-around t))
- 
+
 ;; Flymake
- (use-package flymake
+(use-package flymake
   :ensure nil
   :hook (c-mode . flymake-mode))
 
 
-;; =============================================================================
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Programming mode settings
-;; =============================================================================
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 ;; Display line numbers, column numbers, and column indicator
 (add-hook 'prog-mode-hook #'display-line-numbers-mode)
 (add-hook 'prog-mode-hook #'column-number-mode)
 (add-hook 'prog-mode-hook #'display-fill-column-indicator-mode)
 
-;; Remove trailing whitespaces upon save
 (defun my-prog-mode-save-hook ()
+  "Remove trailing whitespaces upon save."
   (add-hook 'before-save-hook #'delete-trailing-whitespace nil t)
   (add-hook 'before-save-hook #'whitespace-cleanup nil t))
 
 (add-hook 'prog-mode-hook #'my-prog-mode-save-hook)
 
 
-;; =============================================================================
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; White-spaces in prog-mode
-;; =============================================================================
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 (defun my-apply-whitespace-faces (&rest _)
   "Apply subtle whitespace face overrides over the active theme."
@@ -178,9 +178,9 @@
 (add-hook 'prog-mode-hook #'my-whitespace-style-hook)
 
 
-;; =============================================================================
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; C Development
-;; =============================================================================
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 (defun my-c-mode-style-hook ()
   "Apply custom style and indentation rules for C/C++ modes."
@@ -191,13 +191,25 @@
 
 (defun my-c23-keywords-hook ()
   "Add C23 keywords and types to font-lock for C mode."
-  (let ((c23-kw (regexp-opt '("alignas" "alignof" "bool" "constexpr"
-                              "false" "nullptr" "static_assert" "thread_local"
-                              "true" "typeof" "typeof_unqual")
-                            'symbols))
-        (c23-tp (regexp-opt '("_BitInt" "_Decimal32" "_Decimal64"
-                              "_Decimal128")
-                            'symbols)))
+  (let ((c23-kw (regexp-opt
+                 '("alignas"
+                   "alignof"
+                   "bool"
+                   "constexpr"
+                   "false"
+                   "nullptr"
+                   "static_assert"
+                   "thread_local"
+                   "true"
+                   "typeof"
+                   "typeof_unqual")
+                 'symbols))
+        (c23-tp (regexp-opt
+                 '("_BitInt"
+                   "_Decimal32"
+                   "_Decimal64"
+                   "_Decimal128")
+                 'symbols)))
     (font-lock-add-keywords nil
                             `((,c23-kw . font-lock-keyword-face)
                               (,c23-tp . font-lock-type-face)))))
@@ -205,19 +217,20 @@
 (use-package cc-mode
   :ensure nil
   :custom
-  (c-default-style '((cc-mode . "linux")
-                     (python-mode . "python")
-                     (awk-mode . "awk")
-                     (java-mode . "java")
-                     (other . "gnu")))
+  (c-default-style
+   '((cc-mode . "linux")
+     (python-mode . "python")
+     (awk-mode . "awk")
+     (java-mode . "java")
+     (other . "gnu")))
   :hook
   ((c-mode-common . my-c-mode-style-hook)
    (c-mode . my-c23-keywords-hook)))
 
 
-;; =============================================================================
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Shell-script settings
-;; =============================================================================
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 (defun my-sh-mode-style-hook ()
   (setq-local tab-width 8)
@@ -233,9 +246,9 @@
   (sh-mode . my-sh-mode-style-hook))
 
 
-;; =============================================================================
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Xref settings
-;; =============================================================================
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 (defun my-xref-buffer-mode-hook ()
   (display-line-numbers-mode 1)
@@ -248,9 +261,10 @@
   (xref--xref-buffer-mode . my-xref-buffer-mode-hook))
 
 
-;; =============================================================================
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Isearch settings
-;; =============================================================================
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
 (defun my-isearch-region-or-forward ()
   "Search for the active region, or start a normal search if none is active."
   (interactive)
@@ -274,9 +288,9 @@
         ("C-f" . isearch-repeat-forward)))
 
 
-;; =============================================================================
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Ediff settings
-;; =============================================================================
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 (use-package ediff
   :defer t
@@ -301,9 +315,9 @@
     (add-hook 'ediff-after-quit-hook-internal #'winner-undo)))
 
 
-;; =============================================================================
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Command interpreter settings
-;; =============================================================================
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 (use-package comint
   :ensure nil
@@ -319,9 +333,9 @@
   (add-to-list 'comint-output-filter-functions #'ansi-color-process-output))
 
 
-;; =============================================================================
-;; Compile settitngs
-;; =============================================================================
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; Compile settings
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 (defun my-compile-make ()
   "Compile with `make` in the current projectile project."
@@ -351,9 +365,49 @@
   ("C-<f3>" . my-compile-make-clean))
 
 
-;; =============================================================================
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; GDB/GUD settings
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+(defun my-gdb-mode-hook ()
+  "Add extra space before line-number for GDB pos indicator."
+  (setq-local display-line-numbers-width 5))
+
+(defun my-gdb ()
+  "Launch GDB from the current project root directory."
+  (interactive)
+  (let ((default-directory
+         (if-let ((proj (project-current)))
+             (project-root proj)
+           default-directory)))
+    (call-interactively #'gdb)))
+
+(use-package gdb-mi
+  :ensure nil
+  :defer t
+  :custom
+  (gdb-show-main t)
+  (gdb-display-io-nopopup t)
+  (gdb-non-stop-setting nil)
+  (gdb-restore-window-configuration-after-quit t)
+  (gdb-many-windows nil)
+
+  :hook
+  (gdb-mode . my-gdb-mode-hook)
+
+  :bind
+  (:map gud-mode-map
+        ("<up>"   . comint-previous-input)
+        ("<down>" . comint-next-input))
+  (:map gud-minor-mode-map
+        ("<f5>" . gud-next)
+        ("<f6>" . gud-step)
+        ("<f7>" . gud-finish)))
+
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; IBuffer settings
-;; =============================================================================
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 (defun my-ibuffer-mode-hook ()
   "Custom hook settings for Ibuffer."
