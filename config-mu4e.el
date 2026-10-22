@@ -17,6 +17,11 @@
   "Apply custom margins to gnus article buffer."
   (my-setup-buffer-margins (current-buffer)))
 
+(defun my-mu4e-jump-to-inbox ()
+  "Jump to the INBOX maildir."
+  (interactive)
+  (mu4e-search-maildir "/INBOX"))
+
 (use-package mu4e
   :ensure nil
   :defer t
@@ -86,6 +91,10 @@
                       :background 'unspecified :inherit 'default)
   (set-face-attribute 'mu4e-header-highlight-face nil
                       :underline nil)
+
+  :bind
+  (:map mu4e-main-mode-map
+        ("i" . my-mu4e-jump-to-inbox))
 
   :hook
   ((mu4e-compose-mode . my-mu4e-compose-hook)
