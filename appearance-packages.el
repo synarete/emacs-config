@@ -41,7 +41,7 @@
   :custom-face
   (auto-dim-other-buffers      ((t (:background "#101113"))))
   (auto-dim-other-buffers-hide ((t (:foreground "#101113"
-                                    :background "#101113"))))
+                                                :background "#101113"))))
 
   :init
   ;; Ignore shell/terminal modes and special buffers from dimming. Not
@@ -104,13 +104,13 @@
    ;; Mode-line Box & Contrast
    '(mode-line
      ((t (:background "#2e3440"
-          :box (:line-width (2 . 2) :color "#2e3440")
-          :slant normal))))
+                      :box (:line-width (2 . 2) :color "#2e3440")
+                      :slant normal))))
    '(mode-line-inactive
      ((t (:background "#1c1e20"
-          :box (:line-width (2 . 2) :color "#1c1e20")
-          :foreground "#5c6370"
-          :slant normal))))
+                      :box (:line-width (2 . 2) :color "#1c1e20")
+                      :foreground "#5c6370"
+                      :slant normal))))
 
    ;; Parentheses
    '(show-paren-match
