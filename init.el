@@ -2,6 +2,10 @@
 
 (message "[ Start init (user: %s) ]" (user-login-name))
 
+;; Bring on helpers
+(load (expand-file-name "helpers.el" user-emacs-directory))
+
+;; Load my settings
 (my-load-user-init "config-common.el")
 (my-load-user-init "config-packages.el")
 (my-load-user-init "config-lsp.el")
