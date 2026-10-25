@@ -12,15 +12,3 @@
 
 ;; One less file to load at startup
 (setq site-run-file nil)
-
-;; Bring on helpers
-(load (expand-file-name "helpers.el" user-emacs-directory))
-
-;; Require built-in
-(require 'color)
-(require 'whitespace)
-(require 'cc-mode)
-(require 'make-mode)
-(require 'sh-script)
-(require 'bind-key)
-(require 'package)
