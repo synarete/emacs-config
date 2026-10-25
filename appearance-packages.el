@@ -1,24 +1,6 @@
 ;;; appearance-packages.el -- Appearance settings -*- lexical-binding: t; -*-
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;; Magit
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-
-(use-package magit
-  :ensure t
-  :custom-face
-  (magit-diff-added             ((t (:background unspecified))))
-  (magit-diff-removed           ((t (:background unspecified))))
-  (magit-diff-context           ((t (:background unspecified))))
-  (magit-diff-base              ((t (:background unspecified))))
-  (magit-diff-added-highlight   ((t (:background unspecified))))
-  (magit-diff-removed-highlight ((t (:background unspecified))))
-  (magit-diff-context-highlight ((t (:background unspecified))))
-  (magit-diff-base-highlight    ((t (:background unspecified))))
-  (magit-section-highlight      ((t (:background unspecified)))))
-
-
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Auto-dim settings
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
@@ -115,22 +97,3 @@
    ;; Parentheses
    '(show-paren-match
      ((t (:background "#3f444a" :foreground "#ffffef" :weight bold))))))
-
-
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;; Company and Eat faces
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-
-(use-package company
-  :defer t
-  :custom-face
-  (company-echo-common ((t (:foreground "#d8dee9"))))
-  (company-echo        ((t (:foreground "#b48ead")))))
-
-(defun my-eat-face-remap ()
-  "Use a darker background in Eat terminal buffers."
-  (face-remap-add-relative 'default :background "gray2"))
-
-(use-package eat
-  :hook
-  (eat-mode . my-eat-face-remap))

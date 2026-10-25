@@ -24,7 +24,11 @@
   (company-frontends '(company-echo-metadata-frontend
                        company-echo-frontend))
   :config
-  (setq company-echo-delay 0.3))
+  (setq company-echo-delay 0.3)
+
+  :custom-face
+  (company-echo-common ((t (:foreground "#d8dee9"))))
+  (company-echo        ((t (:foreground "#b48ead")))))
 
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -63,11 +67,16 @@
       (bury-buffer)
     (eat)))
 
+(defun my-eat-face-remap ()
+  "Use a darker background in Eat terminal buffers."
+  (face-remap-add-relative 'default :background "gray2"))
+
 (use-package eat
   :custom
   (eat-kill-buffer-on-exit t)
   :hook
   (eshell-load . eat-eshell-mode)
+  (eat-mode . my-eat-face-remap)
   :bind
   ("<f4>" . my-toggle-shell))
 
@@ -145,6 +154,23 @@
   ("<f3>"   . my-projectile-compile)
   ("C-<f3>" . my-projectile-compile-clean))
 
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; Magit
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+(use-package magit
+  :ensure t
+  :custom-face
+  (magit-diff-added             ((t (:background unspecified))))
+  (magit-diff-removed           ((t (:background unspecified))))
+  (magit-diff-context           ((t (:background unspecified))))
+  (magit-diff-base              ((t (:background unspecified))))
+  (magit-diff-added-highlight   ((t (:background unspecified))))
+  (magit-diff-removed-highlight ((t (:background unspecified))))
+  (magit-diff-context-highlight ((t (:background unspecified))))
+  (magit-diff-base-highlight    ((t (:background unspecified))))
+  (magit-section-highlight      ((t (:background unspecified)))))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Geiser and Guile settings

@@ -1,6 +1,8 @@
 ;;; config-lsp.el -- LSP settings -*- lexical-binding: t; -*-
 
-;;;; LSP config
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; LSP config
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 (defun my-lsp-setup-c-hook ()
   "Enable LSP in C mode only if clangd is installed."
