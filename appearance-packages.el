@@ -69,14 +69,14 @@
   ;; Enable subtle doom extensions
   (doom-themes-org-config)
 
-  ;; Custom face overrides (as `user' theme faces, they survive theme changes)
+  ;; Custom face overrides
   (custom-set-faces
    ;; Background & Highlights
    '(default ((t (:background "#131517"))))
    '(trailing-whitespace ((t (:background "#212123"))))
    '(hl-line ((t (:background "#2d3335"))))
 
-   ;; Line Numbers (Using HEX for cross-platform consistency)
+   ;; Line Numbers
    '(line-number ((t (:foreground "#4a4a4a"))))
    '(line-number-current-line ((t (:foreground "#879a87" :weight bold))))
 
@@ -91,9 +91,14 @@
    '(mode-line-inactive
      ((t (:background "#1c1e20"
                       :box (:line-width (2 . 2) :color "#1c1e20")
-                      :foreground "#5c6370"
-                      :slant normal))))
+                      :foreground "#5c6370" :slant normal))))
 
    ;; Parentheses
    '(show-paren-match
-     ((t (:background "#3f444a" :foreground "#ffffef" :weight bold))))))
+     ((t (:background "#3f444a" :foreground "#ffffef" :weight bold))))
+
+   ;; Orderless matches in minibuffer completion (no background box)
+   '(orderless-match-face-0 ((t (:background unspecified :weight bold))))
+   '(orderless-match-face-1 ((t (:background unspecified :weight bold))))
+   '(orderless-match-face-2 ((t (:background unspecified :weight bold))))
+   '(orderless-match-face-3 ((t (:background unspecified :weight bold))))))
