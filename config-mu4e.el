@@ -22,6 +22,13 @@
   (interactive)
   (mu4e-search-maildir "/INBOX"))
 
+(defun my-mu4e-start-message (&rest _)
+  "Report mu server info (maildir, database, messages count)."
+  (mu4e-message "Maildir %s; database %s; messages %d"
+                (mu4e-root-maildir)
+                (mu4e-database-path)
+                (plist-get (mu4e-server-properties) :doccount)))
+
 (use-package mu4e
   :ensure nil
   :defer t
@@ -72,6 +79,9 @@
 
   ;; Composition behavior
   (setq mu4e-compose-format-flowed nil)
+
+  ;; Report mu server info once it answers the startup ping
+  (advice-add 'mu4e--pong-handler :after #'my-mu4e-start-message)
 
   ;; Face overrides
   (dolist (face '(mu4e-related-face
