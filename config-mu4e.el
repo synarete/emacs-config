@@ -48,12 +48,6 @@
         mu4e-trash-folder  "/[Gmail].Trash"
         mu4e-refile-folder "/[Gmail].All Mail")
 
-  ;; Maildir shortcuts
-  (setq mu4e-maildir-shortcuts
-        '(("/INBOX"             . ?i)
-          ("/[Gmail].Sent Mail" . ?s)
-          ("/[Gmail].All Mail"  . ?a)))
-
   ;; Gmail workflow & marking behavior
   (setq mu4e-trash-without-flag t
         mu4e-sent-messages-behavior 'delete
