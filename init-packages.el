@@ -31,7 +31,6 @@
 (use-package eat)
 (use-package geiser)
 (use-package geiser-guile)
-(use-package gptel)
 (use-package lsp-mode)
 (use-package lsp-ui)
 (use-package magit)
