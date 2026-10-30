@@ -1,5 +1,7 @@
 ;;; early-init.el --- Start-up settings -*- lexical-binding: t; -*-
-(message "[ Early init (user: %s) ]" (user-login-name))
+
+;; Which emacs do we use?
+(message "[ GNU/Emacs %s ]" emacs-version)
 
 ;; Require GNU Emacs 30.1 or more
 (when (version< emacs-version "30.1")
