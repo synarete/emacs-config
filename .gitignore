@@ -1,14 +1,8 @@
 # Compiled
 *.elc
 
-# Packaging
-.cask
-
 # Backup files
 *~
-
-# Undo-tree save-files
-*.~undo-tree
 
 # Emacs run-time files and subdirs
 /.cache
@@ -16,7 +10,6 @@
 /auto-save-list
 /lisp
 /transient
-/recentf
 /.lsp-session*
 /projects
 /eshell
@@ -26,7 +19,6 @@
 /history
 /eln-cache
 /tramp
-/ido.last
 
 # Custom variables local file
 /custom.el

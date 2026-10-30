@@ -18,7 +18,6 @@
   :ensure t
   :init
   (setq lsp-keymap-prefix "C-c l")
-  (setq read-process-output-max (* 4 1024 1024))
 
   :custom
   (lsp-auto-guess-root t)

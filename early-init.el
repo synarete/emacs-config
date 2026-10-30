@@ -12,5 +12,8 @@
 (add-to-list 'default-frame-alist '(menu-bar-lines . 0))
 (add-to-list 'default-frame-alist '(vertical-scroll-bars . nil))
 
+;; Full-screen by default (also for emacsclient frames)
+(add-to-list 'default-frame-alist '(fullscreen . fullboth))
+
 ;; One less file to load at startup
 (setq site-run-file nil)

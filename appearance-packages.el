@@ -16,10 +16,6 @@
 
 (use-package auto-dim-other-buffers
   :ensure t
-  :custom
-  ;; Keep the active/selected buffer bright, dim the others
-  (auto-dim-other-buffers-dim-selected nil)
-
   :custom-face
   (auto-dim-other-buffers      ((t (:background "#101113"))))
   (auto-dim-other-buffers-hide ((t (:foreground "#101113"

@@ -46,6 +46,9 @@
 ;; Kill active processes upon exit, without prompt
 (setopt confirm-kill-processes nil)
 
+;; Read subprocess output in larger chunks (e.g. LSP servers)
+(setq read-process-output-max (* 4 1024 1024))
+
 ;; Performance & Display tweaks
 (setq redisplay-skip-fontification-on-input t)
 (setopt display-fill-column-indicator-column 80)
