@@ -23,6 +23,8 @@
   :custom
   ;; Do not keep a log of the JSONRPC traffic with the server
   (eglot-events-buffer-config '(:size 0 :format full))
+  ;; Stay connected when xref jumps out of the project (e.g. system headers)
+  (eglot-extend-to-xref t)
   (eglot-ignored-server-capabilities
    '(:documentHighlightProvider
      :documentOnTypeFormattingProvider

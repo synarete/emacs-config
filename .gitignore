@@ -10,7 +10,6 @@
 /auto-save-list
 /lisp
 /transient
-/.lsp-session*
 /projects
 /eshell
 /projectile-bookmarks.eld
