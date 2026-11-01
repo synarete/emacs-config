@@ -47,23 +47,11 @@
   (python-mode . my-eglot-setup-python-hook)
 
   :bind
-  ;; Same key sequences as the default `lsp-mode' keymap
   (:map eglot-mode-map
-        ("C-c l r r" . eglot-rename)
-        ("C-c l r o" . eglot-code-action-organize-imports)
-        ("C-c l g g" . xref-find-definitions)
-        ("C-c l g r" . xref-find-references)
-        ("C-c l g d" . eglot-find-declaration)
-        ("C-c l g i" . eglot-find-implementation)
-        ("C-c l g t" . eglot-find-typeDefinition)
-        ("C-c l g a" . xref-find-apropos)
-        ("C-c l a a" . eglot-code-actions)
-        ("C-c l h h" . eldoc-doc-buffer)
-        ("C-c l = =" . eglot-format-buffer)
-        ("C-c l = r" . eglot-format)
-        ("C-c l w r" . eglot-reconnect)
-        ("C-c l w q" . eglot-shutdown)))
+        ("C-c r"  . eglot-rename)
+        ("C-M-\\" . eglot-format)
+        ("M-RET"  . eglot-code-actions)))
 
 ;; Show a single line of signature or hover info in the echo area; the full
-;; documentation is available via `eldoc-doc-buffer' ("C-c l h h")
+;; documentation is available via `eldoc-doc-buffer' ("C-h .")
 (setq eldoc-echo-area-use-multiline-p nil)
