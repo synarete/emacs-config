@@ -8,7 +8,7 @@
 (message "[ Start init (user: %s) ]" (user-login-name))
 (my-load-user-init "config-common.el")
 (my-load-user-init "config-packages.el")
-(my-load-user-init "config-lsp.el")
+(my-load-user-init "config-eglot.el")
 (my-load-user-init "config-mu4e.el")
 (my-load-user-init "config-magit.el")
 (my-load-user-init "keybind.el")
