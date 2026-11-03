@@ -14,6 +14,16 @@
   (when (executable-find "pylsp")
     (eglot-ensure)))
 
+(defun my-eglot-rename-prefill (&rest _)
+  "Advice giving `eglot-rename' a prompt pre-filled with the current symbol.
+Advising, rather than wrapping, keeps `this-command' as `eglot-rename', which
+is what `eglot-confirm-server-edits' matches against."
+  (interactive
+   (let ((name (thing-at-point 'symbol t)))
+     (list (read-from-minibuffer
+            (format "Rename `%s' to: " (or name "unknown symbol"))
+            name nil nil nil name)))))
+
 (use-package eglot
   :ensure nil
   :init
@@ -31,6 +41,7 @@
      :inlayHintProvider))
 
   :config
+  (advice-add 'eglot-rename :before #'my-eglot-rename-prefill)
   (add-to-list 'eglot-server-programs
                '((c-mode c-ts-mode c++-mode c++-ts-mode)
                  . ("clangd"
